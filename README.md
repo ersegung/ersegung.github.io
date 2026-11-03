@@ -45,7 +45,7 @@ To replace the photo, save a new PNG as `assets/deniz-gedikli.png`. The grayscal
 
 To add a publication, copy an existing `<article class="paper" data-topic="..." data-type="..." data-year="...">` entry into the appropriate year section in `papers.html`. For conference contributions, also add it to `conferences.html`. Topics are `viv`, `energy`, `ice`, `data`, and `structures`; publication types are `journal`, `conference`, and `preprint`. The filter updates its count automatically. Keep the structured snapshot in `assets/publications.json` in sync when editing; the HTML pages do not fetch this file.
 
-The updated list contains 25 journal articles, 46 conference contributions, and two preprints. Papers displays all types by default. The Marine Renewable Energy filter returns 12 entries: one journal article and eleven conference contributions. Conference papers and meeting abstracts have separate visible labels. These records were reconciled from the 100 entries in the supplied Scholar export, with duplicates, theses, and ambiguous entries documented in `PUBLICATION-NOTES.md`.
+The updated list contains 25 journal articles, 45 conference contributions, and two preprints. Papers displays all types by default. The Marine Renewable Energy filter returns 12 entries: one journal article and eleven conference contributions. Conference papers and meeting abstracts have separate visible labels. These records were reconciled from the 100 entries in the supplied Scholar export, with duplicates, theses, and ambiguous entries documented in `PUBLICATION-NOTES.md`.
 
 ### Updating an existing customized site
 
