@@ -1,0 +1,1028 @@
+{
+  "updated": "2026-11-02",
+  "source": "Google Scholar PDF supplied by E. Deniz Gedikli, captured November 2, 2026",
+  "publications": [
+    {
+      "id": "d9rIoU0AAAAJ:olpn-zPbct0C",
+      "title": "Experimental and numerical study of wave loads on an open-bottom cylinder in open and icy waters",
+      "authors": "H. Li, E. D. Gedikli, Z. Cheng, J. Sawamura, R. Lubbad",
+      "venue": "Marine Structures 112, 104212",
+      "year": 2027,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:olpn-zPbct0C",
+      "source_index": 60
+    },
+    {
+      "id": "d9rIoU0AAAAJ:q3oQSFYPqjQC",
+      "title": "Clustering low-rank tensor train dynamic mode decomposition: An enhanced multivariate signal processing algorithm and its applications",
+      "authors": "Y. Yin, Y. Lv, R. Yuan, H. Wu, X. Yang, E. D. Gedikli",
+      "venue": "Measurement, 121006",
+      "year": 2026,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "data"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:q3oQSFYPqjQC",
+      "source_index": 69
+    },
+    {
+      "id": "d9rIoU0AAAAJ:V3AGJWp-ZtQC",
+      "title": "High-order multiscale symbolic transfer diversity entropy: A novel complexity measure with application to aero-engine bearing fault diagnosis",
+      "authors": "Y. Fan, R. Yuan, Y. Lv, E. D. Gedikli, D. Chelidze, H. Azami",
+      "venue": "Mechanical Systems and Signal Processing 257, 114594",
+      "year": 2026,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "data"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:V3AGJWp-ZtQC",
+      "source_index": 31
+    },
+    {
+      "id": "d9rIoU0AAAAJ:sSrBHYA8nusC",
+      "title": "Ice loads on a bottomless cylinder under dynamic wave action: An experimental study",
+      "authors": "H. Li, E. D. Gedikli, Z. Cheng, J. Sawamura, R. Lubbad, W. Lu",
+      "venue": "Marine Structures 106, 103902",
+      "year": 2026,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:sSrBHYA8nusC",
+      "source_index": 21
+    },
+    {
+      "id": "d9rIoU0AAAAJ:XiVPGOgt02cC",
+      "title": "Inverse identification of cylinder gap ratio from surface pressure on a stationary sensing cylinder in a side-by-side configuration",
+      "authors": "M. Rajabi, E. D. Gedikli",
+      "venue": "Ocean Engineering 368, 127988",
+      "year": 2026,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "viv"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:XiVPGOgt02cC",
+      "source_index": 63
+    },
+    {
+      "id": "d9rIoU0AAAAJ:BrmTIyaxlBUC",
+      "title": "Multivariate cyclostationary deep deconvolution (MCDD): An intelligent multivariate signal processing algorithm",
+      "authors": "X. Ruan, R. Yuan, Y. Lv, H. Li, E. D. Gedikli, Y. Chen",
+      "venue": "Expert Systems with Applications, 131803",
+      "year": 2026,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "data"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&citation_for_view=d9rIoU0AAAAJ:BrmTIyaxlBUC",
+      "source_index": 13
+    },
+    {
+      "id": "d9rIoU0AAAAJ:AXPGKjj_ei8C",
+      "title": "Piezoelectric modulation of in-line and cross-flow vortex-induced vibrations of a flexible cylinder",
+      "authors": "M. Rajabi, E. D. Gedikli, J. Dahl",
+      "venue": "Journal of Fluids and Structures 148, 104773",
+      "year": 2026,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "viv"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:AXPGKjj_ei8C",
+      "source_index": 61
+    },
+    {
+      "id": "d9rIoU0AAAAJ:t6usbXjVLHcC",
+      "title": "Refined fusion graph spectrum model (RFGSM): A graph-informed multivariate signal processing method for high-speed train bogie bearing fault diagnosis",
+      "authors": "D. Shang, R. Yuan, Y. Lv, H. Wu, E. D. Gedikli, N. ur Rehman",
+      "venue": "IEEE Transactions on Reliability",
+      "year": 2026,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "data"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:t6usbXjVLHcC",
+      "source_index": 64
+    },
+    {
+      "id": "d9rIoU0AAAAJ:HE397vMXCloC",
+      "title": "Advancing Marine Energy With Innovations and Research for Island and Remote Communities",
+      "authors": "P. Cross, E. D. Gedikli, T. Heitmann, K. Rajagopalan, K. Pappas, C. Encke, K. Millikan, Z. Huang, N. Li, M. Walker, C. C. Reyes, D. Lajousky",
+      "venue": "ASME OMAE 2026",
+      "year": 2026,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "energy"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:HE397vMXCloC",
+      "source_index": 50
+    },
+    {
+      "id": "d9rIoU0AAAAJ:WA5NYHcadZ8C",
+      "title": "Bottom-Proximity Effects and Modal Interactions on Vortex-Induced Vibrations of a Cantilever Cylinder",
+      "authors": "C. V. Encke, E. D. Gedikli",
+      "venue": "ASME OMAE 2026",
+      "year": 2026,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "viv"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:WA5NYHcadZ8C",
+      "source_index": 66
+    },
+    {
+      "id": "d9rIoU0AAAAJ:mvPsJ3kp5DgC",
+      "title": "Recovering Environmental Loads From Force-Response Measurements of Offshore Structures",
+      "authors": "H. Li, E. D. Gedikli, Z. Cheng, J. Sawamura, R. Lubbad, W. Lu, T. Waseda",
+      "venue": "ASME OMAE 2026",
+      "year": 2026,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "structures"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:mvPsJ3kp5DgC",
+      "source_index": 68
+    },
+    {
+      "id": "d9rIoU0AAAAJ:bnK-pcrLprsC",
+      "title": "Sloshing Dynamics in a Cylindrical Tank Under Varying Ullage Pressures",
+      "authors": "F. C. Korkmaz, E. D. Gedikli",
+      "venue": "ASME OMAE 2026",
+      "year": 2026,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "structures"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:bnK-pcrLprsC",
+      "source_index": 67
+    },
+    {
+      "id": "d9rIoU0AAAAJ:Mojj43d5GZwC",
+      "title": "Towards Performance Optimization of an Oscillating Water Column Wave Energy Converter via Turbine Control and Impedance Matching",
+      "authors": "C. V. Encke, K. Pappas, K. Rajagopalan, E. D. Gedikli, T. Lettenmaier, T. Heitmann, P. Cross",
+      "venue": "ASME OMAE 2026",
+      "year": 2026,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "energy"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:Mojj43d5GZwC",
+      "source_index": 65
+    },
+    {
+      "id": "d9rIoU0AAAAJ:kRWSkSYxWN8C",
+      "title": "Wave–Ice Interaction, AIS-Based Exposure, and Human Factors for Arctic Maritime Risk",
+      "authors": "E. D. Gedikli, O. Francis, G. Peel, J. Behnen, V. Groeschel, O. Demir, H. Hendrikse",
+      "venue": "ASME OMAE 2026",
+      "year": 2026,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:kRWSkSYxWN8C",
+      "source_index": 51
+    },
+    {
+      "id": "d9rIoU0AAAAJ:5ugPr518TE4C",
+      "title": "Vortex Wake Patterns and Energy Transfer in Forced Two-Degree-of-Freedom Motion of a Circular Cylinder",
+      "authors": "E. Aktosun, E. D. Gedikli, J. M. Dahl",
+      "venue": "Available at SSRN 7194456",
+      "year": 2026,
+      "type": "preprint",
+      "label": "Preprint",
+      "topics": [
+        "viv"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:5ugPr518TE4C",
+      "source_index": 62
+    },
+    {
+      "id": "d9rIoU0AAAAJ:vRqMK49ujn8C",
+      "title": "Adaptive Extracting Wavelet Transform-Based Damage Indicator-Integrated Improved GPR Model for Bearing RUL Prediction",
+      "authors": "B. Li, Y. Lv, H. Wu, R. Yuan, Z. Li, S. Ilbeigi, E. D. Gedikli",
+      "venue": "IEEE Sensors Journal 25 (16), 30984-30997",
+      "year": 2025,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "data"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:vRqMK49ujn8C",
+      "source_index": 38
+    },
+    {
+      "id": "d9rIoU0AAAAJ:K3LRdlH-MEoC",
+      "title": "Amplitude-based time-shift multiscale feature fuzzy dispersion entropy: a novel health indicator for aeroengine fault diagnosis",
+      "authors": "Y. Fan, Y. Lv, R. Yuan, H. Li, E. D. Gedikli, Y. Chen",
+      "venue": "IEEE Sensors Journal 25 (9), 15693-15710",
+      "year": 2025,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "data"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:K3LRdlH-MEoC",
+      "source_index": 25
+    },
+    {
+      "id": "d9rIoU0AAAAJ:fQNAKQ3IYiAC",
+      "title": "An efficient high-resolution remote sensing object detection approach using multi-level-optimized RT-DETR model",
+      "authors": "L. Liu, R. Yuan, Y. Lv, W. Bo, X. Hu, E. D. Gedikli",
+      "venue": "IEEE Sensors Journal",
+      "year": 2025,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "data"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:fQNAKQ3IYiAC",
+      "source_index": 23
+    },
+    {
+      "id": "d9rIoU0AAAAJ:tS2w5q8j5-wC",
+      "title": "Bio-inspired flexible structures improve energy capture and reduce wave loads in oscillating water columns",
+      "authors": "F. C. Korkmaz, E. D. Gedikli",
+      "venue": "Ocean Engineering 339, 122099",
+      "year": 2025,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "energy"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:tS2w5q8j5-wC",
+      "source_index": 22
+    },
+    {
+      "id": "d9rIoU0AAAAJ:8AbLer7MMksC",
+      "title": "GTFT-PDP: A Gated Temporal Fusion Transformer-Integrated Personalized Differential Privacy Framework for tool life prediction",
+      "authors": "X. Shui, Y. Lv, R. Yuan, K. Zhang, X. Yang, E. D. Gedikli",
+      "venue": "Measurement, 118981",
+      "year": 2025,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "data"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:8AbLer7MMksC",
+      "source_index": 24
+    },
+    {
+      "id": "d9rIoU0AAAAJ:738O_yMBCRsC",
+      "title": "Nonlinear dynamics of wave-induced overwash and attenuation in floating flexible plates",
+      "authors": "J. Behnen, O. Demir, O. P. Francis, E. D. Gedikli",
+      "venue": "Ocean Engineering 325, 120719",
+      "year": 2025,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&citation_for_view=d9rIoU0AAAAJ:738O_yMBCRsC",
+      "source_index": 15
+    },
+    {
+      "id": "d9rIoU0AAAAJ:l7t_Zn2s7bgC",
+      "title": "Variable-scale spectral feature gram (VSFgram): a convergence property-driven autonomous periodic transients extraction approach",
+      "authors": "D. Shang, Y. Lv, R. Yuan, Z. Chen, H. Li, E. D. Gedikli",
+      "venue": "IEEE Transactions on Instrumentation and Measurement 74, 1-15",
+      "year": 2025,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "data"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:l7t_Zn2s7bgC",
+      "source_index": 39
+    },
+    {
+      "id": "d9rIoU0AAAAJ:geHnlv5EZngC",
+      "title": "Developing control strategies for a floating oscillating water column wave energy converter",
+      "authors": "C. V. Encke, K. Rajagopalan, P. Cross, T. Heitmann, T. Lettenmaier, D. Lajousky, K. Pappas, E. D. Gedikli",
+      "venue": "16th European Wave and Tidal Energy Conference (EWTEC)",
+      "year": 2025,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "energy"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:geHnlv5EZngC",
+      "source_index": 53
+    },
+    {
+      "id": "d9rIoU0AAAAJ:B3FOqHPlNUQC",
+      "title": "Feasibility of a wave-powered lithium extraction system",
+      "authors": "G. Bourjeaurd, E. D. Gedikli",
+      "venue": "ASME OMAE 2025",
+      "year": 2025,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "energy"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:B3FOqHPlNUQC",
+      "source_index": 54
+    },
+    {
+      "id": "d9rIoU0AAAAJ:VOx2b1Wkg3QC",
+      "title": "Integrating Regional Ice Charts and Copernicus Sea Ice Products for Navigation Risk in Alaskan Waters",
+      "authors": "G. Peel, E. D. Gedikli",
+      "venue": "arXiv preprint arXiv:2512.11083",
+      "year": 2025,
+      "type": "preprint",
+      "label": "Preprint",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:VOx2b1Wkg3QC",
+      "source_index": 52
+    },
+    {
+      "id": "d9rIoU0AAAAJ:CHSYGLWDkRkC",
+      "title": "Multivariate phase space warping-based degradation tracking and remaining useful life prediction of rolling bearings",
+      "authors": "H. Liu, R. Yuan, Y. Lv, X. Yang, H. Li, E. D. Gedikli",
+      "venue": "IEEE Transactions on Reliability 73 (3), 1592-1605",
+      "year": 2024,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "data"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&citation_for_view=d9rIoU0AAAAJ:CHSYGLWDkRkC",
+      "source_index": 2
+    },
+    {
+      "id": "d9rIoU0AAAAJ:4OULZ7Gr8RgC",
+      "title": "Observed wake branches from the 2-DOF forced motion of a circular cylinder in a free stream",
+      "authors": "E. Aktosun, E. D. Gedikli, J. M. Dahl",
+      "venue": "Journal of Fluids and Structures 124, 104035",
+      "year": 2024,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "viv"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&citation_for_view=d9rIoU0AAAAJ:4OULZ7Gr8RgC",
+      "source_index": 10
+    },
+    {
+      "id": "d9rIoU0AAAAJ:uWQEDVKXjbEC",
+      "title": "Dynamic analysis of an oscillating water column with artificial stems",
+      "authors": "F. C. Korkmaz, E. D. Gedikli",
+      "venue": "ISOPE 2024 · ISOPE-I-24-154",
+      "year": 2024,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "energy"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:uWQEDVKXjbEC",
+      "source_index": 40
+    },
+    {
+      "id": "d9rIoU0AAAAJ:OU6Ihb5iCvQC",
+      "title": "Enhancing Safety In Hydrogen Storage Through Simulation-Based Blast Resistance",
+      "authors": "H. Balaban, O. Demir, E. D. Gedikli",
+      "venue": "12th Global Conference on Global Warming, 269–272",
+      "year": 2024,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "structures"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:OU6Ihb5iCvQC",
+      "source_index": 72
+    },
+    {
+      "id": "d9rIoU0AAAAJ:UxriW0iASnsC",
+      "title": "Modal Decomposition Analysis of Two-Degree-of-Freedom Vortex-Induced Vibrations",
+      "authors": "E. Aktosun, E. D. Gedikli",
+      "venue": "ISOPE 2024 · ISOPE-I-24-399",
+      "year": 2024,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "viv"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:UxriW0iASnsC",
+      "source_index": 35
+    },
+    {
+      "id": "d9rIoU0AAAAJ:KxtntwgDAa4C",
+      "title": "Navigating the New Arctic: Insights into Ship Activities, Ice Modeling, and Stakeholder Engagement in US Arctic Waters",
+      "authors": "G. Peel, V. Groeschel, J. Behnen, O. Demir, H. Hendrikse, O. Francis, E. D. Gedikli",
+      "venue": "Cold Regions Engineering 2024 · ASCE",
+      "year": 2024,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&citation_for_view=d9rIoU0AAAAJ:KxtntwgDAa4C",
+      "source_index": 16
+    },
+    {
+      "id": "d9rIoU0AAAAJ:dshw04ExmUIC",
+      "title": "Structural Optimization for the Hawai'i Wave Surge Energy Converter Comparing Experimental and Simulated Results",
+      "authors": "K. A. Pappas, P. S. Cross, E. D. Gedikli",
+      "venue": "ISOPE 2024 · ISOPE-I-24-105",
+      "year": 2024,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "energy"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:dshw04ExmUIC",
+      "source_index": 26
+    },
+    {
+      "id": "d9rIoU0AAAAJ:SP6oXDckpogC",
+      "title": "Vortex-induced vibrations of low mass ratio cylindrical cantilever beams",
+      "authors": "C. V. Encke, E. D. Gedikli",
+      "venue": "ISOPE 2024 · ISOPE-I-24-404",
+      "year": 2024,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "viv"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&citation_for_view=d9rIoU0AAAAJ:SP6oXDckpogC",
+      "source_index": 14
+    },
+    {
+      "id": "d9rIoU0AAAAJ:XiSMed-E-HIC",
+      "title": "Wave loads on a hollow circular cylinder in open and icy waters",
+      "authors": "H. Li, E. D. Gedikli, Z. Cheng, J. Sawamura, R. Lubbad",
+      "venue": "ASME OMAE 2024",
+      "year": 2024,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:XiSMed-E-HIC",
+      "source_index": 32
+    },
+    {
+      "id": "d9rIoU0AAAAJ:yD5IFk8b50cC",
+      "title": "2D numerical forced-motion simulations of vortex-induced vibration wakes: Toward understanding the onset of three-dimensional effects",
+      "authors": "M. Rajabi, E. Aktosun, B. Mingels, J. Dahl, E. D. Gedikli",
+      "venue": "4th International Naval Architecture and Maritime Symposium 1 (4), 723–734",
+      "year": 2023,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "viv"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:yD5IFk8b50cC",
+      "source_index": 27
+    },
+    {
+      "id": "d9rIoU0AAAAJ:a0OBvERweLwC",
+      "title": "Assessment of the Impact of Waves on a Model Wave Energy Converter",
+      "authors": "F. C. Korkmaz, S. T. Ince, E. D. Gedikli",
+      "venue": "4th International Naval Architecture and Maritime Symposium 1 (4), 1135–1140",
+      "year": 2023,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "energy"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:a0OBvERweLwC",
+      "source_index": 74
+    },
+    {
+      "id": "d9rIoU0AAAAJ:M05iB0D1s5AC",
+      "title": "Evaluating 2D and 3D VIV wake modes and forces through forced motion simulations",
+      "authors": "B. Mingels, J. Dahl, M. Rajabi, E. D. Gedikli, E. Aktosun",
+      "venue": "Bulletin of the American Physical Society",
+      "year": 2023,
+      "type": "conference",
+      "label": "Meeting abstract",
+      "topics": [
+        "viv"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&citation_for_view=d9rIoU0AAAAJ:M05iB0D1s5AC",
+      "source_index": 17
+    },
+    {
+      "id": "d9rIoU0AAAAJ:1sJd4Hv_s6UC",
+      "title": "Insights into the Dynamics of Wave Attenuation and Ice Motion in Wave-Ice Interactions Through Experimental and Numerical Modeling",
+      "authors": "J. Behnen, O. Demir, O. P. Francis, E. D. Gedikli",
+      "venue": "AGU Fall Meeting 2023",
+      "year": 2023,
+      "type": "conference",
+      "label": "Meeting abstract",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:1sJd4Hv_s6UC",
+      "source_index": 76
+    },
+    {
+      "id": "d9rIoU0AAAAJ:HoB7MX3m0LUC",
+      "title": "Mitigating wave impacts on an oscillating water column by investigating the effect of artificial vegetation",
+      "authors": "E. D. Gedikli, F. C. Korkmaz, S. T. Ince",
+      "venue": "76th Annual Meeting of the APS Division of Fluid Dynamics",
+      "year": 2023,
+      "type": "conference",
+      "label": "Meeting abstract",
+      "topics": [
+        "energy"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:HoB7MX3m0LUC",
+      "source_index": 41
+    },
+    {
+      "id": "d9rIoU0AAAAJ:P5F9QuxV20EC",
+      "title": "Modeling Floating Ice Material through Cohesive Element Method and Element Removal Approach",
+      "authors": "E. D. Gedikli, O. Demir, S. Ince",
+      "venue": "AGU Fall Meeting 2023",
+      "year": 2023,
+      "type": "conference",
+      "label": "Meeting abstract",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:P5F9QuxV20EC",
+      "source_index": 75
+    },
+    {
+      "id": "d9rIoU0AAAAJ:vV6vV6tmYwMC",
+      "title": "Navigating arctic waters: A summary of ship activities and ice-ship interactions in alaskan waters",
+      "authors": "G. J. Peel, E. D. Gedikli, H. Hendrikse",
+      "venue": "International Conference on Port and Ocean Engineering under Arctic Conditions (POAC)",
+      "year": 2023,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&citation_for_view=d9rIoU0AAAAJ:vV6vV6tmYwMC",
+      "source_index": 19
+    },
+    {
+      "id": "d9rIoU0AAAAJ:ldfaerwXgEUC",
+      "title": "New insights into complex vortex-induced vibrations through 3D modeling and wake response analysis",
+      "authors": "M. Rajabi, B. Mingels, E. Aktosun, J. M. Dahl, E. D. Gedikli",
+      "venue": "76th Annual Meeting of the APS Division of Fluid Dynamics",
+      "year": 2023,
+      "type": "conference",
+      "label": "Meeting abstract",
+      "topics": [
+        "viv"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&citation_for_view=d9rIoU0AAAAJ:ldfaerwXgEUC",
+      "source_index": 18
+    },
+    {
+      "id": "d9rIoU0AAAAJ:2P1L_qKh6hAC",
+      "title": "Optimizing Performance and Reliability of the Hawaii Wave Surge Energy Converter through Fluid-Structure Interaction Analysis",
+      "authors": "K. Pappas, P. Cross, O. Demir, T. Heitmann, G. Nihous, K. Rajagopalan, et al.",
+      "venue": "76th Annual Meeting of the APS Division of Fluid Dynamics",
+      "year": 2023,
+      "type": "conference",
+      "label": "Meeting abstract",
+      "topics": [
+        "energy"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:2P1L_qKh6hAC",
+      "source_index": 42
+    },
+    {
+      "id": "d9rIoU0AAAAJ:g5m5HwL7SMYC",
+      "title": "Wave-induced hydroelastic response of viscoelastic plates",
+      "authors": "J. Behnen, C. Reyes, O. Demir, O. Francis, E. D. Gedikli",
+      "venue": "Bulletin of the American Physical Society",
+      "year": 2023,
+      "type": "conference",
+      "label": "Meeting abstract",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:g5m5HwL7SMYC",
+      "source_index": 77
+    },
+    {
+      "id": "d9rIoU0AAAAJ:NaGl4SEjCO4C",
+      "title": "Remaining useful life prediction of rolling bearings based on segmented relative phase space warping and particle filter",
+      "authors": "H. Liu, R. Yuan, Y. Lv, H. Li, E. D. Gedikli, G. Song",
+      "venue": "IEEE Transactions on Instrumentation and Measurement 71, 1-15",
+      "year": 2022,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "data"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&citation_for_view=d9rIoU0AAAAJ:NaGl4SEjCO4C",
+      "source_index": 0
+    },
+    {
+      "id": "d9rIoU0AAAAJ:ZHo1McVdvXMC",
+      "title": "Development of highly efficient wave energy converter (WEC) geometries and power take-off (PTO) units at the University of Hawaii",
+      "authors": "A. Druetzler, E. D. Gedikli, G. Nihous, K. Rajagopalan, K. Pappas, N. Ulm, et al.",
+      "venue": "Oceans Meeting 2022",
+      "year": 2022,
+      "type": "conference",
+      "label": "Meeting abstract",
+      "topics": [
+        "energy"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:ZHo1McVdvXMC",
+      "source_index": 83
+    },
+    {
+      "id": "d9rIoU0AAAAJ:70eg2SAEIzsC",
+      "title": "Investigating the dominant force distributions in ice-induced vibrations using multivariate analysis",
+      "authors": "G. Peel, E. D. Gedikli",
+      "venue": "26th IAHR International Symposium on Ice",
+      "year": 2022,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:70eg2SAEIzsC",
+      "source_index": 56
+    },
+    {
+      "id": "d9rIoU0AAAAJ:SeFeTyx0c_EC",
+      "title": "Multivariate analysis applications in wave-ice-structure interactions",
+      "authors": "H. Li, E. D. Gedikli",
+      "venue": "Oceans Meeting 2022",
+      "year": 2022,
+      "type": "conference",
+      "label": "Meeting abstract",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:SeFeTyx0c_EC",
+      "source_index": 84
+    },
+    {
+      "id": "d9rIoU0AAAAJ:3s1wT3WcHBgC",
+      "title": "Navigating the New Arctic through Investigating Ice-Structure Interactions",
+      "authors": "G. Peel, O. Francis, H. Hendrikse, E. D. Gedikli",
+      "venue": "Oceans Meeting 2022",
+      "year": 2022,
+      "type": "conference",
+      "label": "Meeting abstract",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:3s1wT3WcHBgC",
+      "source_index": 43
+    },
+    {
+      "id": "d9rIoU0AAAAJ:nb7KW1ujOQ8C",
+      "title": "OWSC Design Study for Hydraulic PTO Optimization and Hydro Turbine Selection",
+      "authors": "K. Pappas, P. Cross, K. Rajagopalan, T. Heitman, G. Nihous, E. D. Gedikli, et al.",
+      "venue": "Ocean Renewable Energy Conference",
+      "year": 2022,
+      "type": "conference",
+      "label": "Conference contribution",
+      "topics": [
+        "energy"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:nb7KW1ujOQ8C",
+      "source_index": 82
+    },
+    {
+      "id": "d9rIoU0AAAAJ:_Qo2XoVZTnwC",
+      "title": "Laboratory study of wave-induced flexural motion of ice floes",
+      "authors": "H. Li, E. D. Gedikli, R. Lubbad",
+      "venue": "Cold Regions Science and Technology, 103208",
+      "year": 2021,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&citation_for_view=d9rIoU0AAAAJ:_Qo2XoVZTnwC",
+      "source_index": 4
+    },
+    {
+      "id": "d9rIoU0AAAAJ:blknAaTinKkC",
+      "title": "Fatigue damage from dynamic ice action–The FATICE project",
+      "authors": "K. V. Høyland, T. Nord, J. Turner, V. Hornnes, E. D. Gedikli, M. Bjerkås, et al.",
+      "venue": "26th International Conference on Port and Ocean Engineering under Arctic Conditions (POAC)",
+      "year": 2021,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&citation_for_view=d9rIoU0AAAAJ:blknAaTinKkC",
+      "source_index": 9
+    },
+    {
+      "id": "d9rIoU0AAAAJ:ns9cj8rnVeAC",
+      "title": "Investigating The Effectiveness of Piezo Stripe Actuators on Flexible Cylinder's Dynamic Response under Vortex-induced Vibrations",
+      "authors": "E. D. Gedikli, J. Dahl",
+      "venue": "OCEANS 2021",
+      "year": 2021,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "viv"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:ns9cj8rnVeAC",
+      "source_index": 87
+    },
+    {
+      "id": "d9rIoU0AAAAJ:3fE2CSJIrl8C",
+      "title": "Empirical mode analysis identifying hysteresis in vortex-induced vibrations of a bending-dominated flexible cylinder",
+      "authors": "E. D. Gedikli, D. Chelidze, J. Dahl",
+      "venue": "International Journal of Offshore and Polar Engineering 30 (02), 186-193",
+      "year": 2020,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "viv"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:3fE2CSJIrl8C",
+      "source_index": 20
+    },
+    {
+      "id": "d9rIoU0AAAAJ:KlAtU1dfN6UC",
+      "title": "Exploring time-delay-based numerical differentiation using principal component analysis",
+      "authors": "H. Li, E. D. Gedikli, R. Lubbad",
+      "venue": "Physica A: Statistical Mechanics and its Applications 556, 124839",
+      "year": 2020,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "data"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&citation_for_view=d9rIoU0AAAAJ:KlAtU1dfN6UC",
+      "source_index": 6
+    },
+    {
+      "id": "d9rIoU0AAAAJ:5nxA0vEk-isC",
+      "title": "Laboratory study of wave-induced ice-ice collisions using robust principal component analysis and sensor fusion",
+      "authors": "H. Li, E. D. Gedikli, R. Lubbad, T. S. Nord",
+      "venue": "Cold Regions Science and Technology 172, 103010",
+      "year": 2020,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&citation_for_view=d9rIoU0AAAAJ:5nxA0vEk-isC",
+      "source_index": 5
+    },
+    {
+      "id": "d9rIoU0AAAAJ:r0BpntZqJG4C",
+      "title": "Combined distribution of ice thickness and speed based on local measurements at the Norströmsgrund lighthouse 2000-2003",
+      "authors": "V. Hornnes, K. V. Høyland, J. D. Turner, E. D. Gedikli",
+      "venue": "25th IAHR International Symposium on Ice",
+      "year": 2020,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:r0BpntZqJG4C",
+      "source_index": 44
+    },
+    {
+      "id": "d9rIoU0AAAAJ:EUQCXRtRnyEC",
+      "title": "Comparison of in-situ measurements from the Norströmsgrund lighthouse to Copernicus reanalysis products",
+      "authors": "J. Turner, K. Høyland, V. Hornnes, E. D. Gedikli",
+      "venue": "25th IAHR International Symposium on Ice, 252–262",
+      "year": 2020,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:EUQCXRtRnyEC",
+      "source_index": 36
+    },
+    {
+      "id": "d9rIoU0AAAAJ:TQgYirikUcIC",
+      "title": "Experimental investigation of wave-induced bending response of ice floes",
+      "authors": "H. Li, E. D. Gedikli, R. Lubbad",
+      "venue": "AGU Fall Meeting 2020",
+      "year": 2020,
+      "type": "conference",
+      "label": "Meeting abstract",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:TQgYirikUcIC",
+      "source_index": 88
+    },
+    {
+      "id": "d9rIoU0AAAAJ:_xSYboBqXhAC",
+      "title": "On the ice and wind conditions in the northern part of the Gulf of Bothnia leading ice-induced vibrations",
+      "authors": "E. D. Gedikli, M. Bjerkås, K. V. Høyland, V. Hornnes, J. D. Turner",
+      "venue": "25th IAHR International Symposium on Ice, 188–198",
+      "year": 2020,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:_xSYboBqXhAC",
+      "source_index": 47
+    },
+    {
+      "id": "d9rIoU0AAAAJ:M3NEmzRMIkIC",
+      "title": "Systematic investigation of data analysis methods in wave-ice interaction problem",
+      "authors": "H. Li, E. D. Gedikli, R. Lubbad",
+      "venue": "25th IAHR International Symposium on Ice",
+      "year": 2020,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:M3NEmzRMIkIC",
+      "source_index": 33
+    },
+    {
+      "id": "d9rIoU0AAAAJ:hFOr9nPyWt4C",
+      "title": "Wake observations for a circular cylinder undergoing forced two-degrees-of-freedom motions",
+      "authors": "E. Aktosun, E. D. Gedikli, J. M. Dahl",
+      "venue": "APS Division of Fluid Dynamics · Y11.006",
+      "year": 2020,
+      "type": "conference",
+      "label": "Meeting abstract",
+      "topics": [
+        "viv"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:hFOr9nPyWt4C",
+      "source_index": 48
+    },
+    {
+      "id": "d9rIoU0AAAAJ:Se3iqnhoufwC",
+      "title": "On pressure modes in ice-induced vibrations using multivariate analysis",
+      "authors": "E. D. Gedikli, T. S. Nord, H. Hendrikse, G. Ziemer",
+      "venue": "Cold Regions Science and Technology 160, 150-162",
+      "year": 2019,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&citation_for_view=d9rIoU0AAAAJ:Se3iqnhoufwC",
+      "source_index": 11
+    },
+    {
+      "id": "d9rIoU0AAAAJ:_FxGoFyzp5QC",
+      "title": "Insights on the pressure distributions of controlled ice-induced vibration experiments",
+      "authors": "E. D. Gedikli, T. Nord",
+      "venue": "APS March Meeting · C48.005",
+      "year": 2019,
+      "type": "conference",
+      "label": "Meeting abstract",
+      "topics": [
+        "ice"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:_FxGoFyzp5QC",
+      "source_index": 93
+    },
+    {
+      "id": "d9rIoU0AAAAJ:eQOLeE2rZwMC",
+      "title": "Observed mode shape effects on the vortex-induced vibration of bending dominated flexible cylinders simply supported at both ends",
+      "authors": "E. D. Gedikli, D. Chelidze, J. M. Dahl",
+      "venue": "Journal of Fluids and Structures 81, 399-417",
+      "year": 2018,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "viv"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&citation_for_view=d9rIoU0AAAAJ:eQOLeE2rZwMC",
+      "source_index": 3
+    },
+    {
+      "id": "d9rIoU0AAAAJ:YsMSGLbcyi4C",
+      "title": "Active control of flexible cylinders undergoing vortex-induced vibrations using piezo stripe actuators",
+      "authors": "E. D. Gedikli, D. Chelidze, J. Dahl",
+      "venue": "Structural Health Monitoring, Photogrammetry & DIC, Volume 6 · IMAC proceedings",
+      "year": 2018,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "viv"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:YsMSGLbcyi4C",
+      "source_index": 29
+    },
+    {
+      "id": "d9rIoU0AAAAJ:WF5omc3nYNoC",
+      "title": "Bending dominated flexible cylinder experiments reveal insights into modal interactions for flexible body vortex-induced vibrations",
+      "authors": "E. D. Gedikli, D. Chelidze, J. M. Dahl",
+      "venue": "ISOPE 2018 · ISOPE-I-18-545",
+      "year": 2018,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "viv"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&citation_for_view=d9rIoU0AAAAJ:WF5omc3nYNoC",
+      "source_index": 12
+    },
+    {
+      "id": "d9rIoU0AAAAJ:bEWYMUwI8FkC",
+      "title": "Fluid-structure interactions in open-ocean aquaculture systems",
+      "authors": "E. D. Gedikli",
+      "venue": "International Symposium on Naval Architecture and Maritime",
+      "year": 2018,
+      "type": "conference",
+      "label": "Conference contribution",
+      "topics": [
+        "structures"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:bEWYMUwI8FkC",
+      "source_index": 95
+    },
+    {
+      "id": "d9rIoU0AAAAJ:zYLM7Y9cAGgC",
+      "title": "Mode excitation hysteresis of a flexible cylinder undergoing vortex-induced vibrations",
+      "authors": "E. D. Gedikli, J. M. Dahl",
+      "venue": "Journal of Fluids and Structures 69, 308-322",
+      "year": 2017,
+      "type": "journal",
+      "label": "Journal article",
+      "topics": [
+        "viv"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&citation_for_view=d9rIoU0AAAAJ:zYLM7Y9cAGgC",
+      "source_index": 1
+    },
+    {
+      "id": "d9rIoU0AAAAJ:W7OEmFMy1HYC",
+      "title": "Active control of flow-induced vibrations of a cylinder using piezo actuators",
+      "authors": "J. Dahl, E. D. Gedikli",
+      "venue": "APS Division of Fluid Dynamics · E16.002",
+      "year": 2017,
+      "type": "conference",
+      "label": "Meeting abstract",
+      "topics": [
+        "viv"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:W7OEmFMy1HYC",
+      "source_index": 97
+    },
+    {
+      "id": "d9rIoU0AAAAJ:Y0pCki6q_DkC",
+      "title": "Multivariate analysis of vortex-induced vibrations in a tensioned cylinder reveal nonlinear modal interactions",
+      "authors": "E. D. Gedikli, J. M. Dahl, D. Chelidze",
+      "venue": "Procedia Engineering 199, 546–551",
+      "year": 2017,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "viv"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&citation_for_view=d9rIoU0AAAAJ:Y0pCki6q_DkC",
+      "source_index": 7
+    },
+    {
+      "id": "d9rIoU0AAAAJ:2osOgNQ5qMEC",
+      "title": "Three-dimensional flow visualization of a flexible cylinder wake subject to VIV",
+      "authors": "J. Dahl, E. Thomas, E. D. Gedikli",
+      "venue": "68th Annual Meeting of the APS Division of Fluid Dynamics",
+      "year": 2015,
+      "type": "conference",
+      "label": "Meeting abstract",
+      "topics": [
+        "viv"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:2osOgNQ5qMEC",
+      "source_index": 59
+    },
+    {
+      "id": "d9rIoU0AAAAJ:u5HHmVD_uO8C",
+      "title": "Mode Shape Variation for a Low-Mode Number Flexible Cylinder Subject to Vortex-Induced Vibrations",
+      "authors": "E. D. Gedikli, J. M. Dahl",
+      "venue": "ASME OMAE 2014",
+      "year": 2014,
+      "type": "conference",
+      "label": "Conference paper",
+      "topics": [
+        "viv"
+      ],
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&citation_for_view=d9rIoU0AAAAJ:u5HHmVD_uO8C",
+      "source_index": 8
+    }
+  ]
+}
