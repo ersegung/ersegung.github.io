@@ -1,6 +1,6 @@
 # E. Deniz Gedikli — academic website
 
-A lightweight academic website inspired by the supplied reference: a portrait, clear typography, short introduction, profile icons, and seven navigation buttons. All pages use plain HTML, CSS, and small JavaScript files. No Homebrew, Ruby, Jekyll installation, Node installation, or build command is needed.
+This is my academic website which includes: a portrait, clear typography, short introduction, profile icons, and seven navigation buttons. All pages use plain HTML, CSS, and small JavaScript files. No Homebrew, Ruby, Jekyll installation, Node installation, or build command is needed.
 
 ## View it on your computer
 
