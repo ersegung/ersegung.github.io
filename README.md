@@ -1,6 +1,6 @@
 # E. Deniz Gedikli — academic website
 
-This is my academic website which includes: a portrait, clear typography, short introduction, profile icons, and seven navigation buttons. All pages use plain HTML, CSS, and small JavaScript files. No Homebrew, Ruby, Jekyll installation, Node installation, or build command is needed.
+A lightweight academic website inspired by the supplied reference: a portrait, clear typography, short introduction, profile icons, and eight navigation links. All pages use plain HTML, CSS, and small JavaScript files. No Homebrew, Ruby, Jekyll installation, Node installation, or build command is needed.
 
 ## View it on your computer
 
@@ -30,6 +30,18 @@ Official instructions: https://docs.github.com/en/pages/quickstart
 | `papers.html` | Combined journal articles, conference contributions, and preprints |
 | `conferences.html` | Conference papers and meeting abstracts |
 | `teaching.html` | Courses and teaching descriptions |
+| `educational-content.html` | Learning hub |
+| `marine-energy-introduction.html` | Resources, applications, and introductory calculators |
+| `ocean-waves-hub-v2.html` | Regular waves, pressure, velocity, and spectral models |
+| `marine-renewable-energy-devices.html` | Eleven device families and the PTO oscillator |
+| `assets/energy-models.js` | Shared scientific equations in SI units |
+| `assets/education.js` | Shared plots and resource calculators |
+| `assets/wave-lab.js` | Ocean Waves Lab controls and animation |
+| `assets/device-atlas.js` | Device explanations, SVG diagrams, and filters |
+| `assets/education.css` | Responsive teaching-page styles |
+| `assets/education-sources.json` | Reference URLs used in the lessons |
+| `SITE-CHECKS.md` | Review scope, numerical checks, and remaining limitations |
+| `LINK-CHECKS.csv` | Outgoing link inventory and verification status |
 | `lab.html` | Laboratory information |
 | `book.html` | Book project |
 | `cv.html` | Abbreviated CV and contact details |
@@ -40,6 +52,8 @@ Official instructions: https://docs.github.com/en/pages/quickstart
 | `assets/publications.json` | Structured snapshot of the publication metadata |
 | `PUBLICATION-NOTES.md` | Reconciliation notes, sources, and records needing clarification |
 | `assets/deniz-gedikli.png` | Portrait |
+| `assets/flow-mesh.css` | Portrait and mesh layout |
+| `assets/flow-mesh.js` | Decorative mesh animation and pause control |
 
 To replace the photo, save a new PNG as `assets/deniz-gedikli.png`. The grayscale appearance is applied by CSS; the original image remains in color. Remove `filter:grayscale(1)` from `.portrait` to show the color version.
 
@@ -49,7 +63,7 @@ The updated list contains 25 journal articles, 45 conference contributions, and 
 
 ### Updating an existing customized site
 
-Replace `papers.html` and add `conferences.html`, plus `assets/publications.js`, `assets/publications.css`, and `assets/publications.json`. Add `<a href="conferences.html">Conferences</a>` after Papers in the navigation on your other pages. If your live biography, courses, or other pages have changed since the original package, preserve those edits. The full package includes the seven-item navigation on every page; its `assets/styles.css` also adjusts homepage navigation spacing for seven items.
+Replace `papers.html` and add `conferences.html`, plus `assets/publications.js`, `assets/publications.css`, and `assets/publications.json`. Add `<a href="conferences.html">Conferences</a>` after Papers in the navigation on your other pages. If your live biography, courses, or other pages have changed since the original package, preserve those edits. The full package includes the eight-item navigation on every page; its `assets/styles.css` also adjusts homepage navigation spacing for eight items.
 
 The CV is explicitly an abbreviated HTML CV, not a copy of an official full CV. The print button opens the browser's print dialog, where visitors can select Save as PDF.
 
@@ -65,3 +79,15 @@ The CV is explicitly an abbreviated HTML CV, not a copy of an official full CV. 
 The site has no analytics, tracking cookies, account system, contact form backend, external fonts, or runtime dependencies. Contact buttons open email or the linked public profiles.
 
 `404.html` is the optional page GitHub displays when someone visits a nonexistent address. It is separate from the homepage and does not cause a 404 error.
+
+## Homepage mesh
+
+The supplied flow-mesh visual is integrated beside the portrait on the homepage. It is a decorative animated mesh, not a computed fluid-flow field. It reacts to the pointer, has a Pause/Play control, respects reduced-motion settings, and stops animating while offscreen or in a hidden tab. A static SVG remains when JavaScript is unavailable.
+
+For this homepage-only update, upload `index.html`, `assets/flow-mesh.css`, and `assets/flow-mesh.js`. Keep the existing portrait, stylesheet, scripts, and other pages in place. No build tools or external animation libraries are required.
+
+## Educational Content update
+
+Use **Educational Content → Marine Energy** to enter the lessons. The introduction, Ocean Waves Lab, and Device Atlas link to one another, their sources, and the relevant teaching and research pages. Upload all four new HTML pages and all new education assets, and update the navigation on your existing pages. The full package already includes those changes. Preserve any later edits you have made to a live site.
+
+These are instructional models, with assumptions shown next to their outputs. They are not site assessments or device-design tools. Scientific references require an internet connection; the lessons and calculators themselves run locally. See `SITE-CHECKS.md` for what was reviewed and which external destinations could not be fully verified.

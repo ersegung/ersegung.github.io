@@ -1,0 +1,74 @@
+{
+  "basics": [
+    "DOE: Marine Energy Basics",
+    "https://www.energy.gov/cmei/water/marine-energy-basics"
+  ],
+  "resource": [
+    "DOE: Resource Assessment and Characterization",
+    "https://www.energy.gov/cmei/water/marine-energy-resource-assessment-and-characterization"
+  ],
+  "glossary": [
+    "DOE: Marine Energy Glossary",
+    "https://www.energy.gov/cmei/water/marine-energy-glossary"
+  ],
+  "wave-types": [
+    "EMEC: Wave Devices",
+    "https://www.emec.org.uk/marine-energy/wave-devices/"
+  ],
+  "wave-theory": [
+    "Akylas & Mei, MIT: Dispersion of Surface Water Waves (PDF)",
+    "https://web.mit.edu/fluids-modules/waves/www/material/chap-3.pdf"
+  ],
+  "wave-limits": [
+    "OpenFAST/HydroDyn: Wave Kinematics, Spectral Synthesis and Breaking Criterion (PDF)",
+    "https://openfast.readthedocs.io/en/main/_downloads/42a2cfdae2d2df1d36eae686d87eb12d/WAVE2_document.pdf"
+  ],
+  "current": [
+    "DOE: Fluid-power equation and ideal actuator-disc limit (wind guide; this lab uses seawater density)",
+    "https://www.energy.gov/cmei/systems/windexchange/small-wind-guidebook"
+  ],
+  "otec": [
+    "EIA: Ocean Thermal Energy Conversion",
+    "https://www.eia.gov/energyexplained/hydropower/ocean-thermal-energy-conversion.php"
+  ],
+  "carnot": [
+    "MIT: The Carnot Limit",
+    "https://news.mit.edu/2010/explained-carnot-0519"
+  ],
+  "salinity": [
+    "Yip & Elimelech (2014): Comparison of PRO and RED, original research abstract",
+    "https://pubmed.ncbi.nlm.nih.gov/25157687/"
+  ],
+  "tidal": [
+    "EIA: Tidal Power \u2014 turbine and barrage principles",
+    "https://www.eia.gov/energyexplained/hydropower/tidal-power.php"
+  ],
+  "environment": [
+    "PNNL: Findings from the 2024 OES Environmental State of the Science Report",
+    "https://www.pnnl.gov/publications/new-report-provides-update-environmental-effects-marine-renewable-energy"
+  ],
+  "engineering": [
+    "PNNL: Ocean Engineering Basics",
+    "https://www.pnnl.gov/ocean-engineering-basics"
+  ],
+  "readiness": [
+    "EMEC: Technology Readiness Levels",
+    "https://www.emec.org.uk/services/provision-of-wave-and-tidal-testing/pathway-to-emec/technology-readiness-levels/"
+  ],
+  "status": [
+    "European Commission/JRC: Marine Renewable Energy (updated May 21, 2026)",
+    "https://blue-economy-observatory.ec.europa.eu/eu-blue-economy-sectors/marine-renewable-energy_en"
+  ],
+  "oes": [
+    "IEA-OES: Annual Report 2025, published 2026 (PDF)",
+    "https://tethys.pnnl.gov/sites/default/files/publications/oes-annual-report-2025.pdf"
+  ],
+  "atlas": [
+    "NLR: Marine Energy Atlas \u2014 interactive resource maps",
+    "https://maps.nlr.gov/marine-energy-atlas/"
+  ],
+  "us-resource": [
+    "Kilcher, Fogarty & Lawson (2021): Marine Energy in the United States (PDF)",
+    "https://docs.nlr.gov/docs/fy21osti/78773.pdf"
+  ]
+}

@@ -1,0 +1,11 @@
+.portrait-mesh-row{--portrait-size:164px;display:grid;grid-template-columns:var(--portrait-size) minmax(0,1fr);align-items:center;gap:clamp(16px,4vw,36px)}
+.portrait-mesh-row .portrait{width:var(--portrait-size);height:var(--portrait-size)}
+.flow-mesh{position:relative;height:var(--portrait-size);min-width:0;overflow:hidden;border-radius:20px;background:radial-gradient(ellipse at 68% 48%,rgba(69,128,151,.055),transparent 72%)}
+.flow-mesh canvas,.flow-mesh-fallback{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.mesh-toggle{position:absolute;bottom:3px;right:3px;display:inline-flex;align-items:center;gap:5px;padding:6px 8px;border:1px solid transparent;border-radius:6px;background:rgba(246,246,246,.88);color:#627781;font-size:11px;line-height:1.4;cursor:pointer}
+.mesh-toggle:hover{border-color:#ccd8dd;color:#244f61;background:#f6f6f6}
+.mesh-toggle svg{width:10px;height:10px;fill:currentColor}
+@media(min-width:1700px){.portrait-mesh-row{--portrait-size:180px}}
+@media(max-width:620px){.portrait-mesh-row{--portrait-size:132px;gap:20px}.flow-mesh{border-radius:17px}.mesh-toggle{bottom:0;right:0;padding:5px 6px}}
+@media(max-width:360px){.portrait-mesh-row{--portrait-size:112px;gap:16px}}
+@media print{.flow-mesh{display:none}.portrait-mesh-row{display:block}}
