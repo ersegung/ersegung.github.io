@@ -1,6 +1,8 @@
 # Website and science review
 
-Reviewed November 3, 2026 (UTC).
+Original review: November 3, 2026 (UTC).
+
+**November 4 update:** Marine Energy now includes a fourth lesson, the Response Amplitude Operator Module. All 317 local links, fragment links, and asset references on the 14 site pages resolve. The owner’s earlier CV is restored verbatim; the earlier review below describes the November 3 version. See `RAO-CHECKS.md` for the new module.
 
 ## What changed
 

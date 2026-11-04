@@ -1,0 +1,2097 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Response Amplitude Operator Module · E. Deniz Gedikli</title><meta name="description" content="Explore heave, pitch, and power with the HMEC response amplitude operator teaching demos."><link rel="icon" href="assets/favicon.svg"><link rel="stylesheet" href="assets/styles.css"><link rel="stylesheet" href="assets/education.css"><link rel="stylesheet" href="assets/rao.css"><script defer src="assets/rao-model.js"></script><script defer src="assets/rao-app.js"></script></head><body><a class="skip-link" href="#main">Skip to content</a><div class="shell education-shell"><header class="topbar"><a class="wordmark" href="index.html">E. Deniz Gedikli</a><a class="back" href="index.html">← Home</a></header><nav class="page-nav" aria-label="Main navigation"><a href="research.html">Research</a><a href="papers.html">Papers</a><a href="conferences.html">Conferences</a><a href="teaching.html">Teaching</a><a href="educational-content.html" aria-current="page">Educational Content</a><a href="lab.html">Lab</a><a href="book.html">Book</a><a href="cv.html">CV</a></nav><main id="main" class="page-main education-main rao-main" data-rao><p class="edu-breadcrumb"><a href="educational-content.html">Educational Content</a> / <a href="marine-energy-introduction.html">Marine Energy</a> / RAO Module</p><p class="eyebrow">HMEC short course · Floating-body dynamics</p><h1>Response Amplitude Operator Module</h1><p class="lead">If a wave has an amplitude of half a metre, will a floating body move half a metre too? Start with heave, then add pitch. Watch how the answer changes with the wave period.</p><nav class="learning-nav" aria-label="Marine energy lessons"><a href="marine-energy-introduction.html">Marine Energy</a><a href="ocean-waves-hub-v2.html">Ocean Waves Lab</a><a href="marine-renewable-energy-devices.html">Device Atlas</a><a href="response-amplitude-operator.html" aria-current="page">RAO Module</a></nav>
+<noscript><p class="edu-note">Turn on JavaScript to run the models. You can still open the manual and download the original MATLAB files below.</p></noscript>
+<section id="experiment" aria-label="Interactive RAO experiment">
+<div class="rao-models" aria-label="Choose a model"><button type="button" data-mode="heave" aria-pressed="true"><span>01 &nbsp; / &nbsp; ONE DEGREE OF FREEDOM</span><strong>Heave only</strong><small>Follow the vertical motion of a buoy.</small></button><button type="button" data-mode="coupled" aria-pressed="false"><span>02 &nbsp; / &nbsp; TWO DEGREES OF FREEDOM</span><strong>Heave + pitch</strong><small>Let vertical motion and rotation interact.</small></button></div>
+<div class="rao-workspace"><aside class="rao-settings" aria-label="Model settings"><p class="rao-kicker">Experiment controls</p><h2>Set up your case</h2><div id="rao-primary"></div><details id="rao-advanced"><summary>Body &amp; hydrodynamics</summary><div id="rao-extra"></div></details><div class="rao-actions"><button class="edu-button" id="rao-save" type="button">Save comparison baseline</button><button class="rao-link-button" id="rao-reset" type="button">Reset model</button></div><p class="rao-status" id="rao-status" role="status">The comparison baseline starts at the default settings.</p></aside>
+<div class="rao-results"><div class="rao-tabs" aria-label="Choose a result view"><button type="button" data-view="response" aria-pressed="true">Response</button><button type="button" data-view="motion" aria-pressed="false">Motion</button><button type="button" data-view="hydro" aria-pressed="false">Coefficients</button><button type="button" data-view="equation" aria-pressed="false">Equation</button></div>
+<div id="rao-readout"></div><div id="rao-panel"></div></div></div></section>
+<section class="edu-section"><p class="eyebrow">Try it in class</p><h2>Make a prediction first</h2><p>Save a baseline, change one setting, and compare the curves. The marker shows the selected period; the peak can occur somewhere else.</p><div class="rao-prompts" id="rao-prompts"></div></section>
+<section class="edu-section" id="model-notes"><h2>What does an RAO tell you?</h2><p>A response amplitude operator relates the body's steady harmonic motion to the incident wave amplitude, <i>a</i>. Its magnitude tells you how large the motion is. Its phase tells you when the motion reaches its maximum relative to a wave crest at the body reference point.</p><p>Heave is vertical displacement, so its RAO is in metres per metre. Pitch is rotation, so its RAO is in radians per metre (or degrees per metre). Multiply an RAO magnitude by <i>a</i> to find the physical motion amplitude. The full wave height is 2<i>a</i>.</p><p>These are linear, regular-wave teaching models. The hydrodynamic coefficients are synthetic. The power shown is the average mechanical power absorbed by the model's PTO dampers; predicting a particular device's electrical output would require more information.</p></section>
+<section class="edu-section" id="materials"><p class="eyebrow">HMEC teaching materials · v1.0</p><h2>Manual and MATLAB source</h2><p>The demos above run a JavaScript version of the supplied MATLAB calculations. You can use them without installing MATLAB, downloading files, or signing in. To see how a coefficient or equation is implemented, open the original source below.</p>
+<details id="rao-manual"><summary>Read the user and instructor manual</summary><p>Chapters 4–6 walk through the equations and both demos. Appendix A gives reference results for the default settings.</p><p><a id="rao-pdf" href="assets/rao/HMEC_RAO_Demos_User_Manual.pdf" target="_blank" rel="noopener">Open the PDF in a new tab ↗</a> · <a href="assets/rao/HMEC_RAO_Demos_User_Manual.pdf" download="HMEC_RAO_Demos_User_Manual.pdf">Download PDF</a></p><div id="rao-reader"></div></details>
+<details id="rao-sources"><summary>Read the original MATLAB code</summary><label class="rao-select-label" for="rao-source-choice">Source file</label><select class="edu-select" id="rao-source-choice"><option value="0">HMEC_heave_RAO_demo.m</option><option value="1">HMEC_heave_pitch_RAO_demo.m</option><option value="2">HMEC_RAO_demo_launcher.m</option></select><pre class="rao-code" id="rao-src-0" tabindex="0" aria-label="HMEC_heave_RAO_demo.m"><code>function varargout = HMEC_heave_RAO_demo(varargin)
+% HMEC_HEAVE_RAO_DEMO Interactive 1-DOF heave RAO teaching demonstration.
+%
+% Run the interactive demo:
+%   HMEC_heave_RAO_demo
+%
+% Run the numerical self-checks without opening the interface:
+%   report = HMEC_heave_RAO_demo(&#x27;selftest&#x27;)
+%
+% Governing equation for one regular-wave frequency omega:
+%
+%   [m + A33(omega)] z_ddot
+% + [B33(omega) + B_visc + B_PTO] z_dot
+% + [C33 + K_extra] z = F_exc,3(t)
+%
+% with
+%
+%   H3(omega) = z_hat/a_hat
+%             = [F_exc,3(omega)/a_hat] ...
+%               / {C33 + K_extra - omega^2[m + A33(omega)]
+%                  + i*omega[B33(omega) + B_visc + B_PTO]}.
+%
+% Internally, all quantities use SI units. The controls display convenient
+% engineering units (tonne, kN, and kN*s/m). The frequency-dependent
+% hydrodynamic coefficients are smooth, BEM-like TEACHING curves. They have
+% physically reasonable limits and orders of magnitude, but they are not a
+% validated prediction for a particular WEC. Replace the coefficient
+% generator near the end of this file with Capytaine/WAMIT data for a
+% device-specific exercise.
+%
+% This file uses only base MATLAB UI and plotting functions.
+
+    if nargin &gt; 0
+        mode = char(varargin{1});
+        if strcmpi(strtrim(mode), &#x27;selftest&#x27;)
+            report = runHeaveSelfTest();
+            if nargout &gt; 0
+                varargout{1} = report;
+            else
+                disp(report)
+            end
+            return
+        end
+    end
+
+    defaults = defaultHeaveParameters();
+    baseline.P = defaults;
+    baseline.D = calculateHeaveResponse(defaults);
+
+    colors.current   = [0.0000 0.4470 0.7410];
+    colors.baseline  = [0.4200 0.4200 0.4200];
+    colors.phase     = [0.8500 0.3250 0.0980];
+    colors.power     = [0.0000 0.6200 0.4500];
+    colors.wave      = [0.0000 0.4470 0.7410];
+    colors.body      = [0.9290 0.6940 0.1250];
+    colors.waterFill = [0.8200 0.9300 0.9800];
+
+    fig = uifigure( ...
+        &#x27;Name&#x27;, &#x27;HMEC | 1-DOF Heave RAO Teaching Demo&#x27;, ...
+        &#x27;Position&#x27;, [45 45 1510 875], ...
+        &#x27;Color&#x27;, [0.97 0.97 0.97]);
+
+    root = uigridlayout(fig, [1 2]);
+    root.ColumnWidth = {345, &#x27;1x&#x27;};
+    root.RowHeight = {&#x27;1x&#x27;};
+    root.Padding = [10 10 10 10];
+    root.ColumnSpacing = 10;
+
+    controlPanel = uipanel(root, ...
+        &#x27;Title&#x27;, &#x27;Inputs, comparison case, and class questions&#x27;, ...
+        &#x27;FontWeight&#x27;, &#x27;bold&#x27;);
+    controlPanel.Layout.Row = 1;
+    controlPanel.Layout.Column = 1;
+
+    controls = uigridlayout(controlPanel, [20 2]);
+    controls.ColumnWidth = {170, &#x27;1x&#x27;};
+    controls.RowHeight = {58, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, ...
+                          38, 22, 34, 34, 128, 36, 36, 44, &#x27;1x&#x27;};
+    controls.Padding = [8 8 8 8];
+    controls.RowSpacing = 5;
+    controls.ColumnSpacing = 8;
+
+    banner = uilabel(controls, ...
+        &#x27;Text&#x27;, [&#x27;Teaching coefficients: realistic order of magnitude and &#x27; ...
+                 &#x27;physically constrained, but not validated device data.&#x27;], ...
+        &#x27;WordWrap&#x27;, &#x27;on&#x27;, ...
+        &#x27;FontWeight&#x27;, &#x27;bold&#x27;, ...
+        &#x27;FontColor&#x27;, [0.55 0.20 0.05]);
+    banner.Layout.Row = 1;
+    banner.Layout.Column = [1 2];
+
+    massSpinner = makeSpinner(controls, 2, &#x27;Body mass, m [tonne]&#x27;, ...
+        [45 250], 5, defaults.massTonnes, @updateAll);
+    radiusSpinner = makeSpinner(controls, 3, &#x27;Waterplane radius [m]&#x27;, ...
+        [1.5 5.0], 0.1, defaults.waterplaneRadius, @updateAll);
+    ptoDampingSpinner = makeSpinner(controls, 4, &#x27;PTO damping [kN s/m]&#x27;, ...
+        [0 250], 5, defaults.ptoDamping_kNsPerM, @updateAll);
+    viscDampingSpinner = makeSpinner(controls, 5, &#x27;Viscous damping [kN s/m]&#x27;, ...
+        [0 120], 5, defaults.viscousDamping_kNsPerM, @updateAll);
+    extraStiffnessSpinner = makeSpinner(controls, 6, &#x27;Extra stiffness [kN/m]&#x27;, ...
+        [0 500], 10, defaults.extraStiffness_kNPerM, @updateAll);
+    addedMassScaleSpinner = makeSpinner(controls, 7, &#x27;Added-mass scale [-]&#x27;, ...
+        [0.40 1.80], 0.05, defaults.addedMassScale, @updateAll);
+    radiationScaleSpinner = makeSpinner(controls, 8, &#x27;Radiation-damping scale [-]&#x27;, ...
+        [0.40 1.80], 0.05, defaults.radiationScale, @updateAll);
+    excitationScaleSpinner = makeSpinner(controls, 9, &#x27;Excitation scale [-]&#x27;, ...
+        [0.50 1.50], 0.05, defaults.excitationScale, @updateAll);
+    waveAmplitudeSpinner = makeSpinner(controls, 10, &#x27;Wave amplitude, a [m]&#x27;, ...
+        [0.05 1.50], 0.05, defaults.waveAmplitude, @updateAll);
+    selectedPeriodSpinner = makeSpinner(controls, 11, &#x27;Selected wave period [s]&#x27;, ...
+        [defaults.periodMin defaults.periodMax], 0.25, defaults.selectedPeriod, @updateAll);
+
+    buttonGrid = uigridlayout(controls, [1 3]);
+    buttonGrid.Layout.Row = 12;
+    buttonGrid.Layout.Column = [1 2];
+    buttonGrid.ColumnWidth = {&#x27;1x&#x27;, &#x27;1x&#x27;, &#x27;1x&#x27;};
+    buttonGrid.Padding = [0 0 0 0];
+    buttonGrid.ColumnSpacing = 5;
+
+    resetButton = uibutton(buttonGrid, &#x27;push&#x27;, ...
+        &#x27;Text&#x27;, &#x27;Reset&#x27;, ...
+        &#x27;ButtonPushedFcn&#x27;, @resetInputs);
+    baselineButton = uibutton(buttonGrid, &#x27;push&#x27;, ...
+        &#x27;Text&#x27;, &#x27;Set baseline&#x27;, ...
+        &#x27;ButtonPushedFcn&#x27;, @setCurrentBaseline);
+    playButton = uibutton(buttonGrid, &#x27;push&#x27;, ...
+        &#x27;Text&#x27;, &#x27;Play motion&#x27;, ...
+        &#x27;ButtonPushedFcn&#x27;, @playMotion);
+
+    questionLabel = uilabel(controls, ...
+        &#x27;Text&#x27;, &#x27;Class prediction question&#x27;, ...
+        &#x27;FontWeight&#x27;, &#x27;bold&#x27;);
+    questionLabel.Layout.Row = 13;
+    questionLabel.Layout.Column = [1 2];
+
+    questionTitles = heaveQuestionTitles();
+    questionDropDown = uidropdown(controls, ...
+        &#x27;Items&#x27;, questionTitles, ...
+        &#x27;Value&#x27;, questionTitles{1}, ...
+        &#x27;ValueChangedFcn&#x27;, @showQuestionPrompt);
+    questionDropDown.Layout.Row = 14;
+    questionDropDown.Layout.Column = [1 2];
+
+    questionArea = uitextarea(controls, ...
+        &#x27;Editable&#x27;, &#x27;off&#x27;, ...
+        &#x27;WordWrap&#x27;, &#x27;on&#x27;, ...
+        &#x27;Value&#x27;, {&#x27;Select a question, ask for a prediction, then change the control.&#x27;});
+    questionArea.Layout.Row = [15 16];
+    questionArea.Layout.Column = [1 2];
+
+    revealButton = uibutton(controls, &#x27;push&#x27;, ...
+        &#x27;Text&#x27;, &#x27;Reveal explanation&#x27;, ...
+        &#x27;ButtonPushedFcn&#x27;, @revealQuestionAnswer);
+    revealButton.Layout.Row = 17;
+    revealButton.Layout.Column = [1 2];
+
+    statusLabel = uilabel(controls, ...
+        &#x27;Text&#x27;, &#x27;Model checks pending ...&#x27;, ...
+        &#x27;WordWrap&#x27;, &#x27;on&#x27;, ...
+        &#x27;FontWeight&#x27;, &#x27;bold&#x27;);
+    statusLabel.Layout.Row = [18 19];
+    statusLabel.Layout.Column = [1 2];
+
+    tabs = uitabgroup(root);
+    tabs.Layout.Row = 1;
+    tabs.Layout.Column = 2;
+
+    raoTab = uitab(tabs, &#x27;Title&#x27;, &#x27;RAO, phase, and PTO power&#x27;);
+    raoGrid = uigridlayout(raoTab, [2 2]);
+    raoGrid.RowHeight = {&#x27;1x&#x27;, &#x27;1x&#x27;};
+    raoGrid.ColumnWidth = {&#x27;1x&#x27;, &#x27;1x&#x27;};
+    raoGrid.Padding = [10 10 10 10];
+    raoGrid.RowSpacing = 10;
+    raoGrid.ColumnSpacing = 10;
+
+    raoAxis = uiaxes(raoGrid);
+    raoAxis.Layout.Row = 1;
+    raoAxis.Layout.Column = [1 2];
+
+    phaseAxis = uiaxes(raoGrid);
+    phaseAxis.Layout.Row = 2;
+    phaseAxis.Layout.Column = 1;
+
+    powerAxis = uiaxes(raoGrid);
+    powerAxis.Layout.Row = 2;
+    powerAxis.Layout.Column = 2;
+
+    coefficientTab = uitab(tabs, &#x27;Title&#x27;, &#x27;Hydrodynamic coefficient curves&#x27;);
+    coefficientGrid = uigridlayout(coefficientTab, [3 1]);
+    coefficientGrid.RowHeight = {&#x27;1x&#x27;, &#x27;1x&#x27;, &#x27;1x&#x27;};
+    coefficientGrid.ColumnWidth = {&#x27;1x&#x27;};
+    coefficientGrid.Padding = [10 10 10 10];
+    coefficientGrid.RowSpacing = 10;
+
+    addedMassAxis = uiaxes(coefficientGrid);
+    addedMassAxis.Layout.Row = 1;
+    dampingAxis = uiaxes(coefficientGrid);
+    dampingAxis.Layout.Row = 2;
+    excitationAxis = uiaxes(coefficientGrid);
+    excitationAxis.Layout.Row = 3;
+
+    motionTab = uitab(tabs, &#x27;Title&#x27;, &#x27;Selected regular-wave response&#x27;);
+    motionGrid = uigridlayout(motionTab, [2 2]);
+    motionGrid.RowHeight = {&#x27;1x&#x27;, &#x27;1x&#x27;};
+    motionGrid.ColumnWidth = {&#x27;1.15x&#x27;, &#x27;1x&#x27;};
+    motionGrid.Padding = [10 10 10 10];
+    motionGrid.RowSpacing = 10;
+    motionGrid.ColumnSpacing = 10;
+
+    animationAxis = uiaxes(motionGrid);
+    animationAxis.Layout.Row = [1 2];
+    animationAxis.Layout.Column = 1;
+
+    timeAxis = uiaxes(motionGrid);
+    timeAxis.Layout.Row = 1;
+    timeAxis.Layout.Column = 2;
+
+    summaryArea = uitextarea(motionGrid, ...
+        &#x27;Editable&#x27;, &#x27;off&#x27;, ...
+        &#x27;WordWrap&#x27;, &#x27;on&#x27;);
+    summaryArea.Layout.Row = 2;
+    summaryArea.Layout.Column = 2;
+
+    updateAll();
+
+    function spinner = makeSpinner(parent, rowNumber, labelText, limits, step, value, callback)
+        label = uilabel(parent, &#x27;Text&#x27;, labelText);
+        label.Layout.Row = rowNumber;
+        label.Layout.Column = 1;
+        spinner = uispinner(parent, ...
+            &#x27;Limits&#x27;, limits, ...
+            &#x27;Step&#x27;, step, ...
+            &#x27;Value&#x27;, value, ...
+            &#x27;ValueDisplayFormat&#x27;, &#x27;%.3g&#x27;, ...
+            &#x27;ValueChangedFcn&#x27;, callback);
+        spinner.Layout.Row = rowNumber;
+        spinner.Layout.Column = 2;
+    end
+
+    function P = readControls()
+        P = defaults;
+        P.massTonnes = massSpinner.Value;
+        P.waterplaneRadius = radiusSpinner.Value;
+        P.ptoDamping_kNsPerM = ptoDampingSpinner.Value;
+        P.viscousDamping_kNsPerM = viscDampingSpinner.Value;
+        P.extraStiffness_kNPerM = extraStiffnessSpinner.Value;
+        P.addedMassScale = addedMassScaleSpinner.Value;
+        P.radiationScale = radiationScaleSpinner.Value;
+        P.excitationScale = excitationScaleSpinner.Value;
+        P.waveAmplitude = waveAmplitudeSpinner.Value;
+        P.selectedPeriod = selectedPeriodSpinner.Value;
+    end
+
+    function updateAll(varargin)
+        P = readControls();
+        D = calculateHeaveResponse(P);
+
+        plotHeaveRAO(P, D);
+        plotHeaveCoefficients(P, D);
+        plotHeaveMotion(P, D);
+
+        [checksPass, checkMessage] = heaveDiagnostics(P, D);
+        statusLabel.Text = checkMessage;
+        if checksPass
+            statusLabel.FontColor = [0.00 0.45 0.15];
+        else
+            statusLabel.FontColor = [0.75 0.00 0.00];
+        end
+    end
+
+    function plotHeaveRAO(P, D)
+        cla(raoAxis)
+        hold(raoAxis, &#x27;on&#x27;)
+        plot(raoAxis, baseline.D.period, abs(baseline.D.H), &#x27;--&#x27;, ...
+            &#x27;Color&#x27;, colors.baseline, &#x27;LineWidth&#x27;, 1.7, ...
+            &#x27;DisplayName&#x27;, &#x27;Comparison baseline&#x27;);
+        plot(raoAxis, D.period, abs(D.H), &#x27;-&#x27;, ...
+            &#x27;Color&#x27;, colors.current, &#x27;LineWidth&#x27;, 2.4, ...
+            &#x27;DisplayName&#x27;, &#x27;Current case&#x27;);
+        markSelectedPeriod(raoAxis, P.selectedPeriod);
+        plot(raoAxis, D.estimatedResonancePeriod, ...
+            interp1(D.period, abs(D.H), D.estimatedResonancePeriod, &#x27;pchip&#x27;), ...
+            &#x27;o&#x27;, &#x27;Color&#x27;, colors.phase, &#x27;MarkerFaceColor&#x27;, colors.phase, ...
+            &#x27;HandleVisibility&#x27;, &#x27;off&#x27;);
+        hold(raoAxis, &#x27;off&#x27;)
+        title(raoAxis, &#x27;Heave RAO magnitude&#x27;)
+        xlabel(raoAxis, &#x27;Wave period, T [s]&#x27;)
+        ylabel(raoAxis, &#x27;|H_3| = |z-hat|/a [-]&#x27;)
+        xlim(raoAxis, [P.periodMin P.periodMax])
+        legend(raoAxis, &#x27;Location&#x27;, &#x27;northeast&#x27;)
+        styleAxis(raoAxis)
+
+        cla(phaseAxis)
+        hold(phaseAxis, &#x27;on&#x27;)
+        plot(phaseAxis, baseline.D.period, phaseDegrees(baseline.D.H), &#x27;--&#x27;, ...
+            &#x27;Color&#x27;, colors.baseline, &#x27;LineWidth&#x27;, 1.5, ...
+            &#x27;DisplayName&#x27;, &#x27;Baseline&#x27;);
+        plot(phaseAxis, D.period, phaseDegrees(D.H), &#x27;-&#x27;, ...
+            &#x27;Color&#x27;, colors.phase, &#x27;LineWidth&#x27;, 2.1, ...
+            &#x27;DisplayName&#x27;, &#x27;Current&#x27;);
+        markSelectedPeriod(phaseAxis, P.selectedPeriod);
+        hold(phaseAxis, &#x27;off&#x27;)
+        title(phaseAxis, &#x27;Motion phase relative to wave elevation&#x27;)
+        xlabel(phaseAxis, &#x27;Wave period, T [s]&#x27;)
+        ylabel(phaseAxis, &#x27;Phase(H_3) [deg]&#x27;)
+        xlim(phaseAxis, [P.periodMin P.periodMax])
+        ylim(phaseAxis, [-190 190])
+        styleAxis(phaseAxis)
+
+        cla(powerAxis)
+        hold(powerAxis, &#x27;on&#x27;)
+        plot(powerAxis, baseline.D.period, baseline.D.meanPtoPower/1e3, &#x27;--&#x27;, ...
+            &#x27;Color&#x27;, colors.baseline, &#x27;LineWidth&#x27;, 1.5, ...
+            &#x27;DisplayName&#x27;, &#x27;Baseline&#x27;);
+        plot(powerAxis, D.period, D.meanPtoPower/1e3, &#x27;-&#x27;, ...
+            &#x27;Color&#x27;, colors.power, &#x27;LineWidth&#x27;, 2.1, ...
+            &#x27;DisplayName&#x27;, &#x27;Current&#x27;);
+        markSelectedPeriod(powerAxis, P.selectedPeriod);
+        hold(powerAxis, &#x27;off&#x27;)
+        title(powerAxis, sprintf(&#x27;Mean mechanical PTO power for a = %.2f m&#x27;, P.waveAmplitude))
+        xlabel(powerAxis, &#x27;Wave period, T [s]&#x27;)
+        ylabel(powerAxis, &#x27;P-bar_P_T_O [kW]&#x27;)
+        xlim(powerAxis, [P.periodMin P.periodMax])
+        styleAxis(powerAxis)
+    end
+
+    function plotHeaveCoefficients(P, D)
+        cla(addedMassAxis)
+        hold(addedMassAxis, &#x27;on&#x27;)
+        plot(addedMassAxis, baseline.D.period, baseline.D.addedMass/1e3, &#x27;--&#x27;, ...
+            &#x27;Color&#x27;, colors.baseline, &#x27;LineWidth&#x27;, 1.5, &#x27;DisplayName&#x27;, &#x27;Baseline&#x27;);
+        plot(addedMassAxis, D.period, D.addedMass/1e3, &#x27;-&#x27;, ...
+            &#x27;Color&#x27;, colors.current, &#x27;LineWidth&#x27;, 2.1, &#x27;DisplayName&#x27;, &#x27;Current&#x27;);
+        markSelectedPeriod(addedMassAxis, P.selectedPeriod);
+        hold(addedMassAxis, &#x27;off&#x27;)
+        title(addedMassAxis, &#x27;Added mass A_{33}(omega)&#x27;)
+        xlabel(addedMassAxis, &#x27;Wave period, T [s]&#x27;)
+        ylabel(addedMassAxis, &#x27;A_{33} [tonne]&#x27;)
+        xlim(addedMassAxis, [P.periodMin P.periodMax])
+        legend(addedMassAxis, &#x27;Location&#x27;, &#x27;best&#x27;)
+        styleAxis(addedMassAxis)
+
+        cla(dampingAxis)
+        hold(dampingAxis, &#x27;on&#x27;)
+        plot(dampingAxis, baseline.D.period, baseline.D.radiationDamping/1e3, &#x27;--&#x27;, ...
+            &#x27;Color&#x27;, colors.baseline, &#x27;LineWidth&#x27;, 1.5, &#x27;DisplayName&#x27;, &#x27;Baseline&#x27;);
+        plot(dampingAxis, D.period, D.radiationDamping/1e3, &#x27;-&#x27;, ...
+            &#x27;Color&#x27;, colors.phase, &#x27;LineWidth&#x27;, 2.1, &#x27;DisplayName&#x27;, &#x27;Current&#x27;);
+        markSelectedPeriod(dampingAxis, P.selectedPeriod);
+        hold(dampingAxis, &#x27;off&#x27;)
+        title(dampingAxis, &#x27;Radiation damping B_{33}(omega)&#x27;)
+        xlabel(dampingAxis, &#x27;Wave period, T [s]&#x27;)
+        ylabel(dampingAxis, &#x27;B_{33} [kN s/m]&#x27;)
+        xlim(dampingAxis, [P.periodMin P.periodMax])
+        styleAxis(dampingAxis)
+
+        cla(excitationAxis)
+        hold(excitationAxis, &#x27;on&#x27;)
+        plot(excitationAxis, baseline.D.period, abs(baseline.D.excitationPerAmplitude)/1e3, &#x27;--&#x27;, ...
+            &#x27;Color&#x27;, colors.baseline, &#x27;LineWidth&#x27;, 1.5, &#x27;DisplayName&#x27;, &#x27;Baseline&#x27;);
+        plot(excitationAxis, D.period, abs(D.excitationPerAmplitude)/1e3, &#x27;-&#x27;, ...
+            &#x27;Color&#x27;, colors.power, &#x27;LineWidth&#x27;, 2.1, &#x27;DisplayName&#x27;, &#x27;Current&#x27;);
+        markSelectedPeriod(excitationAxis, P.selectedPeriod);
+        hold(excitationAxis, &#x27;off&#x27;)
+        title(excitationAxis, &#x27;Wave-excitation force transfer function&#x27;)
+        xlabel(excitationAxis, &#x27;Wave period, T [s]&#x27;)
+        ylabel(excitationAxis, &#x27;|F_{exc,3}|/a [kN/m]&#x27;)
+        xlim(excitationAxis, [P.periodMin P.periodMax])
+        styleAxis(excitationAxis)
+    end
+
+    function plotHeaveMotion(P, D)
+        renderHeaveFrame(animationAxis, P, D, 0, colors)
+
+        t = linspace(0, 4*P.selectedPeriod, 650);
+        eta = P.waveAmplitude*cos(D.selectedOmega*t);
+        z = real(P.waveAmplitude*D.selectedH.*exp(1i*D.selectedOmega*t));
+
+        cla(timeAxis)
+        hold(timeAxis, &#x27;on&#x27;)
+        plot(timeAxis, t, eta, &#x27;-&#x27;, ...
+            &#x27;Color&#x27;, colors.wave, &#x27;LineWidth&#x27;, 1.7, &#x27;DisplayName&#x27;, &#x27;Wave elevation eta&#x27;);
+        plot(timeAxis, t, z, &#x27;-&#x27;, ...
+            &#x27;Color&#x27;, colors.body, &#x27;LineWidth&#x27;, 2.2, &#x27;DisplayName&#x27;, &#x27;Heave z&#x27;);
+        plot(timeAxis, [t(1) t(end)], [0 0], &#x27;:&#x27;, ...
+            &#x27;Color&#x27;, [0.45 0.45 0.45], &#x27;HandleVisibility&#x27;, &#x27;off&#x27;);
+        hold(timeAxis, &#x27;off&#x27;)
+        title(timeAxis, sprintf(&#x27;Steady harmonic response at T = %.2f s&#x27;, P.selectedPeriod))
+        xlabel(timeAxis, &#x27;Time [s]&#x27;)
+        ylabel(timeAxis, &#x27;Elevation / displacement [m]&#x27;)
+        legend(timeAxis, &#x27;Location&#x27;, &#x27;best&#x27;)
+        styleAxis(timeAxis)
+
+        summaryText = sprintf([ ...
+            &#x27;SELECTED FREQUENCY\n&#x27; ...
+            &#x27;T = %.2f s,  omega = %.3f rad/s,  a = %.2f m\n\n&#x27; ...
+            &#x27;BODY AND RESTORING\n&#x27; ...
+            &#x27;m = %.1f tonne\n&#x27; ...
+            &#x27;A_wp = %.2f m^2\n&#x27; ...
+            &#x27;C33 = rho g A_wp = %.1f kN/m\n&#x27; ...
+            &#x27;K_total = %.1f kN/m\n\n&#x27; ...
+            &#x27;HYDRODYNAMICS AT SELECTED T\n&#x27; ...
+            &#x27;A33 = %.1f tonne\n&#x27; ...
+            &#x27;B33 = %.1f kN s/m\n&#x27; ...
+            &#x27;|F_exc,3|/a = %.1f kN/m\n\n&#x27; ...
+            &#x27;RESPONSE\n&#x27; ...
+            &#x27;|H3| = %.3f m/m\n&#x27; ...
+            &#x27;phase(H3) = %.1f deg\n&#x27; ...
+            &#x27;heave amplitude = %.3f m\n&#x27; ...
+            &#x27;mean mechanical PTO power = %.2f kW\n\n&#x27; ...
+            &#x27;Approximate inertia-restoring balance: T ~= %.2f s&#x27;], ...
+            P.selectedPeriod, D.selectedOmega, P.waveAmplitude, ...
+            P.massTonnes, D.waterplaneArea, D.hydrostaticStiffness/1e3, ...
+            D.totalStiffness/1e3, D.selectedAddedMass/1e3, ...
+            D.selectedRadiationDamping/1e3, ...
+            abs(D.selectedExcitationPerAmplitude)/1e3, ...
+            abs(D.selectedH), phaseDegrees(D.selectedH), ...
+            P.waveAmplitude*abs(D.selectedH), D.selectedMeanPtoPower/1e3, ...
+            D.estimatedResonancePeriod);
+        summaryArea.Value = splitText(summaryText);
+    end
+
+    function resetInputs(~, ~)
+        massSpinner.Value = defaults.massTonnes;
+        radiusSpinner.Value = defaults.waterplaneRadius;
+        ptoDampingSpinner.Value = defaults.ptoDamping_kNsPerM;
+        viscDampingSpinner.Value = defaults.viscousDamping_kNsPerM;
+        extraStiffnessSpinner.Value = defaults.extraStiffness_kNPerM;
+        addedMassScaleSpinner.Value = defaults.addedMassScale;
+        radiationScaleSpinner.Value = defaults.radiationScale;
+        excitationScaleSpinner.Value = defaults.excitationScale;
+        waveAmplitudeSpinner.Value = defaults.waveAmplitude;
+        selectedPeriodSpinner.Value = defaults.selectedPeriod;
+        baseline.P = defaults;
+        baseline.D = calculateHeaveResponse(defaults);
+        updateAll();
+    end
+
+    function setCurrentBaseline(~, ~)
+        baseline.P = readControls();
+        baseline.D = calculateHeaveResponse(baseline.P);
+        updateAll();
+    end
+
+    function playMotion(~, ~)
+        P = readControls();
+        D = calculateHeaveResponse(P);
+        playButton.Enable = &#x27;off&#x27;;
+        cleanup = onCleanup(@() setPlayButtonEnabled());
+        frameTimes = linspace(0, 2*P.selectedPeriod, 120);
+        for frameIndex = 1:numel(frameTimes)
+            if ~isvalid(fig)
+                return
+            end
+            renderHeaveFrame(animationAxis, P, D, frameTimes(frameIndex), colors)
+            drawnow limitrate
+            pause(0.015)
+        end
+        renderHeaveFrame(animationAxis, P, D, 0, colors)
+        clear cleanup
+        setPlayButtonEnabled();
+    end
+
+    function setPlayButtonEnabled()
+        if isvalid(playButton)
+            playButton.Enable = &#x27;on&#x27;;
+        end
+    end
+
+    function showQuestionPrompt(~, ~)
+        [prompt, ~] = heaveQuestionText(questionDropDown.Value);
+        questionArea.Value = splitText(sprintf(&#x27;ASK THE CLASS:\n%s\n\nThen change the indicated control and compare with the dashed baseline.&#x27;, prompt));
+    end
+
+    function revealQuestionAnswer(~, ~)
+        [prompt, answer] = heaveQuestionText(questionDropDown.Value);
+        questionArea.Value = splitText(sprintf(&#x27;QUESTION:\n%s\n\nEXPECTED EXPLANATION:\n%s&#x27;, prompt, answer));
+    end
+
+    function markSelectedPeriod(axisHandle, selectedPeriod)
+        limits = ylim(axisHandle);
+        plot(axisHandle, [selectedPeriod selectedPeriod], limits, &#x27;:&#x27;, ...
+            &#x27;Color&#x27;, [0.25 0.25 0.25], ...
+            &#x27;LineWidth&#x27;, 1.0, ...
+            &#x27;HandleVisibility&#x27;, &#x27;off&#x27;);
+        ylim(axisHandle, limits)
+    end
+
+    function styleAxis(axisHandle)
+        axisHandle.Box = &#x27;on&#x27;;
+        axisHandle.XGrid = &#x27;on&#x27;;
+        axisHandle.YGrid = &#x27;on&#x27;;
+        axisHandle.GridAlpha = 0.18;
+        axisHandle.FontSize = 11;
+        axisHandle.LineWidth = 0.9;
+    end
+end
+
+function P = defaultHeaveParameters()
+    P.rho = 1025;                         % seawater density [kg/m^3]
+    P.g = 9.81;                           % gravitational acceleration [m/s^2]
+    P.waterDepth = 60;                    % visual/dispersion water depth [m]
+    P.hydrodynamicDraft = 4.0;            % reference displaced-water draft [m]
+    P.periodMin = 2.5;                    % [s]
+    P.periodMax = 15.0;                   % [s]
+    P.numberOfPeriods = 520;
+
+    P.waterplaneRadius = 3.0;             % [m]
+    displacedMass = P.rho*pi*P.waterplaneRadius^2*P.hydrodynamicDraft;
+    P.massTonnes = displacedMass/1e3;     % [tonne]
+
+    P.ptoDamping_kNsPerM = 60;            % [kN s/m]
+    P.viscousDamping_kNsPerM = 20;        % [kN s/m]
+    P.extraStiffness_kNPerM = 0;          % [kN/m]
+
+    P.addedMassScale = 1.0;
+    P.radiationScale = 1.0;
+    P.excitationScale = 1.0;
+
+    P.waveAmplitude = 0.50;               % [m]
+    P.selectedPeriod = 7.00;              % [s]
+end
+
+function D = calculateHeaveResponse(P)
+    D.period = linspace(P.periodMin, P.periodMax, P.numberOfPeriods);
+    D.omega = 2*pi./D.period;
+
+    mass = P.massTonnes*1e3;
+    radius = P.waterplaneRadius;
+    D.waterplaneArea = pi*radius^2;
+    displacedWaterMass = P.rho*D.waterplaneArea*P.hydrodynamicDraft;
+
+    D.hydrostaticStiffness = P.rho*P.g*D.waterplaneArea;
+    D.totalStiffness = D.hydrostaticStiffness + P.extraStiffness_kNPerM*1e3;
+
+    % Smooth teaching coefficients. Their limiting behavior is chosen so
+    % that B33 -&gt; 0 at very low/high frequency and Fexc/a -&gt; C33 for long
+    % waves. The scale follows displaced-water mass and hydrostatic stiffness.
+    characteristicOmega = 2*pi/6.0;
+    x = D.omega/characteristicOmega;
+
+    D.addedMass = P.addedMassScale*displacedWaterMass .* ...
+        (0.62 + 0.18./(1 + x.^2) + 0.12*exp(-((x - 1)/0.45).^2));
+
+    dampingScale = sqrt(D.hydrostaticStiffness*displacedWaterMass);
+    D.radiationDamping = P.radiationScale*0.66*dampingScale .* ...
+        x.^2 .* exp(1 - x.^2);
+
+    D.excitationPerAmplitude = P.excitationScale*D.hydrostaticStiffness .* ...
+        (1 + 0.18*x.^2) ./ sqrt(1 + (x/1.55).^6);
+
+    externalDamping = (P.ptoDamping_kNsPerM + P.viscousDamping_kNsPerM)*1e3;
+    D.dynamicStiffness = D.totalStiffness ...
+        - D.omega.^2 .* (mass + D.addedMass) ...
+        + 1i*D.omega .* (D.radiationDamping + externalDamping);
+
+    D.H = D.excitationPerAmplitude ./ D.dynamicStiffness;
+    D.meanPtoPower = 0.5*(P.ptoDamping_kNsPerM*1e3) .* ...
+        (D.omega .* P.waveAmplitude .* abs(D.H)).^2;
+
+    [~, resonanceIndex] = min(abs(D.totalStiffness ...
+        - D.omega.^2 .* (mass + D.addedMass)));
+    D.estimatedResonancePeriod = D.period(resonanceIndex);
+
+    D.selectedOmega = 2*pi/P.selectedPeriod;
+    D.selectedWavenumber = dispersionWavenumber(D.selectedOmega, P.waterDepth, P.g);
+    D.selectedH = interp1(D.period, D.H, P.selectedPeriod, &#x27;pchip&#x27;);
+    D.selectedAddedMass = interp1(D.period, D.addedMass, P.selectedPeriod, &#x27;pchip&#x27;);
+    D.selectedRadiationDamping = interp1(D.period, D.radiationDamping, P.selectedPeriod, &#x27;pchip&#x27;);
+    D.selectedExcitationPerAmplitude = interp1(D.period, D.excitationPerAmplitude, P.selectedPeriod, &#x27;pchip&#x27;);
+    D.selectedMeanPtoPower = interp1(D.period, D.meanPtoPower, P.selectedPeriod, &#x27;pchip&#x27;);
+end
+
+function renderHeaveFrame(axisHandle, P, D, time, colors)
+    cla(axisHandle)
+    hold(axisHandle, &#x27;on&#x27;)
+
+    xExtent = max(14, 3.5*P.waterplaneRadius);
+    x = linspace(-xExtent, xExtent, 360);
+    eta = P.waveAmplitude*cos(D.selectedWavenumber*x - D.selectedOmega*time);
+    waterBottom = -8.0;
+
+    patch(axisHandle, [x fliplr(x)], ...
+        [eta waterBottom*ones(size(x))], ...
+        colors.waterFill, &#x27;EdgeColor&#x27;, &#x27;none&#x27;, &#x27;FaceAlpha&#x27;, 0.78);
+    plot(axisHandle, x, eta, &#x27;-&#x27;, &#x27;Color&#x27;, colors.wave, &#x27;LineWidth&#x27;, 2.0)
+
+    heave = real(P.waveAmplitude*D.selectedH*exp(1i*D.selectedOmega*time));
+    bodyDraft = P.hydrodynamicDraft;
+    freeboard = 1.45;
+    radius = P.waterplaneRadius;
+
+    bodyX = [-radius radius radius -radius];
+    bodyZ = [heave-bodyDraft heave-bodyDraft heave+freeboard heave+freeboard];
+    patch(axisHandle, bodyX, bodyZ, colors.body, ...
+        &#x27;EdgeColor&#x27;, [0.15 0.15 0.15], &#x27;LineWidth&#x27;, 1.5);
+    plot(axisHandle, [-0.22*radius 0.22*radius], ...
+        [heave+freeboard+0.25 heave+freeboard+0.25], ...
+        &#x27;Color&#x27;, [0.18 0.18 0.18], &#x27;LineWidth&#x27;, 3.0)
+
+    seabed = waterBottom + 0.35;
+    plot(axisHandle, [-xExtent xExtent], [seabed seabed], &#x27;-&#x27;, ...
+        &#x27;Color&#x27;, [0.55 0.43 0.28], &#x27;LineWidth&#x27;, 4.0)
+
+    elementTop = heave - bodyDraft;
+    drawSpring(axisHandle, -0.38, seabed, elementTop, [0.15 0.15 0.15])
+    drawDashpot(axisHandle, 0.38, seabed, elementTop, [0.15 0.15 0.15])
+
+    plot(axisHandle, 0, heave, &#x27;ko&#x27;, &#x27;MarkerFaceColor&#x27;, &#x27;k&#x27;, &#x27;MarkerSize&#x27;, 5)
+    text(axisHandle, -xExtent+0.4, 2.65, ...
+        sprintf(&#x27;eta = %.2f m   z = %.2f m&#x27;, eta(round(end/2)), heave), ...
+        &#x27;FontWeight&#x27;, &#x27;bold&#x27;, &#x27;FontSize&#x27;, 11)
+    text(axisHandle, 0.65, seabed+0.25, &#x27;equivalent PTO / mooring&#x27;, ...
+        &#x27;FontSize&#x27;, 9, &#x27;Color&#x27;, [0.20 0.20 0.20])
+
+    hold(axisHandle, &#x27;off&#x27;)
+    xlim(axisHandle, [-xExtent xExtent])
+    ylim(axisHandle, [waterBottom 3.2])
+    title(axisHandle, &#x27;Heaving body in a regular wave (visual schematic)&#x27;)
+    xlabel(axisHandle, &#x27;x [m]&#x27;)
+    ylabel(axisHandle, &#x27;z [m]&#x27;)
+    axisHandle.Box = &#x27;on&#x27;;
+    axisHandle.XGrid = &#x27;off&#x27;;
+    axisHandle.YGrid = &#x27;off&#x27;;
+    axisHandle.FontSize = 11;
+end
+
+function drawSpring(axisHandle, xCenter, zBottom, zTop, color)
+    if zTop &lt;= zBottom
+        return
+    end
+    z = linspace(zBottom, zTop, 18);
+    x = xCenter + 0.16*(-1).^(1:numel(z));
+    x([1 end]) = xCenter;
+    plot(axisHandle, x, z, &#x27;-&#x27;, &#x27;Color&#x27;, color, &#x27;LineWidth&#x27;, 1.5)
+end
+
+function drawDashpot(axisHandle, xCenter, zBottom, zTop, color)
+    if zTop &lt;= zBottom
+        return
+    end
+    zMid = 0.52*(zBottom + zTop);
+    plot(axisHandle, [xCenter xCenter], [zBottom zMid-0.32], &#x27;-&#x27;, ...
+        &#x27;Color&#x27;, color, &#x27;LineWidth&#x27;, 1.5)
+    rectangle(&#x27;Parent&#x27;, axisHandle, &#x27;Position&#x27;, [xCenter-0.16 zMid-0.32 0.32 0.64], ...
+        &#x27;EdgeColor&#x27;, color, &#x27;LineWidth&#x27;, 1.4)
+    plot(axisHandle, [xCenter xCenter], [zMid+0.32 zTop], &#x27;-&#x27;, ...
+        &#x27;Color&#x27;, color, &#x27;LineWidth&#x27;, 1.5)
+end
+
+function k = dispersionWavenumber(omega, depth, g)
+    % Newton iteration for omega^2 = g*k*tanh(k*h).
+    k = max(omega.^2/g, 1e-8);
+    for iteration = 1:40
+        kh = k*depth;
+        tanhKh = tanh(kh);
+        sechSquared = 1./cosh(kh).^2;
+        residual = g*k.*tanhKh - omega.^2;
+        derivative = g*tanhKh + g*k*depth.*sechSquared;
+        step = residual./derivative;
+        k = max(k - step, 1e-10);
+        if all(abs(step) &lt; 1e-12)
+            break
+        end
+    end
+end
+
+function degrees = phaseDegrees(complexValue)
+    degrees = mod(angle(complexValue)*180/pi + 180, 360) - 180;
+end
+
+function lines = splitText(textValue)
+    lines = regexp(textValue, &#x27;\n&#x27;, &#x27;split&#x27;);
+end
+
+function titles = heaveQuestionTitles()
+    titles = { ...
+        &#x27;Choose a prediction question ...&#x27;, ...
+        &#x27;Increase body mass&#x27;, ...
+        &#x27;Increase added mass&#x27;, ...
+        &#x27;Increase waterplane radius&#x27;, ...
+        &#x27;Increase PTO damping&#x27;, ...
+        &#x27;Increase extra stiffness&#x27;, ...
+        &#x27;Increase wave amplitude&#x27;};
+end
+
+function [prompt, answer] = heaveQuestionText(titleText)
+    switch titleText
+        case &#x27;Increase body mass&#x27;
+            prompt = [&#x27;Hold the hydrodynamic curves and stiffness fixed. If body mass increases, &#x27; ...
+                      &#x27;does the main RAO peak move to a longer or shorter wave period?&#x27;];
+            answer = [&#x27;Longer period. Greater effective inertia requires a lower angular frequency &#x27; ...
+                      &#x27;to balance the same restoring stiffness: omega_n^2[m+A33(omega_n)] ~= K. &#x27; ...
+                      &#x27;The peak height need not change monotonically because excitation and damping &#x27; ...
+                      &#x27;also vary with frequency.&#x27;];
+        case &#x27;Increase added mass&#x27;
+            prompt = [&#x27;Raise the added-mass scale while keeping body mass and restoring fixed. &#x27; ...
+                      &#x27;What happens to the resonance region?&#x27;];
+            answer = [&#x27;It generally moves to longer period for the same reason as increasing body &#x27; ...
+                      &#x27;mass: the water increases the effective inertia m+A33.&#x27;];
+        case &#x27;Increase waterplane radius&#x27;
+            prompt = [&#x27;Increase the waterplane radius. The demo updates C33 = rho g A_wp and also &#x27; ...
+                      &#x27;scales the teaching hydrodynamic coefficients with displaced-water size. &#x27; ...
+                      &#x27;Which effect dominates the peak location?&#x27;];
+            answer = [&#x27;For this baseline, the larger hydrostatic stiffness dominates and the peak &#x27; ...
+                      &#x27;moves to shorter period. This is a useful reminder that changing geometry &#x27; ...
+                      &#x27;usually changes C33, A33, B33, and Fexc together; a real BEM rerun is needed.&#x27;];
+        case &#x27;Increase PTO damping&#x27;
+            prompt = [&#x27;Increase B_PTO. Will the RAO peak and the mean absorbed PTO power both &#x27; ...
+                      &#x27;always increase?&#x27;];
+            answer = [&#x27;No. More damping lowers and broadens the motion peak. Mean PTO power is &#x27; ...
+                      &#x27;0.5 B_PTO omega^2 |z_hat|^2, so increasing B_PTO helps only until the reduced &#x27; ...
+                      &#x27;velocity offsets the larger damping coefficient. There is generally an optimum.&#x27;];
+        case &#x27;Increase extra stiffness&#x27;
+            prompt = [&#x27;Increase K_extra while mass and hydrodynamic coefficients remain fixed. &#x27; ...
+                      &#x27;Does the resonance move to longer or shorter period?&#x27;];
+            answer = [&#x27;Shorter period. Increasing restoring stiffness raises the natural angular &#x27; ...
+                      &#x27;frequency. Reactive PTO stiffness or mooring stiffness can therefore tune &#x27; ...
+                      &#x27;the response, but may also increase loads.&#x27;];
+        case &#x27;Increase wave amplitude&#x27;
+            prompt = [&#x27;Double wave amplitude while all linear coefficients are unchanged. What &#x27; ...
+                      &#x27;changes: the RAO, the physical heave amplitude, or both?&#x27;];
+            answer = [&#x27;The RAO does not change in linear theory because both excitation force and &#x27; ...
+                      &#x27;response scale with wave amplitude. Physical heave amplitude doubles, velocity &#x27; ...
+                      &#x27;doubles, and the ideal linear-damper mean PTO power scales with amplitude squared.&#x27;];
+        otherwise
+            prompt = &#x27;Choose a question from the menu.&#x27;;
+            answer = &#x27;The explanation will appear here after a question is selected.&#x27;;
+    end
+end
+
+function [passed, message] = heaveDiagnostics(P, D)
+    finiteCheck = all(isfinite(real(D.H))) &amp;&amp; all(isfinite(imag(D.H)));
+    positiveMass = all(D.addedMass &gt; 0);
+    nonnegativeDamping = all(D.radiationDamping &gt;= -1e-9);
+    positiveStiffness = D.totalStiffness &gt; 0;
+    selectedInRange = P.selectedPeriod &gt;= P.periodMin &amp;&amp; P.selectedPeriod &lt;= P.periodMax;
+    passed = finiteCheck &amp;&amp; positiveMass &amp;&amp; nonnegativeDamping &amp;&amp; ...
+        positiveStiffness &amp;&amp; selectedInRange;
+
+    if passed
+        message = sprintf([&#x27;Checks PASS: finite RAO, A33 &gt; 0, B33 &gt;= 0, and K_total &gt; 0.\n&#x27; ...
+                           &#x27;Current approximate inertia-restoring balance: T ~= %.2f s.&#x27;], ...
+                           D.estimatedResonancePeriod);
+    else
+        message = &#x27;CHECK FAILED: inspect coefficient scales and total stiffness.&#x27;;
+    end
+end
+
+function report = runHeaveSelfTest()
+    P = defaultHeaveParameters();
+    D = calculateHeaveResponse(P);
+
+    [basePeak, baseIndex] = max(abs(D.H));
+    basePeakPeriod = D.period(baseIndex);
+
+    Pmass = P;
+    Pmass.massTonnes = 1.40*P.massTonnes;
+    Dmass = calculateHeaveResponse(Pmass);
+    [~, indexMass] = max(abs(Dmass.H));
+    massPeakPeriod = Dmass.period(indexMass);
+
+    Pstiff = P;
+    Pstiff.extraStiffness_kNPerM = 200;
+    Dstiff = calculateHeaveResponse(Pstiff);
+    [~, indexStiff] = max(abs(Dstiff.H));
+    stiffnessPeakPeriod = Dstiff.period(indexStiff);
+
+    Pdamp = P;
+    Pdamp.ptoDamping_kNsPerM = 180;
+    Ddamp = calculateHeaveResponse(Pdamp);
+    dampedPeak = max(abs(Ddamp.H));
+
+    Pamp = P;
+    Pamp.waveAmplitude = 2*P.waveAmplitude;
+    Damp = calculateHeaveResponse(Pamp);
+
+    checks = [ ...
+        all(isfinite(real(D.H))) &amp;&amp; all(isfinite(imag(D.H))), ...
+        all(D.addedMass &gt; 0), ...
+        all(D.radiationDamping &gt;= -1e-9), ...
+        D.totalStiffness &gt; 0, ...
+        massPeakPeriod &gt; basePeakPeriod, ...
+        stiffnessPeakPeriod &lt; basePeakPeriod, ...
+        dampedPeak &lt; basePeak, ...
+        max(abs(Damp.H - D.H)) &lt; 1e-12];
+
+    if ~all(checks)
+        error(&#x27;HMEC_heave_RAO_demo:SelfTestFailed&#x27;, ...
+            &#x27;One or more heave-demo numerical checks failed.&#x27;)
+    end
+
+    report.passed = true;
+    report.defaultPeakPeriod_s = basePeakPeriod;
+    report.defaultPeakRAO = basePeak;
+    report.massIncreasePeakPeriod_s = massPeakPeriod;
+    report.stiffnessIncreasePeakPeriod_s = stiffnessPeakPeriod;
+    report.highDampingPeakRAO = dampedPeak;
+    report.waveAmplitudeLeavesRAOUnchanged = true;
+
+    fprintf([&#x27;HMEC heave demo self-test PASS. Default peak: %.2f s, |H3| = %.3f.\n&#x27;], ...
+        basePeakPeriod, basePeak)
+end
+</code></pre><pre class="rao-code" id="rao-src-1" tabindex="0" aria-label="HMEC_heave_pitch_RAO_demo.m" hidden><code>function varargout = HMEC_heave_pitch_RAO_demo(varargin)
+% HMEC_HEAVE_PITCH_RAO_DEMO Interactive coupled heave-pitch RAO demo.
+%
+% Run the interactive classroom demonstration:
+%   HMEC_heave_pitch_RAO_demo
+%
+% Run numerical and matrix-consistency checks without opening the GUI:
+%   report = HMEC_heave_pitch_RAO_demo(&#x27;selftest&#x27;)
+%
+% Coordinates and generalized loading:
+%   q = [z; theta]          z [m], theta [rad]
+%   F = [F_exc,3; M_exc,5] F [N], moment [N m]
+%
+% For one regular-wave frequency omega, with exp(i*omega*t):
+%
+%   Z(omega) q_hat = F_exc_hat,
+%
+%   Z = -omega^2 [M + A(omega)]
+%       + i*omega [B(omega) + B_PTO + B_visc]
+%       + [C + K_extra].
+%
+% The RAO vector is q_hat/a_hat. Therefore:
+%   H3 = z_hat/a_hat       [m/m], dimensionless
+%   H5 = theta_hat/a_hat   [rad/m] (or deg/m for display)
+%
+% Internally, every calculation uses SI units and radians. Controls use
+% convenient engineering units. The frequency-dependent hydrodynamic
+% matrices and excitation vector are smooth, physically constrained,
+% BEM-like TEACHING curves. They are not validated predictions for a
+% particular device. Replace calculateHeavePitchResponse() hydrodynamic
+% curves with Capytaine/WAMIT/Nemoh/AQWA data for a device-specific case.
+%
+% This file uses base MATLAB UI and plotting functions only.
+
+    if nargin &gt; 0
+        mode = char(varargin{1});
+        if strcmpi(strtrim(mode), &#x27;selftest&#x27;)
+            report = runHeavePitchSelfTest();
+            if nargout &gt; 0
+                varargout{1} = report;
+            else
+                disp(report)
+            end
+            return
+        end
+    end
+
+    defaults = defaultHeavePitchParameters();
+    baseline.P = defaults;
+    baseline.D = calculateHeavePitchResponse(defaults);
+
+    colors.heave     = [0.0000 0.4470 0.7410];
+    colors.pitch     = [0.8500 0.3250 0.0980];
+    colors.total     = [0.0000 0.6200 0.4500];
+    colors.baseline  = [0.4200 0.4200 0.4200];
+    colors.wave      = [0.0000 0.4470 0.7410];
+    colors.body      = [0.9290 0.6940 0.1250];
+    colors.waterFill = [0.8200 0.9300 0.9800];
+    colors.coupling  = [0.4940 0.1840 0.5560];
+
+    fig = uifigure( ...
+        &#x27;Name&#x27;, &#x27;HMEC | Coupled Heave-Pitch RAO Teaching Demo&#x27;, ...
+        &#x27;Position&#x27;, [28 35 1570 900], ...
+        &#x27;Color&#x27;, [0.97 0.97 0.97]);
+
+    root = uigridlayout(fig, [1 2]);
+    root.ColumnWidth = {385, &#x27;1x&#x27;};
+    root.RowHeight = {&#x27;1x&#x27;};
+    root.Padding = [10 10 10 10];
+    root.ColumnSpacing = 10;
+
+    controlPanel = uipanel(root, ...
+        &#x27;Title&#x27;, &#x27;Inputs, comparison case, and class questions&#x27;, ...
+        &#x27;FontWeight&#x27;, &#x27;bold&#x27;);
+    controlPanel.Layout.Row = 1;
+    controlPanel.Layout.Column = 1;
+
+    controls = uigridlayout(controlPanel, [25 2]);
+    controls.ColumnWidth = {198, &#x27;1x&#x27;};
+    controls.RowHeight = {50, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, ...
+                          25, 25, 25, 26, 26, 34, 20, 30, 40, 40, 32, 26, 42};
+    controls.Padding = [8 8 8 8];
+    controls.RowSpacing = 4;
+    controls.ColumnSpacing = 7;
+
+    banner = uilabel(controls, ...
+        &#x27;Text&#x27;, [&#x27;Generic 18 m floating WEC/hull. Coefficients have realistic &#x27; ...
+                 &#x27;scale and matrix properties, but are not validated device data.&#x27;], ...
+        &#x27;WordWrap&#x27;, &#x27;on&#x27;, ...
+        &#x27;FontWeight&#x27;, &#x27;bold&#x27;, ...
+        &#x27;FontColor&#x27;, [0.55 0.20 0.05]);
+    banner.Layout.Row = 1;
+    banner.Layout.Column = [1 2];
+
+    massSpinner = makeSpinner(controls, 2, &#x27;Body mass, m [tonne]&#x27;, ...
+        [150 1000], 10, defaults.massTonnes, @updateAll);
+    inertiaSpinner = makeSpinner(controls, 3, &#x27;Pitch inertia, Iyy [10^6 kg m^2]&#x27;, ...
+        [3 60], 1, defaults.pitchInertia_Mkgm2, @updateAll);
+    areaSpinner = makeSpinner(controls, 4, &#x27;Waterplane area, A_wp [m^2]&#x27;, ...
+        [25 180], 5, defaults.waterplaneArea, @updateAll);
+    pitchRestoringSpinner = makeSpinner(controls, 5, &#x27;Pitch restoring, C55 [MN m/rad]&#x27;, ...
+        [3 80], 1, defaults.pitchRestoring_MNmPerRad, @updateAll);
+    heavePtoSpinner = makeSpinner(controls, 6, &#x27;Heave PTO damping [kN s/m]&#x27;, ...
+        [0 600], 10, defaults.heavePtoDamping_kNsPerM, @updateAll);
+    pitchPtoSpinner = makeSpinner(controls, 7, &#x27;Pitch PTO damping [MN m s/rad]&#x27;, ...
+        [0 20], 0.25, defaults.pitchPtoDamping_MNmsPerRad, @updateAll);
+    heaveViscSpinner = makeSpinner(controls, 8, &#x27;Extra heave damping [kN s/m]&#x27;, ...
+        [0 250], 5, defaults.heaveViscousDamping_kNsPerM, @updateAll);
+    pitchViscSpinner = makeSpinner(controls, 9, &#x27;Extra pitch damping [MN m s/rad]&#x27;, ...
+        [0 10], 0.20, defaults.pitchViscousDamping_MNmsPerRad, @updateAll);
+    heaveStiffnessSpinner = makeSpinner(controls, 10, &#x27;Extra heave stiffness [kN/m]&#x27;, ...
+        [0 1200], 25, defaults.extraHeaveStiffness_kNPerM, @updateAll);
+    pitchStiffnessSpinner = makeSpinner(controls, 11, &#x27;Extra pitch stiffness [MN m/rad]&#x27;, ...
+        [0 80], 1, defaults.extraPitchStiffness_MNmPerRad, @updateAll);
+    couplingSpinner = makeSpinner(controls, 12, &#x27;Heave-pitch coupling [%]&#x27;, ...
+        [0 150], 5, defaults.couplingPercent, @updateAll);
+    addedMassScaleSpinner = makeSpinner(controls, 13, &#x27;Added-mass scale [-]&#x27;, ...
+        [0.40 1.80], 0.05, defaults.addedMassScale, @updateAll);
+    radiationScaleSpinner = makeSpinner(controls, 14, &#x27;Radiation-damping scale [-]&#x27;, ...
+        [0.40 1.80], 0.05, defaults.radiationScale, @updateAll);
+    waveAmplitudeSpinner = makeSpinner(controls, 15, &#x27;Wave amplitude, a [m]&#x27;, ...
+        [0.05 1.50], 0.05, defaults.waveAmplitude, @updateAll);
+
+    directPitchCheckbox = uicheckbox(controls, ...
+        &#x27;Text&#x27;, &#x27;Include direct wave-excitation pitch moment&#x27;, ...
+        &#x27;Value&#x27;, defaults.includeDirectPitchExcitation, ...
+        &#x27;ValueChangedFcn&#x27;, @updateAll);
+    directPitchCheckbox.Layout.Row = 16;
+    directPitchCheckbox.Layout.Column = [1 2];
+
+    periodLabel = uilabel(controls, &#x27;Text&#x27;, &#x27;Selected wave period [s]&#x27;);
+    periodLabel.Layout.Row = 17;
+    periodLabel.Layout.Column = 1;
+    selectedPeriodSpinner = uispinner(controls, ...
+        &#x27;Limits&#x27;, [defaults.periodMin defaults.periodMax], ...
+        &#x27;Step&#x27;, 0.25, ...
+        &#x27;Value&#x27;, defaults.selectedPeriod, ...
+        &#x27;ValueDisplayFormat&#x27;, &#x27;%.3g&#x27;, ...
+        &#x27;ValueChangedFcn&#x27;, @updateAll);
+    selectedPeriodSpinner.Layout.Row = 17;
+    selectedPeriodSpinner.Layout.Column = 2;
+
+    buttonGrid = uigridlayout(controls, [1 3]);
+    buttonGrid.Layout.Row = 18;
+    buttonGrid.Layout.Column = [1 2];
+    buttonGrid.ColumnWidth = {&#x27;1x&#x27;, &#x27;1x&#x27;, &#x27;1x&#x27;};
+    buttonGrid.Padding = [0 0 0 0];
+    buttonGrid.ColumnSpacing = 5;
+
+    resetButton = uibutton(buttonGrid, &#x27;push&#x27;, ...
+        &#x27;Text&#x27;, &#x27;Reset&#x27;, ...
+        &#x27;ButtonPushedFcn&#x27;, @resetInputs);
+    baselineButton = uibutton(buttonGrid, &#x27;push&#x27;, ...
+        &#x27;Text&#x27;, &#x27;Set baseline&#x27;, ...
+        &#x27;ButtonPushedFcn&#x27;, @setCurrentBaseline);
+    playButton = uibutton(buttonGrid, &#x27;push&#x27;, ...
+        &#x27;Text&#x27;, &#x27;Play motion&#x27;, ...
+        &#x27;ButtonPushedFcn&#x27;, @playMotion);
+
+    questionLabel = uilabel(controls, ...
+        &#x27;Text&#x27;, &#x27;Class prediction question&#x27;, ...
+        &#x27;FontWeight&#x27;, &#x27;bold&#x27;);
+    questionLabel.Layout.Row = 19;
+    questionLabel.Layout.Column = [1 2];
+
+    questionTitles = heavePitchQuestionTitles();
+    questionDropDown = uidropdown(controls, ...
+        &#x27;Items&#x27;, questionTitles, ...
+        &#x27;Value&#x27;, questionTitles{1}, ...
+        &#x27;ValueChangedFcn&#x27;, @showQuestionPrompt);
+    questionDropDown.Layout.Row = 20;
+    questionDropDown.Layout.Column = [1 2];
+
+    questionArea = uitextarea(controls, ...
+        &#x27;Editable&#x27;, &#x27;off&#x27;, ...
+        &#x27;WordWrap&#x27;, &#x27;on&#x27;, ...
+        &#x27;Value&#x27;, {&#x27;Select a question, ask for a prediction, then change the indicated control.&#x27;});
+    questionArea.Layout.Row = [21 22];
+    questionArea.Layout.Column = [1 2];
+
+    revealButton = uibutton(controls, &#x27;push&#x27;, ...
+        &#x27;Text&#x27;, &#x27;Reveal explanation&#x27;, ...
+        &#x27;ButtonPushedFcn&#x27;, @revealQuestionAnswer);
+    revealButton.Layout.Row = 23;
+    revealButton.Layout.Column = [1 2];
+
+    pitchUnitsLabel = uilabel(controls, &#x27;Text&#x27;, &#x27;Pitch RAO display units&#x27;);
+    pitchUnitsLabel.Layout.Row = 24;
+    pitchUnitsLabel.Layout.Column = 1;
+    pitchUnitsDropDown = uidropdown(controls, ...
+        &#x27;Items&#x27;, {&#x27;deg/m&#x27;, &#x27;rad/m&#x27;}, ...
+        &#x27;Value&#x27;, defaults.pitchDisplayUnits, ...
+        &#x27;ValueChangedFcn&#x27;, @updateAll);
+    pitchUnitsDropDown.Layout.Row = 24;
+    pitchUnitsDropDown.Layout.Column = 2;
+
+    statusLabel = uilabel(controls, ...
+        &#x27;Text&#x27;, &#x27;Matrix and response checks pending ...&#x27;, ...
+        &#x27;WordWrap&#x27;, &#x27;on&#x27;, ...
+        &#x27;FontWeight&#x27;, &#x27;bold&#x27;, ...
+        &#x27;FontSize&#x27;, 10);
+    statusLabel.Layout.Row = 25;
+    statusLabel.Layout.Column = [1 2];
+
+    tabs = uitabgroup(root);
+    tabs.Layout.Row = 1;
+    tabs.Layout.Column = 2;
+
+    responseTab = uitab(tabs, &#x27;Title&#x27;, &#x27;Coupled RAOs, phase, and power&#x27;);
+    responseGrid = uigridlayout(responseTab, [2 2]);
+    responseGrid.RowHeight = {&#x27;1x&#x27;, &#x27;1x&#x27;};
+    responseGrid.ColumnWidth = {&#x27;1x&#x27;, &#x27;1x&#x27;};
+    responseGrid.Padding = [10 10 10 10];
+    responseGrid.RowSpacing = 10;
+    responseGrid.ColumnSpacing = 10;
+
+    heaveRaoAxis = uiaxes(responseGrid);
+    heaveRaoAxis.Layout.Row = 1;
+    heaveRaoAxis.Layout.Column = 1;
+    pitchRaoAxis = uiaxes(responseGrid);
+    pitchRaoAxis.Layout.Row = 1;
+    pitchRaoAxis.Layout.Column = 2;
+    phaseAxis = uiaxes(responseGrid);
+    phaseAxis.Layout.Row = 2;
+    phaseAxis.Layout.Column = 1;
+    powerAxis = uiaxes(responseGrid);
+    powerAxis.Layout.Row = 2;
+    powerAxis.Layout.Column = 2;
+
+    matrixTab = uitab(tabs, &#x27;Title&#x27;, &#x27;Hydrodynamic matrices and excitation&#x27;);
+    matrixGrid = uigridlayout(matrixTab, [4 2]);
+    matrixGrid.RowHeight = {&#x27;1x&#x27;, &#x27;1x&#x27;, &#x27;1x&#x27;, &#x27;1x&#x27;};
+    matrixGrid.ColumnWidth = {&#x27;1x&#x27;, &#x27;1x&#x27;};
+    matrixGrid.Padding = [10 10 10 10];
+    matrixGrid.RowSpacing = 8;
+    matrixGrid.ColumnSpacing = 10;
+
+    addedHeaveAxis = uiaxes(matrixGrid);
+    addedHeaveAxis.Layout.Row = 1;
+    addedHeaveAxis.Layout.Column = 1;
+    addedPitchAxis = uiaxes(matrixGrid);
+    addedPitchAxis.Layout.Row = 1;
+    addedPitchAxis.Layout.Column = 2;
+    dampingHeaveAxis = uiaxes(matrixGrid);
+    dampingHeaveAxis.Layout.Row = 2;
+    dampingHeaveAxis.Layout.Column = 1;
+    dampingPitchAxis = uiaxes(matrixGrid);
+    dampingPitchAxis.Layout.Row = 2;
+    dampingPitchAxis.Layout.Column = 2;
+    addedCrossAxis = uiaxes(matrixGrid);
+    addedCrossAxis.Layout.Row = 3;
+    addedCrossAxis.Layout.Column = 1;
+    dampingCrossAxis = uiaxes(matrixGrid);
+    dampingCrossAxis.Layout.Row = 3;
+    dampingCrossAxis.Layout.Column = 2;
+    excitationForceAxis = uiaxes(matrixGrid);
+    excitationForceAxis.Layout.Row = 4;
+    excitationForceAxis.Layout.Column = 1;
+    excitationMomentAxis = uiaxes(matrixGrid);
+    excitationMomentAxis.Layout.Row = 4;
+    excitationMomentAxis.Layout.Column = 2;
+
+    motionTab = uitab(tabs, &#x27;Title&#x27;, &#x27;Selected regular-wave motion&#x27;);
+    motionGrid = uigridlayout(motionTab, [3 2]);
+    motionGrid.RowHeight = {&#x27;1x&#x27;, &#x27;1x&#x27;, 175};
+    motionGrid.ColumnWidth = {&#x27;1.15x&#x27;, &#x27;1x&#x27;};
+    motionGrid.Padding = [10 10 10 10];
+    motionGrid.RowSpacing = 10;
+    motionGrid.ColumnSpacing = 10;
+
+    animationAxis = uiaxes(motionGrid);
+    animationAxis.Layout.Row = [1 2];
+    animationAxis.Layout.Column = 1;
+    heaveTimeAxis = uiaxes(motionGrid);
+    heaveTimeAxis.Layout.Row = 1;
+    heaveTimeAxis.Layout.Column = 2;
+    pitchTimeAxis = uiaxes(motionGrid);
+    pitchTimeAxis.Layout.Row = 2;
+    pitchTimeAxis.Layout.Column = 2;
+    summaryArea = uitextarea(motionGrid, ...
+        &#x27;Editable&#x27;, &#x27;off&#x27;, ...
+        &#x27;WordWrap&#x27;, &#x27;on&#x27;);
+    summaryArea.Layout.Row = 3;
+    summaryArea.Layout.Column = [1 2];
+
+    equationTab = uitab(tabs, &#x27;Title&#x27;, &#x27;Equation, units, and impedance&#x27;);
+    equationGrid = uigridlayout(equationTab, [2 2]);
+    equationGrid.RowHeight = {&#x27;1x&#x27;, &#x27;1x&#x27;};
+    equationGrid.ColumnWidth = {520, &#x27;1x&#x27;};
+    equationGrid.Padding = [10 10 10 10];
+    equationGrid.RowSpacing = 10;
+    equationGrid.ColumnSpacing = 10;
+
+    equationArea = uitextarea(equationGrid, ...
+        &#x27;Editable&#x27;, &#x27;off&#x27;, ...
+        &#x27;WordWrap&#x27;, &#x27;on&#x27;);
+    equationArea.Layout.Row = [1 2];
+    equationArea.Layout.Column = 1;
+    impedanceAxis = uiaxes(equationGrid);
+    impedanceAxis.Layout.Row = 1;
+    impedanceAxis.Layout.Column = 2;
+    contributionAxis = uiaxes(equationGrid);
+    contributionAxis.Layout.Row = 2;
+    contributionAxis.Layout.Column = 2;
+
+    updateAll();
+
+    function spinner = makeSpinner(parent, rowNumber, labelText, limits, step, value, callback)
+        label = uilabel(parent, &#x27;Text&#x27;, labelText);
+        label.Layout.Row = rowNumber;
+        label.Layout.Column = 1;
+        spinner = uispinner(parent, ...
+            &#x27;Limits&#x27;, limits, ...
+            &#x27;Step&#x27;, step, ...
+            &#x27;Value&#x27;, value, ...
+            &#x27;ValueDisplayFormat&#x27;, &#x27;%.3g&#x27;, ...
+            &#x27;ValueChangedFcn&#x27;, callback);
+        spinner.Layout.Row = rowNumber;
+        spinner.Layout.Column = 2;
+    end
+
+    function P = readControls()
+        P = defaults;
+        P.massTonnes = massSpinner.Value;
+        P.pitchInertia_Mkgm2 = inertiaSpinner.Value;
+        P.waterplaneArea = areaSpinner.Value;
+        P.pitchRestoring_MNmPerRad = pitchRestoringSpinner.Value;
+        P.heavePtoDamping_kNsPerM = heavePtoSpinner.Value;
+        P.pitchPtoDamping_MNmsPerRad = pitchPtoSpinner.Value;
+        P.heaveViscousDamping_kNsPerM = heaveViscSpinner.Value;
+        P.pitchViscousDamping_MNmsPerRad = pitchViscSpinner.Value;
+        P.extraHeaveStiffness_kNPerM = heaveStiffnessSpinner.Value;
+        P.extraPitchStiffness_MNmPerRad = pitchStiffnessSpinner.Value;
+        P.couplingPercent = couplingSpinner.Value;
+        P.addedMassScale = addedMassScaleSpinner.Value;
+        P.radiationScale = radiationScaleSpinner.Value;
+        P.waveAmplitude = waveAmplitudeSpinner.Value;
+        P.includeDirectPitchExcitation = directPitchCheckbox.Value;
+        P.selectedPeriod = selectedPeriodSpinner.Value;
+        P.pitchDisplayUnits = pitchUnitsDropDown.Value;
+    end
+
+    function updateAll(varargin)
+        P = readControls();
+        D = calculateHeavePitchResponse(P);
+
+        plotResponse(P, D);
+        plotMatrices(P, D);
+        plotMotion(P, D);
+        plotEquationAndImpedance(P, D);
+
+        [checksPass, checkMessage] = heavePitchDiagnostics(P, D);
+        statusLabel.Text = checkMessage;
+        if checksPass
+            statusLabel.FontColor = [0.00 0.45 0.15];
+        else
+            statusLabel.FontColor = [0.75 0.00 0.00];
+        end
+    end
+
+    function plotResponse(P, D)
+        [pitchScale, pitchUnits] = pitchDisplayScale(P.pitchDisplayUnits);
+        [baselinePitchScale, ~] = pitchDisplayScale(P.pitchDisplayUnits);
+
+        cla(heaveRaoAxis)
+        hold(heaveRaoAxis, &#x27;on&#x27;)
+        plot(heaveRaoAxis, baseline.D.period, abs(baseline.D.H(1,:)), &#x27;--&#x27;, ...
+            &#x27;Color&#x27;, colors.baseline, &#x27;LineWidth&#x27;, 1.6, &#x27;DisplayName&#x27;, &#x27;Comparison baseline&#x27;);
+        plot(heaveRaoAxis, D.period, abs(D.H(1,:)), &#x27;-&#x27;, ...
+            &#x27;Color&#x27;, colors.heave, &#x27;LineWidth&#x27;, 2.3, &#x27;DisplayName&#x27;, &#x27;Current case&#x27;);
+        markSelectedPeriod(heaveRaoAxis, P.selectedPeriod);
+        hold(heaveRaoAxis, &#x27;off&#x27;)
+        title(heaveRaoAxis, &#x27;Heave RAO magnitude&#x27;)
+        xlabel(heaveRaoAxis, &#x27;Wave period, T [s]&#x27;)
+        ylabel(heaveRaoAxis, &#x27;|H_3| = |z-hat|/a [m/m]&#x27;)
+        xlim(heaveRaoAxis, [P.periodMin P.periodMax])
+        legend(heaveRaoAxis, &#x27;Location&#x27;, &#x27;best&#x27;)
+        styleAxis(heaveRaoAxis)
+
+        cla(pitchRaoAxis)
+        hold(pitchRaoAxis, &#x27;on&#x27;)
+        plot(pitchRaoAxis, baseline.D.period, baselinePitchScale*abs(baseline.D.H(2,:)), &#x27;--&#x27;, ...
+            &#x27;Color&#x27;, colors.baseline, &#x27;LineWidth&#x27;, 1.6, &#x27;DisplayName&#x27;, &#x27;Comparison baseline&#x27;);
+        plot(pitchRaoAxis, D.period, pitchScale*abs(D.H(2,:)), &#x27;-&#x27;, ...
+            &#x27;Color&#x27;, colors.pitch, &#x27;LineWidth&#x27;, 2.3, &#x27;DisplayName&#x27;, &#x27;Current case&#x27;);
+        markSelectedPeriod(pitchRaoAxis, P.selectedPeriod);
+        hold(pitchRaoAxis, &#x27;off&#x27;)
+        title(pitchRaoAxis, &#x27;Pitch RAO magnitude&#x27;)
+        xlabel(pitchRaoAxis, &#x27;Wave period, T [s]&#x27;)
+        ylabel(pitchRaoAxis, sprintf(&#x27;|H_5| = |theta-hat|/a [%s]&#x27;, pitchUnits))
+        xlim(pitchRaoAxis, [P.periodMin P.periodMax])
+        legend(pitchRaoAxis, &#x27;Location&#x27;, &#x27;best&#x27;)
+        styleAxis(pitchRaoAxis)
+
+        cla(phaseAxis)
+        hold(phaseAxis, &#x27;on&#x27;)
+        plot(phaseAxis, D.period, phaseDegrees(D.H(1,:)), &#x27;-&#x27;, ...
+            &#x27;Color&#x27;, colors.heave, &#x27;LineWidth&#x27;, 2.0, &#x27;DisplayName&#x27;, &#x27;Heave phase&#x27;);
+        plot(phaseAxis, D.period, phaseDegrees(D.H(2,:)), &#x27;-&#x27;, ...
+            &#x27;Color&#x27;, colors.pitch, &#x27;LineWidth&#x27;, 2.0, &#x27;DisplayName&#x27;, &#x27;Pitch phase&#x27;);
+        markSelectedPeriod(phaseAxis, P.selectedPeriod);
+        hold(phaseAxis, &#x27;off&#x27;)
+        title(phaseAxis, &#x27;Response phase relative to wave elevation&#x27;)
+        xlabel(phaseAxis, &#x27;Wave period, T [s]&#x27;)
+        ylabel(phaseAxis, &#x27;Phase [deg]&#x27;)
+        xlim(phaseAxis, [P.periodMin P.periodMax])
+        ylim(phaseAxis, [-190 190])
+        legend(phaseAxis, &#x27;Location&#x27;, &#x27;best&#x27;)
+        styleAxis(phaseAxis)
+
+        cla(powerAxis)
+        hold(powerAxis, &#x27;on&#x27;)
+        plot(powerAxis, D.period, D.meanPtoPowerHeave/1e3, &#x27;-&#x27;, ...
+            &#x27;Color&#x27;, colors.heave, &#x27;LineWidth&#x27;, 1.9, &#x27;DisplayName&#x27;, &#x27;Heave PTO&#x27;);
+        plot(powerAxis, D.period, D.meanPtoPowerPitch/1e3, &#x27;-&#x27;, ...
+            &#x27;Color&#x27;, colors.pitch, &#x27;LineWidth&#x27;, 1.9, &#x27;DisplayName&#x27;, &#x27;Pitch PTO&#x27;);
+        plot(powerAxis, D.period, D.meanPtoPowerTotal/1e3, &#x27;-&#x27;, ...
+            &#x27;Color&#x27;, colors.total, &#x27;LineWidth&#x27;, 2.4, &#x27;DisplayName&#x27;, &#x27;Total&#x27;);
+        markSelectedPeriod(powerAxis, P.selectedPeriod);
+        hold(powerAxis, &#x27;off&#x27;)
+        title(powerAxis, sprintf(&#x27;Mean mechanical PTO power for a = %.2f m&#x27;, P.waveAmplitude))
+        xlabel(powerAxis, &#x27;Wave period, T [s]&#x27;)
+        ylabel(powerAxis, &#x27;Mean power [kW]&#x27;)
+        xlim(powerAxis, [P.periodMin P.periodMax])
+        legend(powerAxis, &#x27;Location&#x27;, &#x27;best&#x27;)
+        styleAxis(powerAxis)
+    end
+
+    function plotMatrices(P, D)
+        plotCoefficient(addedHeaveAxis, P, D.period, D.A33/1e3, ...
+            baseline.D.period, baseline.D.A33/1e3, colors.heave, ...
+            &#x27;A_{33}: heave added mass&#x27;, &#x27;A_{33} [tonne]&#x27;);
+        plotCoefficient(addedPitchAxis, P, D.period, D.A55/1e6, ...
+            baseline.D.period, baseline.D.A55/1e6, colors.pitch, ...
+            &#x27;A_{55}: pitch added inertia&#x27;, &#x27;A_{55} [10^6 kg m^2]&#x27;);
+        plotCoefficient(dampingHeaveAxis, P, D.period, D.B33/1e3, ...
+            baseline.D.period, baseline.D.B33/1e3, colors.heave, ...
+            &#x27;B_{33}: heave radiation damping&#x27;, &#x27;B_{33} [kN s/m]&#x27;);
+        plotCoefficient(dampingPitchAxis, P, D.period, D.B55/1e6, ...
+            baseline.D.period, baseline.D.B55/1e6, colors.pitch, ...
+            &#x27;B_{55}: pitch radiation damping&#x27;, &#x27;B_{55} [MN m s/rad]&#x27;);
+        plotCoefficient(addedCrossAxis, P, D.period, D.A35/1e6, ...
+            baseline.D.period, baseline.D.A35/1e6, colors.coupling, ...
+            &#x27;A_{35}=A_{53}: inertial coupling&#x27;, &#x27;A_{35} [10^6 kg m]&#x27;);
+        plotCoefficient(dampingCrossAxis, P, D.period, D.B35/1e6, ...
+            baseline.D.period, baseline.D.B35/1e6, colors.coupling, ...
+            &#x27;B_{35}=B_{53}: radiation coupling&#x27;, &#x27;B_{35} [MN s]&#x27;);
+        plotCoefficient(excitationForceAxis, P, D.period, abs(D.excitation(1,:))/1e3, ...
+            baseline.D.period, abs(baseline.D.excitation(1,:))/1e3, colors.total, ...
+            &#x27;Wave-excitation force transfer&#x27;, &#x27;|F_{exc,3}|/a [kN/m]&#x27;);
+        plotCoefficient(excitationMomentAxis, P, D.period, abs(D.excitation(2,:))/1e3, ...
+            baseline.D.period, abs(baseline.D.excitation(2,:))/1e3, colors.total, ...
+            &#x27;Wave-excitation moment transfer&#x27;, &#x27;|M_{exc,5}|/a [kN]&#x27;);
+    end
+
+    function plotCoefficient(axisHandle, P, period, currentValue, basePeriod, baseValue, color, plotTitle, yLabelText)
+        cla(axisHandle)
+        hold(axisHandle, &#x27;on&#x27;)
+        plot(axisHandle, basePeriod, baseValue, &#x27;--&#x27;, ...
+            &#x27;Color&#x27;, colors.baseline, &#x27;LineWidth&#x27;, 1.3, &#x27;DisplayName&#x27;, &#x27;Baseline&#x27;);
+        plot(axisHandle, period, currentValue, &#x27;-&#x27;, ...
+            &#x27;Color&#x27;, color, &#x27;LineWidth&#x27;, 2.0, &#x27;DisplayName&#x27;, &#x27;Current&#x27;);
+        markSelectedPeriod(axisHandle, P.selectedPeriod);
+        hold(axisHandle, &#x27;off&#x27;)
+        title(axisHandle, plotTitle)
+        xlabel(axisHandle, &#x27;T [s]&#x27;)
+        ylabel(axisHandle, yLabelText)
+        xlim(axisHandle, [P.periodMin P.periodMax])
+        styleAxis(axisHandle)
+    end
+
+    function plotMotion(P, D)
+        renderHeavePitchFrame(animationAxis, P, D, 0, colors)
+
+        t = linspace(0, 4*P.selectedPeriod, 700);
+        eta = P.waveAmplitude*cos(D.selectedOmega*t);
+        z = real(P.waveAmplitude*D.selectedH(1).*exp(1i*D.selectedOmega*t));
+        theta = real(P.waveAmplitude*D.selectedH(2).*exp(1i*D.selectedOmega*t));
+        slopeAngle = real(-1i*D.selectedWavenumber*P.waveAmplitude .* ...
+            exp(1i*D.selectedOmega*t));
+
+        cla(heaveTimeAxis)
+        hold(heaveTimeAxis, &#x27;on&#x27;)
+        plot(heaveTimeAxis, t, eta, &#x27;-&#x27;, ...
+            &#x27;Color&#x27;, colors.wave, &#x27;LineWidth&#x27;, 1.7, &#x27;DisplayName&#x27;, &#x27;Wave elevation eta&#x27;);
+        plot(heaveTimeAxis, t, z, &#x27;-&#x27;, ...
+            &#x27;Color&#x27;, colors.heave, &#x27;LineWidth&#x27;, 2.1, &#x27;DisplayName&#x27;, &#x27;Heave z&#x27;);
+        hold(heaveTimeAxis, &#x27;off&#x27;)
+        title(heaveTimeAxis, sprintf(&#x27;Heave at T = %.2f s&#x27;, P.selectedPeriod))
+        xlabel(heaveTimeAxis, &#x27;Time [s]&#x27;)
+        ylabel(heaveTimeAxis, &#x27;Elevation / displacement [m]&#x27;)
+        legend(heaveTimeAxis, &#x27;Location&#x27;, &#x27;best&#x27;)
+        styleAxis(heaveTimeAxis)
+
+        cla(pitchTimeAxis)
+        hold(pitchTimeAxis, &#x27;on&#x27;)
+        plot(pitchTimeAxis, t, slopeAngle*180/pi, &#x27;--&#x27;, ...
+            &#x27;Color&#x27;, colors.wave, &#x27;LineWidth&#x27;, 1.6, &#x27;DisplayName&#x27;, &#x27;Local wave slope&#x27;);
+        plot(pitchTimeAxis, t, theta*180/pi, &#x27;-&#x27;, ...
+            &#x27;Color&#x27;, colors.pitch, &#x27;LineWidth&#x27;, 2.1, &#x27;DisplayName&#x27;, &#x27;Pitch theta&#x27;);
+        hold(pitchTimeAxis, &#x27;off&#x27;)
+        title(pitchTimeAxis, &#x27;Pitch and local wave-slope angle&#x27;)
+        xlabel(pitchTimeAxis, &#x27;Time [s]&#x27;)
+        ylabel(pitchTimeAxis, &#x27;Angle [deg]&#x27;)
+        legend(pitchTimeAxis, &#x27;Location&#x27;, &#x27;best&#x27;)
+        styleAxis(pitchTimeAxis)
+
+        summaryText = sprintf([ ...
+            &#x27;SELECTED FREQUENCY: T = %.2f s, omega = %.3f rad/s, a = %.2f m\n&#x27; ...
+            &#x27;BODY: m = %.1f tonne, Iyy = %.2f x 10^6 kg m^2, A_wp = %.1f m^2\n&#x27; ...
+            &#x27;RESTORING: C33 = %.1f kN/m, C55 = %.2f MN m/rad, C35 = C53 = %.1f kN\n&#x27; ...
+            &#x27;HYDRODYNAMICS: A33 = %.1f tonne, A55 = %.2f x 10^6 kg m^2, &#x27; ...
+            &#x27;B33 = %.1f kN s/m, B55 = %.2f MN m s/rad\n&#x27; ...
+            &#x27;RESPONSE: |H3| = %.3f m/m, phase = %.1f deg; &#x27; ...
+            &#x27;|H5| = %.4f rad/m = %.2f deg/m, phase = %.1f deg\n&#x27; ...
+            &#x27;PHYSICAL AMPLITUDES: |z| = %.3f m, |theta| = %.2f deg; &#x27; ...
+            &#x27;mean PTO power = %.1f kW\n&#x27; ...
+            &#x27;UNCOUPLED inertia-restoring estimates: heave T ~= %.2f s; pitch T ~= %.2f s&#x27;], ...
+            P.selectedPeriod, D.selectedOmega, P.waveAmplitude, ...
+            P.massTonnes, P.pitchInertia_Mkgm2, P.waterplaneArea, ...
+            D.C(1,1)/1e3, D.C(2,2)/1e6, D.C(1,2)/1e3, ...
+            D.selectedA(1,1)/1e3, D.selectedA(2,2)/1e6, ...
+            D.selectedB(1,1)/1e3, D.selectedB(2,2)/1e6, ...
+            abs(D.selectedH(1)), phaseDegrees(D.selectedH(1)), ...
+            abs(D.selectedH(2)), abs(D.selectedH(2))*180/pi, ...
+            phaseDegrees(D.selectedH(2)), ...
+            P.waveAmplitude*abs(D.selectedH(1)), ...
+            P.waveAmplitude*abs(D.selectedH(2))*180/pi, ...
+            D.selectedMeanPtoPowerTotal/1e3, ...
+            D.estimatedHeaveBalancePeriod, D.estimatedPitchBalancePeriod);
+        summaryArea.Value = splitText(summaryText);
+    end
+
+    function plotEquationAndImpedance(P, D)
+        equationText = sprintf([ ...
+            &#x27;COUPLED FREQUENCY-DOMAIN EQUATION\n\n&#x27; ...
+            &#x27;[-omega^2(M+A) + i omega(B+B_PTO+B_visc) + (C+K_extra)] q-hat = F-exc-hat\n\n&#x27; ...
+            &#x27;q = [z; theta], with z in m and theta in rad.\n&#x27; ...
+            &#x27;Generalized load = [vertical force; pitch moment] in [N; N m].\n\n&#x27; ...
+            &#x27;MATRIX-ENTRY UNITS\n&#x27; ...
+            &#x27;M33, A33: kg\n&#x27; ...
+            &#x27;M35=A35 and M53=A53: kg m\n&#x27; ...
+            &#x27;M55, A55: kg m^2\n\n&#x27; ...
+            &#x27;B33: N s/m\n&#x27; ...
+            &#x27;B35=B53: N s\n&#x27; ...
+            &#x27;B55: N m s/rad\n\n&#x27; ...
+            &#x27;C33: N/m\n&#x27; ...
+            &#x27;C35=C53: N (equivalently force/rad or moment/m)\n&#x27; ...
+            &#x27;C55: N m/rad\n\n&#x27; ...
+            &#x27;RAO UNITS\n&#x27; ...
+            &#x27;H3 = z-hat/a: m/m, dimensionless.\n&#x27; ...
+            &#x27;H5 = theta-hat/a: rad/m (or deg/m), not dimensionless.\n\n&#x27; ...
+            &#x27;CURRENT SELECTED-PERIOD MATRICES (SI)\n&#x27; ...
+            &#x27;M+A = [%.4g, %.4g; %.4g, %.4g]\n&#x27; ...
+            &#x27;B+external = [%.4g, %.4g; %.4g, %.4g]\n&#x27; ...
+            &#x27;C+K = [%.4g, %.4g; %.4g, %.4g]\n\n&#x27; ...
+            &#x27;For the plots at right, pitch is converted to an equivalent vertical &#x27; ...
+            &#x27;coordinate L*theta using L = %.1f m. This makes every scaled impedance &#x27; ...
+            &#x27;entry comparable in kN/m.&#x27;], ...
+            D.selectedEffectiveMass(1,1), D.selectedEffectiveMass(1,2), ...
+            D.selectedEffectiveMass(2,1), D.selectedEffectiveMass(2,2), ...
+            D.selectedEffectiveDamping(1,1), D.selectedEffectiveDamping(1,2), ...
+            D.selectedEffectiveDamping(2,1), D.selectedEffectiveDamping(2,2), ...
+            D.totalStiffness(1,1), D.totalStiffness(1,2), ...
+            D.totalStiffness(2,1), D.totalStiffness(2,2), ...
+            P.referenceLength);
+        equationArea.Value = splitText(equationText);
+
+        scaledMagnitude = abs(D.selectedScaledImpedance)/1e3;
+        cla(impedanceAxis)
+        imagesc(impedanceAxis, scaledMagnitude)
+        impedanceAxis.XTick = [1 2];
+        impedanceAxis.YTick = [1 2];
+        impedanceAxis.XTickLabel = {&#x27;z&#x27;, &#x27;L theta&#x27;};
+        impedanceAxis.YTickLabel = {&#x27;F_z&#x27;, &#x27;M_y/L&#x27;};
+        title(impedanceAxis, sprintf(&#x27;|Scaled impedance Z| at T = %.2f s [kN/m]&#x27;, P.selectedPeriod))
+        colorbar(impedanceAxis)
+        for rowIndex = 1:2
+            for columnIndex = 1:2
+                text(impedanceAxis, columnIndex, rowIndex, ...
+                    sprintf(&#x27;%.1f&#x27;, scaledMagnitude(rowIndex,columnIndex)), ...
+                    &#x27;HorizontalAlignment&#x27;, &#x27;center&#x27;, ...
+                    &#x27;FontWeight&#x27;, &#x27;bold&#x27;, ...
+                    &#x27;Color&#x27;, [0.10 0.10 0.10]);
+            end
+        end
+        impedanceAxis.Box = &#x27;on&#x27;;
+        impedanceAxis.FontSize = 11;
+
+        contributionValues = [norm(D.selectedScaledInertia,&#x27;fro&#x27;), ...
+                              norm(D.selectedScaledDamping,&#x27;fro&#x27;), ...
+                              norm(D.selectedScaledStiffness,&#x27;fro&#x27;)]/1e3;
+        cla(contributionAxis)
+        bar(contributionAxis, contributionValues)
+        contributionAxis.XTick = 1:3;
+        contributionAxis.XTickLabel = {&#x27;|-omega^2(M+A)|&#x27;, &#x27;|i omega B|&#x27;, &#x27;|C+K|&#x27;};
+        ylabel(contributionAxis, &#x27;Frobenius norm [kN/m]&#x27;)
+        title(contributionAxis, &#x27;Relative dynamic-stiffness contributions&#x27;)
+        styleAxis(contributionAxis)
+    end
+
+    function resetInputs(varargin)
+        massSpinner.Value = defaults.massTonnes;
+        inertiaSpinner.Value = defaults.pitchInertia_Mkgm2;
+        areaSpinner.Value = defaults.waterplaneArea;
+        pitchRestoringSpinner.Value = defaults.pitchRestoring_MNmPerRad;
+        heavePtoSpinner.Value = defaults.heavePtoDamping_kNsPerM;
+        pitchPtoSpinner.Value = defaults.pitchPtoDamping_MNmsPerRad;
+        heaveViscSpinner.Value = defaults.heaveViscousDamping_kNsPerM;
+        pitchViscSpinner.Value = defaults.pitchViscousDamping_MNmsPerRad;
+        heaveStiffnessSpinner.Value = defaults.extraHeaveStiffness_kNPerM;
+        pitchStiffnessSpinner.Value = defaults.extraPitchStiffness_MNmPerRad;
+        couplingSpinner.Value = defaults.couplingPercent;
+        addedMassScaleSpinner.Value = defaults.addedMassScale;
+        radiationScaleSpinner.Value = defaults.radiationScale;
+        waveAmplitudeSpinner.Value = defaults.waveAmplitude;
+        directPitchCheckbox.Value = defaults.includeDirectPitchExcitation;
+        selectedPeriodSpinner.Value = defaults.selectedPeriod;
+        pitchUnitsDropDown.Value = defaults.pitchDisplayUnits;
+        baseline.P = defaults;
+        baseline.D = calculateHeavePitchResponse(defaults);
+        updateAll();
+    end
+
+    function setCurrentBaseline(varargin)
+        baseline.P = readControls();
+        baseline.D = calculateHeavePitchResponse(baseline.P);
+        updateAll();
+    end
+
+    function playMotion(varargin)
+        P = readControls();
+        D = calculateHeavePitchResponse(P);
+        playButton.Enable = &#x27;off&#x27;;
+        cleanup = onCleanup(@() setPlayButtonEnabled());
+        frameTimes = linspace(0, 2*P.selectedPeriod, 140);
+        for frameIndex = 1:numel(frameTimes)
+            if ~isvalid(fig)
+                return
+            end
+            renderHeavePitchFrame(animationAxis, P, D, frameTimes(frameIndex), colors)
+            drawnow limitrate
+            pause(0.012)
+        end
+        renderHeavePitchFrame(animationAxis, P, D, 0, colors)
+        clear cleanup
+        setPlayButtonEnabled();
+    end
+
+    function setPlayButtonEnabled()
+        if isvalid(playButton)
+            playButton.Enable = &#x27;on&#x27;;
+        end
+    end
+
+    function showQuestionPrompt(varargin)
+        [prompt, ~] = heavePitchQuestionText(questionDropDown.Value);
+        questionArea.Value = splitText(sprintf([ ...
+            &#x27;ASK THE CLASS:\n%s\n\nChange the indicated control and compare the &#x27; ...
+            &#x27;current curve with the dashed baseline.&#x27;], prompt));
+    end
+
+    function revealQuestionAnswer(varargin)
+        [prompt, answer] = heavePitchQuestionText(questionDropDown.Value);
+        questionArea.Value = splitText(sprintf( ...
+            &#x27;QUESTION:\n%s\n\nEXPECTED EXPLANATION:\n%s&#x27;, prompt, answer));
+    end
+
+    function markSelectedPeriod(axisHandle, selectedPeriod)
+        limits = ylim(axisHandle);
+        plot(axisHandle, [selectedPeriod selectedPeriod], limits, &#x27;:&#x27;, ...
+            &#x27;Color&#x27;, [0.25 0.25 0.25], ...
+            &#x27;LineWidth&#x27;, 1.0, ...
+            &#x27;HandleVisibility&#x27;, &#x27;off&#x27;);
+        ylim(axisHandle, limits)
+    end
+
+    function styleAxis(axisHandle)
+        axisHandle.Box = &#x27;on&#x27;;
+        axisHandle.XGrid = &#x27;on&#x27;;
+        axisHandle.YGrid = &#x27;on&#x27;;
+        axisHandle.GridAlpha = 0.18;
+        axisHandle.FontSize = 10.5;
+        axisHandle.LineWidth = 0.9;
+    end
+end
+
+function P = defaultHeavePitchParameters()
+    P.rho = 1025;                              % seawater density [kg/m^3]
+    P.g = 9.81;                                % gravity [m/s^2]
+    P.waterDepth = 80;                         % [m]
+    P.periodMin = 3.0;                         % [s]
+    P.periodMax = 16.0;                        % [s]
+    P.numberOfPeriods = 560;
+
+    % Generic elongated floating WEC/hull dimensions used for coefficient
+    % scaling and the motion sketch. They do not define a detailed hull.
+    P.referenceLength = 18.0;                  % [m]
+    P.referenceBeam = 6.0;                     % [m]
+    P.bodyDepth = 4.2;                         % visual depth [m]
+    P.waterplaneArea = 80.0;                   % [m^2]
+    P.massTonnes = 420.0;                      % [tonne]
+    P.referenceDraft = P.massTonnes*1e3/(P.rho*P.waterplaneArea); % [m]
+    P.pitchInertia_Mkgm2 = 13.0;               % [10^6 kg m^2]
+
+    P.pitchRestoring_MNmPerRad = 18.0;         % [MN m/rad]
+    P.heavePtoDamping_kNsPerM = 130.0;         % [kN s/m]
+    P.pitchPtoDamping_MNmsPerRad = 2.50;       % [MN m s/rad]
+    P.heaveViscousDamping_kNsPerM = 30.0;      % [kN s/m]
+    P.pitchViscousDamping_MNmsPerRad = 0.60;   % [MN m s/rad]
+    P.extraHeaveStiffness_kNPerM = 0.0;        % [kN/m]
+    P.extraPitchStiffness_MNmPerRad = 0.0;     % [MN m/rad]
+
+    P.couplingPercent = 100.0;
+    P.addedMassScale = 1.0;
+    P.radiationScale = 1.0;
+    P.excitationScale = 1.0;
+    P.includeDirectPitchExcitation = true;
+
+    P.waveAmplitude = 0.50;                    % [m]
+    P.selectedPeriod = 7.00;                   % [s]
+    P.pitchDisplayUnits = &#x27;deg/m&#x27;;
+end
+
+function D = calculateHeavePitchResponse(P)
+    D.period = linspace(P.periodMin, P.periodMax, P.numberOfPeriods);
+    D.omega = 2*pi./D.period;
+    numberOfFrequencies = numel(D.omega);
+
+    bodyMass = P.massTonnes*1e3;
+    bodyPitchInertia = P.pitchInertia_Mkgm2*1e6;
+    D.Mbody = diag([bodyMass, bodyPitchInertia]);
+
+    D.C33 = P.rho*P.g*P.waterplaneArea;
+    D.C55 = P.pitchRestoring_MNmPerRad*1e6;
+    couplingScale = P.couplingPercent/100;
+
+    % Symmetric hydrostatic coupling. The correlation form guarantees a
+    % positive-definite hydrostatic matrix while couplingPercent is in the
+    % classroom range. The sign depends on reference point and geometry in
+    % a real model; a positive sign is chosen here for a clear demonstration.
+    hydrostaticCorrelation = 0.10*couplingScale;
+    D.C35 = hydrostaticCorrelation*sqrt(D.C33*D.C55);
+    D.C = [D.C33 D.C35; D.C35 D.C55];
+    D.Kextra = diag([P.extraHeaveStiffness_kNPerM*1e3, ...
+                     P.extraPitchStiffness_MNmPerRad*1e6]);
+    D.totalStiffness = D.C + D.Kextra;
+
+    referenceDisplacedMass = P.rho*P.waterplaneArea*P.referenceDraft;
+    referenceHydrodynamicPitchInertia = referenceDisplacedMass * ...
+        (P.referenceLength^2 + P.referenceDraft^2)/12;
+
+    x3 = D.omega/(2*pi/7.2);
+    x5 = D.omega/(2*pi/8.8);
+
+    D.A33 = P.addedMassScale*referenceDisplacedMass .* ...
+        (0.52 + 0.20./(1 + x3.^2) + 0.16*exp(-((x3 - 1)/0.50).^2));
+    D.A55 = P.addedMassScale*referenceHydrodynamicPitchInertia .* ...
+        (0.60 + 0.16./(1 + x5.^2) + 0.12*exp(-((x5 - 1)/0.55).^2));
+
+    addedMassCorrelation = 0.18*couplingScale .* ...
+        exp(-((0.5*(x3 + x5) - 1)/1.40).^2);
+    D.A35 = addedMassCorrelation .* sqrt(D.A33.*D.A55);
+
+    heaveDampingScale = sqrt(D.C33*referenceDisplacedMass);
+    pitchDampingScale = sqrt(D.C55*referenceHydrodynamicPitchInertia);
+    D.B33 = P.radiationScale*0.55*heaveDampingScale .* ...
+        x3.^2 .* exp(1 - x3.^2);
+    D.B55 = P.radiationScale*0.35*pitchDampingScale .* ...
+        x5.^2 .* exp(1 - x5.^2);
+
+    dampingCorrelation = -0.22*couplingScale .* ...
+        exp(-((0.5*(x3 + x5) - 1)/1.20).^2);
+    D.B35 = dampingCorrelation .* sqrt(D.B33.*D.B55);
+
+    % Excitation vector per unit incident-wave amplitude. Long waves give
+    % F_exc,3/a -&gt; C33. The pitch-moment component follows wave slope and
+    % includes the hydrostatic reference-point coupling term. The complex
+    % phase is essential: force and moment need not peak at the same instant.
+    D.wavenumber = dispersionWavenumber(D.omega, P.waterDepth, P.g);
+    heaveExcitationShape = (1 + 0.12*x3.^2) ./ sqrt(1 + (x3/1.65).^6);
+    pitchSlopeShape = exp(-0.10*x5.^2) ./ sqrt(1 + (x5/1.80).^4);
+    waveSlopePerAmplitude = -1i*D.wavenumber.*pitchSlopeShape;
+
+    D.excitation = zeros(2, numberOfFrequencies);
+    D.excitation(1,:) = P.excitationScale .* ...
+        (D.C33*heaveExcitationShape + 0.25*D.C35*waveSlopePerAmplitude);
+    D.excitation(2,:) = P.excitationScale .* ...
+        (D.C35*heaveExcitationShape + D.C55*waveSlopePerAmplitude);
+    if ~P.includeDirectPitchExcitation
+        D.excitation(2,:) = 0;
+    end
+
+    D.Bexternal = diag([ ...
+        (P.heavePtoDamping_kNsPerM + P.heaveViscousDamping_kNsPerM)*1e3, ...
+        (P.pitchPtoDamping_MNmsPerRad + P.pitchViscousDamping_MNmsPerRad)*1e6]);
+
+    D.H = zeros(2, numberOfFrequencies);
+    D.A = zeros(2,2,numberOfFrequencies);
+    D.B = zeros(2,2,numberOfFrequencies);
+    D.dynamicStiffness = zeros(2,2,numberOfFrequencies);
+
+    for frequencyIndex = 1:numberOfFrequencies
+        D.A(:,:,frequencyIndex) = [ ...
+            D.A33(frequencyIndex), D.A35(frequencyIndex); ...
+            D.A35(frequencyIndex), D.A55(frequencyIndex)];
+        D.B(:,:,frequencyIndex) = [ ...
+            D.B33(frequencyIndex), D.B35(frequencyIndex); ...
+            D.B35(frequencyIndex), D.B55(frequencyIndex)];
+        D.dynamicStiffness(:,:,frequencyIndex) = ...
+            -D.omega(frequencyIndex)^2*(D.Mbody + D.A(:,:,frequencyIndex)) ...
+            + 1i*D.omega(frequencyIndex)*(D.B(:,:,frequencyIndex) + D.Bexternal) ...
+            + D.totalStiffness;
+        D.H(:,frequencyIndex) = D.dynamicStiffness(:,:,frequencyIndex) \ ...
+            D.excitation(:,frequencyIndex);
+    end
+
+    heavePto = P.heavePtoDamping_kNsPerM*1e3;
+    pitchPto = P.pitchPtoDamping_MNmsPerRad*1e6;
+    D.meanPtoPowerHeave = 0.5*heavePto .* ...
+        (D.omega*P.waveAmplitude .* abs(D.H(1,:))).^2;
+    D.meanPtoPowerPitch = 0.5*pitchPto .* ...
+        (D.omega*P.waveAmplitude .* abs(D.H(2,:))).^2;
+    D.meanPtoPowerTotal = D.meanPtoPowerHeave + D.meanPtoPowerPitch;
+
+    [~, heaveBalanceIndex] = min(abs(D.totalStiffness(1,1) ...
+        - D.omega.^2.*(D.Mbody(1,1) + D.A33)));
+    [~, pitchBalanceIndex] = min(abs(D.totalStiffness(2,2) ...
+        - D.omega.^2.*(D.Mbody(2,2) + D.A55)));
+    D.estimatedHeaveBalancePeriod = D.period(heaveBalanceIndex);
+    D.estimatedPitchBalancePeriod = D.period(pitchBalanceIndex);
+
+    D.selectedOmega = 2*pi/P.selectedPeriod;
+    D.selectedWavenumber = dispersionWavenumber(D.selectedOmega, P.waterDepth, P.g);
+    D.selectedH = [ ...
+        interp1(D.period, D.H(1,:), P.selectedPeriod, &#x27;pchip&#x27;); ...
+        interp1(D.period, D.H(2,:), P.selectedPeriod, &#x27;pchip&#x27;)];
+    D.selectedA = interpolateMatrix(D.period, D.A, P.selectedPeriod);
+    D.selectedB = interpolateMatrix(D.period, D.B, P.selectedPeriod);
+    D.selectedExcitation = [ ...
+        interp1(D.period, D.excitation(1,:), P.selectedPeriod, &#x27;pchip&#x27;); ...
+        interp1(D.period, D.excitation(2,:), P.selectedPeriod, &#x27;pchip&#x27;)];
+    D.selectedMeanPtoPowerHeave = interp1(D.period, D.meanPtoPowerHeave, P.selectedPeriod, &#x27;pchip&#x27;);
+    D.selectedMeanPtoPowerPitch = interp1(D.period, D.meanPtoPowerPitch, P.selectedPeriod, &#x27;pchip&#x27;);
+    D.selectedMeanPtoPowerTotal = interp1(D.period, D.meanPtoPowerTotal, P.selectedPeriod, &#x27;pchip&#x27;);
+
+    D.selectedEffectiveMass = D.Mbody + D.selectedA;
+    D.selectedEffectiveDamping = D.selectedB + D.Bexternal;
+    D.selectedScaledInertia = scaleGeneralizedMatrix( ...
+        -D.selectedOmega^2*D.selectedEffectiveMass, P.referenceLength);
+    D.selectedScaledDamping = scaleGeneralizedMatrix( ...
+        1i*D.selectedOmega*D.selectedEffectiveDamping, P.referenceLength);
+    D.selectedScaledStiffness = scaleGeneralizedMatrix( ...
+        D.totalStiffness, P.referenceLength);
+    D.selectedScaledImpedance = D.selectedScaledInertia + ...
+        D.selectedScaledDamping + D.selectedScaledStiffness;
+end
+
+function matrixValue = interpolateMatrix(period, matrixSeries, selectedPeriod)
+    matrixValue = zeros(2,2);
+    for rowIndex = 1:2
+        for columnIndex = 1:2
+            matrixValue(rowIndex,columnIndex) = interp1(period, ...
+                squeeze(matrixSeries(rowIndex,columnIndex,:)), ...
+                selectedPeriod, &#x27;pchip&#x27;);
+        end
+    end
+end
+
+function scaledMatrix = scaleGeneralizedMatrix(matrixValue, referenceLength)
+    % q = D*q_scaled with q_scaled=[z; L*theta], D=diag(1,1/L).
+    % Premultiplying by D&#x27; preserves virtual work and gives units N/m.
+    coordinateMap = diag([1, 1/referenceLength]);
+    scaledMatrix = coordinateMap.&#x27;*matrixValue*coordinateMap;
+end
+
+function renderHeavePitchFrame(axisHandle, P, D, time, colors)
+    cla(axisHandle)
+    hold(axisHandle, &#x27;on&#x27;)
+
+    xExtent = max(16, 1.25*P.referenceLength);
+    x = linspace(-xExtent, xExtent, 420);
+    eta = P.waveAmplitude*cos(D.selectedWavenumber*x - D.selectedOmega*time);
+    waterBottom = -10.0;
+
+    patch(axisHandle, [x fliplr(x)], ...
+        [eta waterBottom*ones(size(x))], ...
+        colors.waterFill, &#x27;EdgeColor&#x27;, &#x27;none&#x27;, &#x27;FaceAlpha&#x27;, 0.78);
+    plot(axisHandle, x, eta, &#x27;-&#x27;, &#x27;Color&#x27;, colors.wave, &#x27;LineWidth&#x27;, 2.0)
+
+    heave = real(P.waveAmplitude*D.selectedH(1)*exp(1i*D.selectedOmega*time));
+    pitch = real(P.waveAmplitude*D.selectedH(2)*exp(1i*D.selectedOmega*time));
+
+    halfLength = P.referenceLength/2;
+    localX = [-halfLength, halfLength, 0.90*halfLength, -0.90*halfLength];
+    localZ = [-0.55*P.bodyDepth, -0.55*P.bodyDepth, ...
+               0.45*P.bodyDepth,  0.45*P.bodyDepth];
+    rotation = [cos(pitch) -sin(pitch); sin(pitch) cos(pitch)];
+    rotated = rotation*[localX; localZ];
+    bodyX = rotated(1,:);
+    bodyZ = rotated(2,:) + heave;
+
+    patch(axisHandle, bodyX, bodyZ, colors.body, ...
+        &#x27;EdgeColor&#x27;, [0.15 0.15 0.15], &#x27;LineWidth&#x27;, 1.6);
+    plot(axisHandle, 0, heave, &#x27;ko&#x27;, &#x27;MarkerFaceColor&#x27;, &#x27;k&#x27;, &#x27;MarkerSize&#x27;, 5)
+
+    mastLocal = rotation*[0 0; 0.45*P.bodyDepth 0.45*P.bodyDepth+2.0];
+    plot(axisHandle, mastLocal(1,:), mastLocal(2,:)+heave, &#x27;-&#x27;, ...
+        &#x27;Color&#x27;, [0.20 0.20 0.20], &#x27;LineWidth&#x27;, 3.0)
+
+    seabed = waterBottom + 0.4;
+    plot(axisHandle, [-xExtent xExtent], [seabed seabed], &#x27;-&#x27;, ...
+        &#x27;Color&#x27;, [0.55 0.43 0.28], &#x27;LineWidth&#x27;, 4.0)
+
+    leftAttachment = rotation*[-0.70*halfLength; -0.40*P.bodyDepth] + [0; heave];
+    rightAttachment = rotation*[0.70*halfLength; -0.40*P.bodyDepth] + [0; heave];
+    plot(axisHandle, [-0.65*xExtent leftAttachment(1)], ...
+        [seabed leftAttachment(2)], &#x27;-&#x27;, &#x27;Color&#x27;, [0.25 0.25 0.25], &#x27;LineWidth&#x27;, 1.1)
+    plot(axisHandle, [0.65*xExtent rightAttachment(1)], ...
+        [seabed rightAttachment(2)], &#x27;-&#x27;, &#x27;Color&#x27;, [0.25 0.25 0.25], &#x27;LineWidth&#x27;, 1.1)
+
+    text(axisHandle, -xExtent+0.5, 4.4, ...
+        sprintf(&#x27;z = %.2f m     theta = %.2f deg&#x27;, heave, pitch*180/pi), ...
+        &#x27;FontWeight&#x27;, &#x27;bold&#x27;, &#x27;FontSize&#x27;, 11)
+    text(axisHandle, -xExtent+0.5, 3.7, ...
+        &#x27;Pitch is exaggerated only by the actual computed angle (no visual scale factor).&#x27;, ...
+        &#x27;FontSize&#x27;, 9, &#x27;Color&#x27;, [0.25 0.25 0.25])
+
+    hold(axisHandle, &#x27;off&#x27;)
+    xlim(axisHandle, [-xExtent xExtent])
+    ylim(axisHandle, [waterBottom 5.0])
+    title(axisHandle, &#x27;Coupled heave and pitch in a regular wave (schematic)&#x27;)
+    xlabel(axisHandle, &#x27;x [m]&#x27;)
+    ylabel(axisHandle, &#x27;z [m]&#x27;)
+    axisHandle.Box = &#x27;on&#x27;;
+    axisHandle.XGrid = &#x27;off&#x27;;
+    axisHandle.YGrid = &#x27;off&#x27;;
+    axisHandle.FontSize = 11;
+end
+
+function [scale, unitsText] = pitchDisplayScale(displayUnits)
+    if strcmpi(displayUnits, &#x27;deg/m&#x27;)
+        scale = 180/pi;
+        unitsText = &#x27;deg/m&#x27;;
+    else
+        scale = 1;
+        unitsText = &#x27;rad/m&#x27;;
+    end
+end
+
+function titles = heavePitchQuestionTitles()
+    titles = { ...
+        &#x27;Choose a prediction question ...&#x27;, ...
+        &#x27;Turn hydrodynamic coupling off&#x27;, ...
+        &#x27;Remove the direct pitch-excitation moment&#x27;, ...
+        &#x27;Increase pitch inertia&#x27;, ...
+        &#x27;Increase pitch restoring stiffness&#x27;, ...
+        &#x27;Increase pitch PTO damping&#x27;, ...
+        &#x27;Increase heave stiffness&#x27;, ...
+        &#x27;Increase wave amplitude&#x27;, ...
+        &#x27;Why are the two RAO units different?&#x27;};
+end
+
+function [prompt, answer] = heavePitchQuestionText(titleText)
+    switch titleText
+        case &#x27;Turn hydrodynamic coupling off&#x27;
+            prompt = [&#x27;Set heave-pitch coupling to 0%. Which curves change, and can heave still &#x27; ...
+                      &#x27;affect pitch through the equations?&#x27;];
+            answer = [&#x27;All off-diagonal A35=A53, B35=B53, and C35=C53 terms vanish. The two &#x27; ...
+                      &#x27;dynamic equations then separate. Pitch can still respond if a direct wave &#x27; ...
+                      &#x27;excitation moment M_exc,5 is present, but heave motion itself no longer &#x27; ...
+                      &#x27;creates a pitch reaction in this model.&#x27;];
+        case &#x27;Remove the direct pitch-excitation moment&#x27;
+            prompt = [&#x27;Uncheck the direct pitch-excitation moment while leaving coupling on. &#x27; ...
+                      &#x27;Will pitch necessarily become zero?&#x27;];
+            answer = [&#x27;No. A vertical wave-excitation force can still produce pitch through the &#x27; ...
+                      &#x27;off-diagonal inertia, damping, and restoring terms. If coupling is also set &#x27; ...
+                      &#x27;to zero, then pitch becomes zero in this two-input teaching case.&#x27;];
+        case &#x27;Increase pitch inertia&#x27;
+            prompt = [&#x27;Increase Iyy while holding hydrodynamic coefficients and C55 fixed. Does &#x27; ...
+                      &#x27;the pitch-dominated resonance region move to longer or shorter period?&#x27;];
+            answer = [&#x27;Longer period. Greater rotational inertia lowers the angular frequency &#x27; ...
+                      &#x27;at which omega^2(Iyy+A55) balances the pitch restoring term. Coupling and &#x27; ...
+                      &#x27;frequency-dependent excitation can shift the actual RAO peak away from this &#x27; ...
+                      &#x27;simple estimate.&#x27;];
+        case &#x27;Increase pitch restoring stiffness&#x27;
+            prompt = [&#x27;Increase C55 or extra pitch stiffness. Where should the pitch-dominated &#x27; ...
+                      &#x27;response move?&#x27;];
+            answer = [&#x27;Toward shorter period (higher frequency), because the rotational restoring &#x27; ...
+                      &#x27;term is larger. The heave RAO may also change because the equations are coupled.&#x27;];
+        case &#x27;Increase pitch PTO damping&#x27;
+            prompt = [&#x27;Increase pitch PTO damping. Does maximum pitch motion increase, and does &#x27; ...
+                      &#x27;absorbed pitch power always increase?&#x27;];
+            answer = [&#x27;Maximum pitch motion generally decreases and the peak broadens. Absorbed &#x27; ...
+                      &#x27;power contains both the damping coefficient and angular-velocity squared, &#x27; ...
+                      &#x27;so it usually has an optimum rather than increasing without limit.&#x27;];
+        case &#x27;Increase heave stiffness&#x27;
+            prompt = [&#x27;Increase extra heave stiffness while coupling is on. Could this change the &#x27; ...
+                      &#x27;pitch RAO as well as the heave RAO?&#x27;];
+            answer = [&#x27;Yes. The heave-dominated resonance shifts toward shorter period, and the &#x27; ...
+                      &#x27;pitch curve can also change because the coupled impedance matrix must be &#x27; ...
+                      &#x27;inverted as a whole.&#x27;];
+        case &#x27;Increase wave amplitude&#x27;
+            prompt = [&#x27;Double wave amplitude while the model remains linear. What changes in the &#x27; ...
+                      &#x27;RAOs, physical motion amplitudes, and ideal linear-PTO power?&#x27;];
+            answer = [&#x27;The RAOs do not change. Both heave and pitch physical amplitudes double, &#x27; ...
+                      &#x27;and mean power in the linear dampers scales with amplitude squared. At large &#x27; ...
+                      &#x27;motions, real devices may leave the linear regime.&#x27;];
+        case &#x27;Why are the two RAO units different?&#x27;
+            prompt = [&#x27;Heave and pitch are solved in one vector. Why is H3 dimensionless while H5 &#x27; ...
+                      &#x27;has units of rad/m or deg/m?&#x27;];
+            answer = [&#x27;Both responses are divided by incident-wave amplitude in meters. Heave is &#x27; ...
+                      &#x27;a displacement in meters, so m/m is dimensionless. Pitch is an angle, so its &#x27; ...
+                      &#x27;RAO is angle per meter. Radians are dimensionless in SI algebra, but writing &#x27; ...
+                      &#x27;rad/m prevents a physically misleading comparison with heave.&#x27;];
+        otherwise
+            prompt = &#x27;Choose a question from the menu.&#x27;;
+            answer = &#x27;The explanation will appear here after a question is selected.&#x27;;
+    end
+end
+
+function [passed, message] = heavePitchDiagnostics(P, D)
+    finiteCheck = all(isfinite(real(D.H(:)))) &amp;&amp; all(isfinite(imag(D.H(:))));
+    differenceA = D.A(1,2,:) - D.A(2,1,:);
+    differenceB = D.B(1,2,:) - D.B(2,1,:);
+    symmetryA = max(abs(differenceA(:))) &lt; 1e-7;
+    symmetryB = max(abs(differenceB(:))) &lt; 1e-7;
+    symmetryC = abs(D.C(1,2) - D.C(2,1)) &lt; 1e-9;
+
+    determinantA = squeeze(D.A(1,1,:).*D.A(2,2,:) - D.A(1,2,:).^2);
+    determinantB = squeeze(D.B(1,1,:).*D.B(2,2,:) - D.B(1,2,:).^2);
+    positiveSemidefiniteA = all(D.A33 &gt;= 0) &amp;&amp; all(D.A55 &gt;= 0) &amp;&amp; ...
+        all(determinantA &gt;= -1e-3*max(1,max(abs(determinantA))));
+    positiveSemidefiniteB = all(D.B33 &gt;= -1e-9) &amp;&amp; all(D.B55 &gt;= -1e-9) &amp;&amp; ...
+        all(determinantB &gt;= -1e-3*max(1,max(abs(determinantB))));
+    positiveStiffness = all(eig(0.5*(D.totalStiffness + D.totalStiffness.&#x27;)) &gt; 0);
+    selectedInRange = P.selectedPeriod &gt;= P.periodMin &amp;&amp; P.selectedPeriod &lt;= P.periodMax;
+
+    passed = finiteCheck &amp;&amp; symmetryA &amp;&amp; symmetryB &amp;&amp; symmetryC &amp;&amp; ...
+        positiveSemidefiniteA &amp;&amp; positiveSemidefiniteB &amp;&amp; positiveStiffness &amp;&amp; selectedInRange;
+
+    if passed
+        message = sprintf([ ...
+            &#x27;Checks PASS: finite RAOs; A, B, C symmetric; A and B positive semidefinite; K positive. &#x27; ...
+            &#x27;Balance estimates: heave %.2f s, pitch %.2f s.&#x27;], ...
+            D.estimatedHeaveBalancePeriod, D.estimatedPitchBalancePeriod);
+    else
+        message = &#x27;CHECK FAILED: inspect matrix symmetry, definiteness, coefficient scales, and stiffness.&#x27;;
+    end
+end
+
+function report = runHeavePitchSelfTest()
+    P = defaultHeavePitchParameters();
+    D = calculateHeavePitchResponse(P);
+
+    determinantA = squeeze(D.A(1,1,:).*D.A(2,2,:) - D.A(1,2,:).^2);
+    determinantB = squeeze(D.B(1,1,:).*D.B(2,2,:) - D.B(1,2,:).^2);
+
+    Puncoupled = P;
+    Puncoupled.couplingPercent = 0;
+    Puncoupled.includeDirectPitchExcitation = false;
+    Duncoupled = calculateHeavePitchResponse(Puncoupled);
+
+    PcoupledOnly = P;
+    PcoupledOnly.includeDirectPitchExcitation = false;
+    DcoupledOnly = calculateHeavePitchResponse(PcoupledOnly);
+
+    Pinertia = P;
+    Pinertia.pitchInertia_Mkgm2 = 1.50*P.pitchInertia_Mkgm2;
+    Dinertia = calculateHeavePitchResponse(Pinertia);
+
+    PpitchDamping = P;
+    PpitchDamping.pitchPtoDamping_MNmsPerRad = 8.0;
+    DpitchDamping = calculateHeavePitchResponse(PpitchDamping);
+
+    PheaveStiffness = P;
+    PheaveStiffness.extraHeaveStiffness_kNPerM = 600;
+    DheaveStiffness = calculateHeavePitchResponse(PheaveStiffness);
+
+    Pamplitude = P;
+    Pamplitude.waveAmplitude = 2*P.waveAmplitude;
+    Damplitude = calculateHeavePitchResponse(Pamplitude);
+
+    checks = [ ...
+        all(isfinite(real(D.H(:)))) &amp;&amp; all(isfinite(imag(D.H(:)))), ...
+        max(abs(reshape(D.A(1,2,:) - D.A(2,1,:), [], 1))) &lt; 1e-7, ...
+        max(abs(reshape(D.B(1,2,:) - D.B(2,1,:), [], 1))) &lt; 1e-7, ...
+        min(determinantA) &gt;= -1e-3*max(1,max(abs(determinantA))), ...
+        min(determinantB) &gt;= -1e-3*max(1,max(abs(determinantB))), ...
+        all(eig(D.totalStiffness) &gt; 0), ...
+        max(abs(Duncoupled.H(2,:))) &lt; 1e-12, ...
+        max(abs(DcoupledOnly.H(2,:))) &gt; 1e-5, ...
+        Dinertia.estimatedPitchBalancePeriod &gt; D.estimatedPitchBalancePeriod, ...
+        max(abs(DpitchDamping.H(2,:))) &lt; max(abs(D.H(2,:))), ...
+        DheaveStiffness.estimatedHeaveBalancePeriod &lt; D.estimatedHeaveBalancePeriod, ...
+        max(abs(Damplitude.H(:) - D.H(:))) &lt; 1e-12];
+
+    if ~all(checks)
+        error(&#x27;HMEC_heave_pitch_RAO_demo:SelfTestFailed&#x27;, ...
+            &#x27;One or more coupled-demo numerical checks failed.&#x27;)
+    end
+
+    [peakHeaveRao, heaveIndex] = max(abs(D.H(1,:)));
+    [peakPitchRao, pitchIndex] = max(abs(D.H(2,:)));
+
+    report.passed = true;
+    report.defaultHeavePeakPeriod_s = D.period(heaveIndex);
+    report.defaultHeavePeakRAO_mPerM = peakHeaveRao;
+    report.defaultPitchPeakPeriod_s = D.period(pitchIndex);
+    report.defaultPitchPeakRAO_radPerM = peakPitchRao;
+    report.defaultPitchPeakRAO_degPerM = peakPitchRao*180/pi;
+    report.uncoupledNoPitchInputGivesZeroPitch = true;
+    report.couplingTransfersHeaveInputIntoPitch = true;
+    report.increasedPitchInertiaMovesBalanceToLongerPeriod = true;
+    report.increasedPitchDampingLowersPitchPeak = true;
+    report.waveAmplitudeLeavesRAOsUnchanged = true;
+
+    fprintf([ ...
+        &#x27;HMEC coupled demo self-test PASS. Heave peak: %.2f s, %.3f m/m; &#x27; ...
+        &#x27;pitch peak: %.2f s, %.2f deg/m.\n&#x27;], ...
+        report.defaultHeavePeakPeriod_s, report.defaultHeavePeakRAO_mPerM, ...
+        report.defaultPitchPeakPeriod_s, report.defaultPitchPeakRAO_degPerM)
+end
+
+function k = dispersionWavenumber(omega, depth, g)
+    % Newton iteration for omega^2 = g*k*tanh(k*h). Supports scalars/vectors.
+    k = max(omega.^2/g, 1e-8);
+    for iteration = 1:40
+        kh = k*depth;
+        tanhKh = tanh(kh);
+        sechSquared = 1./cosh(kh).^2;
+        residual = g*k.*tanhKh - omega.^2;
+        derivative = g*tanhKh + g*k*depth.*sechSquared;
+        step = residual./derivative;
+        k = max(k - step, 1e-10);
+        if all(abs(step) &lt; 1e-12)
+            break
+        end
+    end
+end
+
+function degrees = phaseDegrees(complexValue)
+    degrees = mod(angle(complexValue)*180/pi + 180, 360) - 180;
+end
+
+function lines = splitText(textValue)
+    lines = regexp(textValue, &#x27;\n&#x27;, &#x27;split&#x27;);
+end
+</code></pre><pre class="rao-code" id="rao-src-2" tabindex="0" aria-label="HMEC_RAO_demo_launcher.m" hidden><code>function HMEC_RAO_demo_launcher
+% Prof. Deniz Gedikli | ORE | University of Hawaii at Manoa
+% All rights reserved
+% Please email me at egedikli@hawaii.edu if you find any mistakes.
+%
+% HMEC_RAO_DEMO_LAUNCHER Open either classroom RAO demonstration.
+%
+% Put this file and the two demo files in the same MATLAB folder, then run:
+%   HMEC_RAO_demo_launcher
+%
+% Direct commands:
+%   HMEC_heave_RAO_demo
+%   HMEC_heave_pitch_RAO_demo
+%   HMEC_heave_RAO_demo(&#x27;selftest&#x27;)
+%   HMEC_heave_pitch_RAO_demo(&#x27;selftest&#x27;)
+
+    fig = uifigure( ...
+        &#x27;Name&#x27;, &#x27;HMEC Marine Hydrodynamics | MATLAB RAO Demos&#x27;, ...
+        &#x27;Position&#x27;, [280 170 850 560], ...
+        &#x27;Color&#x27;, [0.97 0.97 0.97]);
+
+    layout = uigridlayout(fig, [6 2]);
+    layout.RowHeight = {72, 88, 88, 55, 120, &#x27;1x&#x27;};
+    layout.ColumnWidth = {&#x27;1x&#x27;, &#x27;1x&#x27;};
+    layout.Padding = [18 18 18 18];
+    layout.RowSpacing = 12;
+    layout.ColumnSpacing = 12;
+
+    titleLabel = uilabel(layout, ...
+        &#x27;Text&#x27;, &#x27;Marine Hydrodynamics &amp; Floating-Body Dynamics&#x27;, ...
+        &#x27;HorizontalAlignment&#x27;, &#x27;center&#x27;, ...
+        &#x27;FontSize&#x27;, 24, ...
+        &#x27;FontWeight&#x27;, &#x27;bold&#x27;);
+    titleLabel.Layout.Row = 1;
+    titleLabel.Layout.Column = [1 2];
+
+    heaveDescription = uilabel(layout, ...
+        &#x27;Text&#x27;, [&#x27;1-DOF HEAVE: vary body mass, waterplane area, added mass, &#x27; ...
+                 &#x27;radiation/PTO damping, stiffness, excitation, and wave amplitude.&#x27;], ...
+        &#x27;WordWrap&#x27;, &#x27;on&#x27;, ...
+        &#x27;FontSize&#x27;, 14, ...
+        &#x27;HorizontalAlignment&#x27;, &#x27;center&#x27;);
+    heaveDescription.Layout.Row = 2;
+    heaveDescription.Layout.Column = 1;
+
+    coupledDescription = uilabel(layout, ...
+        &#x27;Text&#x27;, [&#x27;2-DOF HEAVE + PITCH: explore coupled matrices, direct excitation, &#x27; ...
+                 &#x27;mode interaction, pitch units, phase, power, and animated motion.&#x27;], ...
+        &#x27;WordWrap&#x27;, &#x27;on&#x27;, ...
+        &#x27;FontSize&#x27;, 14, ...
+        &#x27;HorizontalAlignment&#x27;, &#x27;center&#x27;);
+    coupledDescription.Layout.Row = 2;
+    coupledDescription.Layout.Column = 2;
+
+    heaveButton = uibutton(layout, &#x27;push&#x27;, ...
+        &#x27;Text&#x27;, &#x27;Open 1-DOF Heave Demo&#x27;, ...
+        &#x27;FontSize&#x27;, 16, ...
+        &#x27;FontWeight&#x27;, &#x27;bold&#x27;, ...
+        &#x27;ButtonPushedFcn&#x27;, @(~,~) HMEC_heave_RAO_demo());
+    heaveButton.Layout.Row = 3;
+    heaveButton.Layout.Column = 1;
+
+    coupledButton = uibutton(layout, &#x27;push&#x27;, ...
+        &#x27;Text&#x27;, &#x27;Open 2-DOF Heave + Pitch Demo&#x27;, ...
+        &#x27;FontSize&#x27;, 16, ...
+        &#x27;FontWeight&#x27;, &#x27;bold&#x27;, ...
+        &#x27;ButtonPushedFcn&#x27;, @(~,~) HMEC_heave_pitch_RAO_demo());
+    coupledButton.Layout.Row = 3;
+    coupledButton.Layout.Column = 2;
+
+    testButton = uibutton(layout, &#x27;push&#x27;, ...
+        &#x27;Text&#x27;, &#x27;Run both numerical self-tests&#x27;, ...
+        &#x27;FontSize&#x27;, 14, ...
+        &#x27;ButtonPushedFcn&#x27;, @runTests);
+    testButton.Layout.Row = 4;
+    testButton.Layout.Column = [1 2];
+
+    statusArea = uitextarea(layout, ...
+        &#x27;Editable&#x27;, &#x27;off&#x27;, ...
+        &#x27;WordWrap&#x27;, &#x27;on&#x27;, ...
+        &#x27;Value&#x27;, { ...
+            &#x27;Recommended classroom sequence:&#x27;, ...
+            &#x27;1. Ask for a prediction.&#x27;, ...
+            &#x27;2. Set the current case as the dashed baseline.&#x27;, ...
+            &#x27;3. Change one control.&#x27;, ...
+            &#x27;4. Compare RAO magnitude, phase, coefficient curves, motion, and PTO power.&#x27;});
+    statusArea.Layout.Row = 5;
+    statusArea.Layout.Column = [1 2];
+
+    footer = uilabel(layout, ...
+        &#x27;Text&#x27;, [&#x27;All internal calculations use SI units and radians. Hydrodynamic curves &#x27; ...
+                 &#x27;are physically constrained teaching data, not validated device predictions. Prof. Deniz Gedikli | All Rights Reserved&#x27;], ...
+        &#x27;WordWrap&#x27;, &#x27;on&#x27;, ...
+        &#x27;HorizontalAlignment&#x27;, &#x27;center&#x27;, ...
+        &#x27;FontAngle&#x27;, &#x27;italic&#x27;);
+    footer.Layout.Row = 6;
+    footer.Layout.Column = [1 2];
+
+    function runTests(varargin)
+        testButton.Enable = &#x27;off&#x27;;
+        cleanup = onCleanup(@() enableTestButton());
+        try
+            report1 = HMEC_heave_RAO_demo(&#x27;selftest&#x27;);
+            report2 = HMEC_heave_pitch_RAO_demo(&#x27;selftest&#x27;);
+            statusArea.Value = { ...
+                &#x27;SELF-TESTS PASSED&#x27;, ...
+                sprintf(&#x27;1-DOF peak: T = %.2f s, |H3| = %.3f.&#x27;, ...
+                    report1.defaultPeakPeriod_s, report1.defaultPeakRAO), ...
+                sprintf(&#x27;2-DOF heave peak: T = %.2f s, |H3| = %.3f m/m.&#x27;, ...
+                    report2.defaultHeavePeakPeriod_s, report2.defaultHeavePeakRAO_mPerM), ...
+                sprintf(&#x27;2-DOF pitch peak: T = %.2f s, |H5| = %.2f deg/m.&#x27;, ...
+                    report2.defaultPitchPeakPeriod_s, report2.defaultPitchPeakRAO_degPerM), ...
+                &#x27;Matrix symmetry/definiteness and expected parameter trends were also checked.&#x27;};
+        catch errorInfo
+            statusArea.Value = { ...
+                &#x27;SELF-TEST FAILED&#x27;, ...
+                errorInfo.message, ...
+                &#x27;Open the MATLAB Command Window for the full diagnostic.&#x27;};
+            rethrow(errorInfo)
+        end
+        clear cleanup
+        enableTestButton();
+    end
+
+    function enableTestButton()
+        if isvalid(testButton)
+            testButton.Enable = &#x27;on&#x27;;
+        end
+    end
+end
+</code></pre></details>
+<details><summary>Use the demos in MATLAB</summary><p>Save these three files in the same folder, open that folder in MATLAB, and run <code>HMEC_RAO_demo_launcher</code>. The launcher opens either demo and can run their numerical self-tests.</p><div class="rao-downloads"><a href="assets/rao/HMEC_heave_RAO_demo.m" download="HMEC_heave_RAO_demo.m">HMEC_heave_RAO_demo.m</a><a href="assets/rao/HMEC_heave_pitch_RAO_demo.m" download="HMEC_heave_pitch_RAO_demo.m">HMEC_heave_pitch_RAO_demo.m</a><a href="assets/rao/HMEC_RAO_demo_launcher.m" download="HMEC_RAO_demo_launcher.m">HMEC_RAO_demo_launcher.m</a></div></details>
+<details><summary>Check the browser calculations</summary><p>Compare the default peaks with the reference cases in Appendix A. The checks also test whether doubling wave amplitude quadruples PTO power, and whether pitch disappears when both coupling and direct pitch excitation are zero.</p><button type="button" class="edu-button" id="rao-selftest">Run both model checks</button><p class="rao-status" id="rao-test-result" role="status"></p></details><p class="rao-credit"><strong>How to cite:</strong> Gedikli, E. D. (2026). <i>HMEC MATLAB RAO teaching demos: 1-DOF heave and 2-DOF heave-pitch</i> (Version 1.0) [Computer software]. Hawaiʻi Marine Energy Center, University of Hawaiʻi at Mānoa. All rights reserved.</p></section>
+<nav class="edu-next" aria-label="Continue learning"><a href="ocean-waves-hub-v2.html">← Explore the incident wave</a><a href="marine-renewable-energy-devices.html#pto">Compare the Device Atlas PTO model →</a></nav></main><footer class="site-footer"><span>University of Hawaiʻi at Mānoa · Educational Content</span><a href="mailto:egedikli@hawaii.edu">egedikli@hawaii.edu</a></footer></div></body></html>

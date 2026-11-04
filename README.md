@@ -34,6 +34,9 @@ Official instructions: https://docs.github.com/en/pages/quickstart
 | `marine-energy-introduction.html` | Resources, applications, and introductory calculators |
 | `ocean-waves-hub-v2.html` | Regular waves, pressure, velocity, and spectral models |
 | `marine-renewable-energy-devices.html` | Eleven device families and the PTO oscillator |
+| `response-amplitude-operator.html` | HMEC heave and heave–pitch RAO module |
+| `assets/rao-model.js`, `assets/rao-app.js`, `assets/rao.css` | Browser solver, controls, animation, and layout |
+| `assets/rao/` | Original HMEC user manual (PDF) and three MATLAB source files |
 | `assets/energy-models.js` | Shared scientific equations in SI units |
 | `assets/education.js` | Shared plots and resource calculators |
 | `assets/wave-lab.js` | Ocean Waves Lab controls and animation |
@@ -91,3 +94,9 @@ For this homepage-only update, upload `index.html`, `assets/flow-mesh.css`, and 
 Use **Educational Content → Marine Energy** to enter the lessons. The introduction, Ocean Waves Lab, and Device Atlas link to one another, their sources, and the relevant teaching and research pages. Upload all four new HTML pages and all new education assets, and update the navigation on your existing pages. The full package already includes those changes. Preserve any later edits you have made to a live site.
 
 These are instructional models, with assumptions shown next to their outputs. They are not site assessments or device-design tools. Scientific references require an internet connection; the lessons and calculators themselves run locally. See `SITE-CHECKS.md` for what was reviewed and which external destinations could not be fully verified.
+
+## Response Amplitude Operator Module
+
+From **Educational Content → Marine Energy**, open **Response Amplitude Operator Module**. The experiment runs locally in the browser, with no MATLAB installation or external services. Start with heave, save a baseline, then change one input. Switch to heave and pitch to explore how the two motions interact. The plots show the steady response to regular waves and mean mechanical power absorbed by the PTO.
+
+The page includes the original MATLAB source and the user and instructor manual. If you update an existing site by hand, copy the module page, its three CSS/JS assets, the entire `assets/rao/` folder, and the four updated Marine Energy navigation pages. See `RAO-CHECKS.md` for the numerical checks. The package retains the owner-supplied restored CV.
