@@ -1,0 +1,234 @@
+{
+  "updated": "November 4, 2026",
+  "lab": "Fluid–Structure Interactions and Nonlinear Dynamics Laboratory",
+  "source_note": "Mentoring record in Statement of Endeavors, section 4.2.2 (pages 6–8), with explicit membership corrections supplied November 4, 2026. Anticipated graduation years are intentionally omitted.",
+  "current": [
+    {
+      "id": "deniz-gedikli",
+      "name": "E. Deniz Gedikli",
+      "initials": "DG",
+      "role": "Principal investigator",
+      "group": "leadership",
+      "position": "Associate Professor · Ocean and Resources Engineering",
+      "summary": "Fluid–structure interactions, nonlinear dynamics, marine renewable energy, and Arctic engineering.",
+      "photo": "assets/deniz-gedikli.png",
+      "links": [
+        {
+          "label": "Email",
+          "url": "mailto:egedikli@hawaii.edu"
+        },
+        {
+          "label": "Research",
+          "url": "research.html"
+        },
+        {
+          "label": "CV",
+          "url": "cv.html"
+        }
+      ]
+    },
+    {
+      "id": "ozgur-demir",
+      "name": "Ozgur Demir",
+      "initials": "OD",
+      "role": "Postdoctoral researcher",
+      "group": "leadership",
+      "position": "Current postdoc · Joined summer 2023",
+      "summary": "Two-way coupled fluid–structure interaction simulations and finite-element analysis, with contributions to experimental studies and graduate research.",
+      "topics": [
+        "Fluid–structure interaction",
+        "Finite-element analysis"
+      ],
+      "photo": ""
+    },
+    {
+      "id": "jonas-behnen",
+      "name": "Jonas Behnen",
+      "initials": "JB",
+      "role": "Ph.D. student",
+      "group": "graduate",
+      "position": "Ocean and Resources Engineering",
+      "summary": "Dynamics of flexible structures under harsh environmental conditions.",
+      "topics": [
+        "Flexible structures",
+        "Structural dynamics"
+      ],
+      "photo": ""
+    },
+    {
+      "id": "clara-encke",
+      "name": "Clara Encke",
+      "initials": "CE",
+      "role": "Ph.D. student",
+      "group": "graduate",
+      "position": "Ocean and Resources Engineering",
+      "summary": "Vortex-induced vibrations and control strategies for marine renewable energy devices.",
+      "topics": [
+        "Vortex-induced vibrations",
+        "Marine energy"
+      ],
+      "photo": "",
+      "detail_title": "M.S. research · Spring 2024",
+      "detail": "Experimental investigation of thin-walled cylindrical cantilever beams undergoing vortex-induced vibrations."
+    },
+    {
+      "id": "virginia-groeschel",
+      "name": "Virginia Groeschel",
+      "initials": "VG",
+      "role": "Ph.D. student · Co-advised",
+      "group": "graduate",
+      "position": "Civil and Environmental Engineering",
+      "summary": "Impacts of rapid climate change on Arctic, island, and coastal communities.",
+      "topics": [
+        "Arctic environments",
+        "Coastal communities"
+      ],
+      "photo": "",
+      "advising": "Main advisor: Oceana Francis. Co-advisor: E. Deniz Gedikli."
+    },
+    {
+      "id": "grant-peel",
+      "name": "Grant Peel",
+      "initials": "GP",
+      "role": "Ph.D. student",
+      "group": "graduate",
+      "position": "Ocean and Resources Engineering",
+      "summary": "Data-driven decision support for ship and fishing activities in harsh marine environments.",
+      "topics": [
+        "Maritime operations",
+        "Data-driven modeling"
+      ],
+      "photo": ""
+    },
+    {
+      "id": "meysam-rajabi",
+      "name": "Meysam Rajabi",
+      "initials": "MR",
+      "role": "Ph.D. student",
+      "group": "graduate",
+      "position": "Ocean and Resources Engineering",
+      "summary": "Numerical simulation of flexible fluid–structure interactions.",
+      "topics": [
+        "Computational FSI",
+        "Flexible structures"
+      ],
+      "photo": ""
+    },
+    {
+      "id": "muhammad-ali",
+      "name": "Muhammad Ali",
+      "initials": "MA",
+      "role": "M.S. student",
+      "group": "graduate",
+      "position": "Ocean and Resources Engineering",
+      "summary": "Control of vortex-induced vibrations using piezoelectric transducers.",
+      "topics": [
+        "Vibration control",
+        "Piezoelectric transducers"
+      ],
+      "photo": ""
+    }
+  ],
+  "masters": [
+    {
+      "id": "griffin-bourjeaurd",
+      "name": "Griffin Bourjeaurd",
+      "degree": "M.S.",
+      "date": "Summer 2025",
+      "work_type": "Thesis",
+      "title": "Feasibility of a wave-powered lithium extraction system"
+    },
+    {
+      "id": "jacob-dennis",
+      "name": "Jacob A. Dennis",
+      "degree": "M.S.",
+      "date": "Spring 2025",
+      "work_type": "Plan B project",
+      "title": "Evaluating Stability and Structural Integrity of a Modified Cargo Ship"
+    },
+    {
+      "id": "jesse-gray",
+      "name": "Jesse Gray",
+      "degree": "M.S.",
+      "date": "Fall 2024",
+      "work_type": "Plan B project",
+      "title": "Experimental determination of damping characteristics for modeling improvement of a floating oscillating surge wave energy converter"
+    },
+    {
+      "id": "clara-encke-ms",
+      "name": "Clara Encke",
+      "degree": "M.S.",
+      "date": "Spring 2024",
+      "work_type": "Thesis",
+      "title": "Experimental investigation of thin-walled cylindrical cantilever beams undergoing vortex-induced vibrations",
+      "current_profile": "clara-encke",
+      "current_note": "Continues in the group as a Ph.D. student"
+    },
+    {
+      "id": "kyle-pappas",
+      "name": "Kyle Pappas",
+      "degree": "M.S.",
+      "date": "Fall 2023",
+      "work_type": "Thesis",
+      "title": "Fluid-structure interaction analysis of an oscillating wave surge energy converter using LS-Dyna"
+    }
+  ],
+  "former_postdocs": [
+    {
+      "id": "emad-makki",
+      "name": "Emad Makki",
+      "initials": "EM",
+      "role": "Former visiting postdoc",
+      "position": "January–December 2024",
+      "summary": "Finite-element modeling and experimental methods for fluid–structure interactions, including hydrodynamic loading and support for graduate laboratory research.",
+      "topics": [
+        "Experimental FSI",
+        "Finite-element modeling"
+      ],
+      "photo": ""
+    },
+    {
+      "id": "hongtao-li",
+      "name": "Hongtao Li",
+      "initials": "HL",
+      "role": "Former postdoc",
+      "position": "Research focus",
+      "summary": "Analysis of vortex-induced vibration and ice–structure interaction data, with work on data-driven modeling and nonlinear dynamics.",
+      "topics": [
+        "Ice–structure interactions",
+        "Data-driven modeling"
+      ],
+      "photo": ""
+    }
+  ],
+  "undergraduate_alumni": [
+    {
+      "id": "adiva-udui",
+      "name": "Adiva K. Udui",
+      "initials": "AU",
+      "role": "Undergraduate researcher",
+      "position": "Summer 2024 · NHSEMP",
+      "summary": "Energy dissipation by different wave-breaker shapes for coastal protection, using 3D-printed prototypes and wave-flume experiments.",
+      "topics": [
+        "Coastal protection",
+        "Wave-flume experiments"
+      ],
+      "photo": "",
+      "advising": "Main advisor: E. Deniz Gedikli. Day-to-day mentor: Ozgur Demir."
+    },
+    {
+      "id": "kayla-crook",
+      "name": "Kayla Crook",
+      "initials": "KC",
+      "role": "Undergraduate researcher",
+      "position": "Summer 2023 · NHSEMP",
+      "summary": "Floating photovoltaic applications in the ocean, including materials testing in the wave flume.",
+      "topics": [
+        "Floating photovoltaics",
+        "Experimental testing"
+      ],
+      "photo": "",
+      "advising": "Main advisor: E. Deniz Gedikli. Day-to-day mentor: Jonas Behnen."
+    }
+  ]
+}

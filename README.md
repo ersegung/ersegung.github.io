@@ -1,6 +1,6 @@
 # E. Deniz Gedikli — academic website
 
-A lightweight academic website: a portrait, clear typography, short introduction, profile icons, and eight navigation links. All pages use plain HTML, CSS, and small JavaScript files. No Homebrew, Ruby, Jekyll installation, Node installation, or build command is needed.
+A lightweight academic website inspired by the supplied reference: a portrait, clear typography, short introduction, profile icons, and eight navigation links. All pages use plain HTML, CSS, and small JavaScript files. No Homebrew, Ruby, Jekyll installation, Node installation, or build command is needed.
 
 ## View it on your computer
 
@@ -112,3 +112,8 @@ This section sits alongside Marine Energy in Educational Content. Its first less
 The solver's equations and numerical checks are described in `POTENTIAL-FLOW-CHECKS.md`. The Marine Energy pages and restored CV remain unchanged.
 
 When updating an existing site, include `educational-content.html`, `fluid-dynamics.html`, `potential-flow.html`, and the three pflow CSS/JS assets. The route-planning page, its navigation assets, and the original-program materials have been removed from this package. Uploading new files does not delete old files in an existing repository; use the package's file list as the current site inventory. The learning section now uses `fluid-dynamics.html`.
+
+
+## People page update — November 4, 2026
+
+A dedicated `people.html` page is now included and linked from the homepage and the site-wide navigation. See `PEOPLE-README.md` for publishing notes, source provenance, and instructions for editing the roster and adding portraits.

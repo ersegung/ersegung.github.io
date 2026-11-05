@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>People · FSI–NLD Laboratory · E. Deniz Gedikli</title>
+<meta name="description" content="Meet the current researchers, graduate students, and alumni of the Fluid–Structure Interactions and Nonlinear Dynamics Laboratory at the University of Hawaiʻi at Mānoa.">
+<meta name="theme-color" content="#f6f6f6">
+<meta property="og:type" content="website">
+<meta property="og:title" content="People · FSI–NLD Laboratory">
+<meta property="og:description" content="Current researchers, students, and alumni at the University of Hawaiʻi at Mānoa.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/people.css">
+<script src="assets/people.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="shell people-shell">
+<header class="topbar"><a class="wordmark" href="index.html">E. Deniz Gedikli</a><a class="back" href="index.html">← Home</a></header>
+<nav class="page-nav" aria-label="Main navigation"><a href="research.html">Research</a><a href="papers.html">Papers</a><a href="conferences.html">Conferences</a><a href="teaching.html">Teaching</a><a href="educational-content.html">Educational Content</a><a href="lab.html">Lab</a><a href="people.html" aria-current="page">People</a><a href="book.html">Book</a><a href="cv.html">CV</a></nav>
+<main id="main" class="page-main people-main">
+<section class="people-hero" aria-labelledby="people-title">
+  <div>
+    <p class="eyebrow">FSI–NLD Laboratory</p>
+    <h1 id="people-title">People</h1>
+    <p class="people-intro">The researchers and students behind our work in fluid–structure interactions, marine energy, and ocean engineering.</p>
+    <p class="people-affiliation">Fluid–Structure Interactions and Nonlinear Dynamics<br>University of Hawaiʻi at Mānoa</p>
+  </div>
+  <figure class="people-group-photo">
+    <img src="assets/people/group-open-house-2023.jpg" width="1204" height="628" alt="Laboratory group gathered behind the recirculating water channel at the 2023 SOEST Open House." fetchpriority="high">
+    <figcaption>From the lab archive · SOEST Open House · October 21, 2023</figcaption>
+  </figure>
+</section>
+<div class="people-topics" aria-label="Research areas"><span class="people-topic">Fluid–structure interactions</span><span class="people-topic">Marine renewable energy</span><span class="people-topic">Arctic &amp; offshore engineering</span></div>
+<nav class="people-directory-nav" aria-label="People sections"><a href="#current-members">Current members</a><a href="#graduate-alumni">Graduate alumni</a><a href="#former-postdocs">Former postdocs</a><a href="#undergraduate-alumni">Undergraduate alumni</a><a href="#join-the-lab">Join the lab ↗</a></nav>
+<form id="people-search-form" class="people-search-area" role="search" hidden>
+  <div><label for="people-search">Find a person or research topic</label><div class="people-search-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 5 5"></path></svg><input id="people-search" type="search" placeholder="Name, research topic, or degree…" autocomplete="off" aria-describedby="people-search-status"></div></div>
+  <button id="people-reset" class="people-reset" type="button">Clear</button>
+</form>
+<p id="people-search-status" class="people-result-status" role="status" aria-live="polite" hidden></p>
+<div id="people-empty" class="people-empty" hidden>No matching entries. Try a different name or topic, or clear the search.</div>
+
+<section id="current-members" class="people-section" data-people-section aria-labelledby="current-heading">
+  <div class="people-section-heading"><div><span class="people-number" aria-hidden="true">01</span><h2 id="current-heading">Current members</h2></div><p class="people-section-note">{{CURRENT_COUNTS}}</p></div>
+  <div class="people-subgroup" data-people-subgroup>
+    <div class="people-leadership">{{LEADERSHIP}}</div>
+  </div>
+  <div class="people-subgroup" data-people-subgroup>
+    <h3 class="people-subtitle">Graduate researchers</h3>
+    <div class="people-grid">{{GRADUATE}}</div>
+  </div>
+</section>
+
+<section id="graduate-alumni" class="people-section" data-people-section aria-labelledby="alumni-heading">
+  <div class="people-section-heading"><div><span class="people-number" aria-hidden="true">02</span><h2 id="alumni-heading">Graduate alumni</h2></div><p class="people-section-note">Completed M.S. degrees · Theses &amp; Plan B projects</p></div>
+  <div class="people-alumni-list">{{MASTERS}}</div>
+</section>
+
+<section id="former-postdocs" class="people-section" data-people-section aria-labelledby="postdocs-heading">
+  <div class="people-section-heading"><div><span class="people-number" aria-hidden="true">03</span><h2 id="postdocs-heading">Former postdoctoral researchers</h2></div></div>
+  <div class="people-grid people-grid-two">{{POSTDOCS}}</div>
+</section>
+
+<section id="undergraduate-alumni" class="people-section" data-people-section aria-labelledby="undergraduate-heading">
+  <div class="people-section-heading"><div><span class="people-number" aria-hidden="true">04</span><h2 id="undergraduate-heading">Undergraduate research alumni</h2></div><p class="people-section-note">Summer research · NHSEMP</p></div>
+  <div class="people-grid people-grid-two">{{UNDERGRADUATES}}</div>
+</section>
+
+<section id="join-the-lab" class="people-join" aria-labelledby="join-heading">
+  <div><p class="eyebrow">Work with us</p><h2 id="join-heading">Interested in joining the lab?</h2><p>For graduate or undergraduate research enquiries, send a short introduction describing your background and research interests. Please mention the questions you would like to explore with our group.</p></div>
+  <a class="people-contact" href="mailto:egedikli@hawaii.edu?subject=FSI-NLD%20research%20enquiry">Contact Deniz <span aria-hidden="true">↗</span></a>
+</section>
+<p class="people-footer-note">Last updated {{UPDATED}}.</p>
+</main>
+<footer class="site-footer"><span>© 2026 E. Deniz Gedikli · All rights reserved.</span><a href="mailto:egedikli@hawaii.edu">egedikli@hawaii.edu</a></footer>
+</div>
+</body>
+</html>
