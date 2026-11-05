@@ -1,8 +1,8 @@
-# Publication reconciliation — November 2, 2026
+# Publication reconciliation — updated November 4, 2026
 
 Source: the supplied Google Scholar PDF, captured November 2, 2026. The export contains 100 records; it is a snapshot, not a live Scholar synchronization. The live profile was rate-limited during this update.
 
-Included: 72 distinct records — 25 journal articles, 45 conference contributions, and 2 preprints. Conference contributions include proceedings papers and meeting abstracts, distinguished on the page. Marine renewable energy: 12 items — one journal article and eleven conference contributions. Research-area tags are editorial classifications based on each work's subject.
+Included: 72 distinct records — 26 journal articles, 45 conference contributions, and 1 preprint. Conference contributions include proceedings papers and meeting abstracts, distinguished on the page. Marine renewable energy: 12 items — one journal article and eleven conference contributions. Research-area tags are editorial classifications based on each work's subject.
 
 ## Changes
 
@@ -10,10 +10,10 @@ Included: 72 distinct records — 25 journal articles, 45 conference contributio
 
 - Added the JFS paper “Piezoelectric modulation of in-line and cross-flow vortex-induced vibrations of a flexible cylinder.”
 - Added the Measurement paper “GTFT-PDP: A Gated Temporal Fusion Transformer-Integrated Personalized Differential Privacy Framework for tool life prediction.”
-- Included the SSRN wake-pattern paper as a preprint, as listed in the supplied export.
+- Updated “Vortex wake patterns and energy transfer in forced two-degree-of-freedom motion of a circular cylinder” from preprint to journal article: E. Aktosun, E. D. Gedikli, and J. M. Dahl, Ocean Engineering 370 (2026), 129013. DOI: https://doi.org/10.1016/j.oceaneng.2026.129013. The published PDF supplied by the author confirms these details and an online publication date of October 29, 2026. Replaced the old preprint Scholar record with the author-provided published-record link (Y5dfb0dijaUC); no duplicate was added.
 - Integrated conference contributions into Papers, with All types selected by default.
 - Retained a separate Conferences page using the same dataset.
-- Every included record has its direct Google Scholar citation URL extracted from the PDF.
+- Records retain their direct Google Scholar citation links from the original export, except the updated wake-pattern article, which now uses the published-record link supplied by the author.
 - The 2027 Marine Structures article retains its assigned issue year.
 - Names abbreviated by Scholar remain marked et al. unless a full author list was verified.
 

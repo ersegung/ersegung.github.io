@@ -4,6 +4,8 @@ Original review: November 3, 2026 (UTC).
 
 **November 4 update:** Marine Energy now includes a fourth lesson, the Response Amplitude Operator Module. All 317 local links, fragment links, and asset references on the 14 site pages resolve. The owner’s earlier CV is restored verbatim; the earlier review below describes the November 3 version. See `RAO-CHECKS.md` for the new module.
 
+**November 4, later update:** A separate Fluid Dynamics section contains the Potential Flow Module. The route-planning lesson and original-program materials have been removed. All 367 local links, fragment links, and assets across the 16 pages resolve. The Marine Energy pages and restored CV are unchanged by this update. See `POTENTIAL-FLOW-CHECKS.md`.
+
 ## What changed
 
 Educational Content is now a main navigation destination. Its Marine Energy section contains the introduction, Ocean Waves Lab, and Device Atlas. All three lessons link to one another and to scientific references. Teaching and Research also link into the lessons.

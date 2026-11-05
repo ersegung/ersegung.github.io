@@ -37,6 +37,9 @@ Official instructions: https://docs.github.com/en/pages/quickstart
 | `response-amplitude-operator.html` | HMEC heave and heave–pitch RAO module |
 | `assets/rao-model.js`, `assets/rao-app.js`, `assets/rao.css` | Browser solver, controls, animation, and layout |
 | `assets/rao/` | Original HMEC user manual (PDF) and three MATLAB source files |
+| `fluid-dynamics.html` | Fluid Dynamics learning section |
+| `potential-flow.html` | Potential Flow Module: sources, sinks, vortices, and doublets |
+| `assets/pflow-model.js`, `assets/pflow-app.js`, `assets/pflow.css` | Potential-flow equations, interface, and styles |
 | `assets/energy-models.js` | Shared scientific equations in SI units |
 | `assets/education.js` | Shared plots and resource calculators |
 | `assets/wave-lab.js` | Ocean Waves Lab controls and animation |
@@ -62,7 +65,7 @@ To replace the photo, save a new PNG as `assets/deniz-gedikli.png`. The grayscal
 
 To add a publication, copy an existing `<article class="paper" data-topic="..." data-type="..." data-year="...">` entry into the appropriate year section in `papers.html`. For conference contributions, also add it to `conferences.html`. Topics are `viv`, `energy`, `ice`, `data`, and `structures`; publication types are `journal`, `conference`, and `preprint`. The filter updates its count automatically. Keep the structured snapshot in `assets/publications.json` in sync when editing; the HTML pages do not fetch this file.
 
-The updated list contains 25 journal articles, 45 conference contributions, and two preprints. Papers displays all types by default. The Marine Renewable Energy filter returns 12 entries: one journal article and eleven conference contributions. Conference papers and meeting abstracts have separate visible labels. These records were reconciled from the 100 entries in the supplied Scholar export, with duplicates, theses, and ambiguous entries documented in `PUBLICATION-NOTES.md`.
+The updated list contains 26 journal articles, 45 conference contributions, and one preprint. Papers displays all types by default. The Marine Renewable Energy filter returns 12 entries: one journal article and eleven conference contributions. Conference papers and meeting abstracts have separate visible labels. These records were reconciled from the 100 entries in the supplied Scholar export, with duplicates, theses, and ambiguous entries documented in `PUBLICATION-NOTES.md`.
 
 ### Updating an existing customized site
 
@@ -100,3 +103,12 @@ These are instructional models, with assumptions shown next to their outputs. Th
 From **Educational Content → Marine Energy**, open **Response Amplitude Operator Module**. The experiment runs locally in the browser, with no MATLAB installation or external services. Start with heave, save a baseline, then change one input. Switch to heave and pitch to explore how the two motions interact. The plots show the steady response to regular waves and mean mechanical power absorbed by the PTO.
 
 The page includes the original MATLAB source and the user and instructor manual. If you update an existing site by hand, copy the module page, its three CSS/JS assets, the entire `assets/rao/` folder, and the four updated Marine Energy navigation pages. See `RAO-CHECKS.md` for the numerical checks. The package retains the owner-supplied restored CV.
+
+
+## Fluid Dynamics
+
+This section sits alongside Marine Energy in Educational Content. Its first lesson is the Potential Flow Module. Students can add and drag sources, sinks, vortices, and doublets, adjust their strengths, play tracers, place a fixed dye emitter, and export a velocity field as CSV. Everything runs in the browser.
+
+The solver's equations and numerical checks are described in `POTENTIAL-FLOW-CHECKS.md`. The Marine Energy pages and restored CV remain unchanged.
+
+When updating an existing site, include `educational-content.html`, `fluid-dynamics.html`, `potential-flow.html`, and the three pflow CSS/JS assets. The route-planning page, its navigation assets, and the original-program materials have been removed from this package. Uploading new files does not delete old files in an existing repository; use the package's file list as the current site inventory. The learning section now uses `fluid-dynamics.html`.

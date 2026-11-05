@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-02",
-  "source": "Google Scholar PDF supplied by E. Deniz Gedikli, captured November 2, 2026",
+  "updated": "2026-11-04",
+  "source": "Google Scholar PDF supplied by E. Deniz Gedikli, captured November 2, 2026; wake-pattern article updated from the published Ocean Engineering PDF and author-provided Scholar link on November 4, 2026.",
   "publications": [
     {
       "id": "d9rIoU0AAAAJ:olpn-zPbct0C",
@@ -199,18 +199,20 @@
       "source_index": 51
     },
     {
-      "id": "d9rIoU0AAAAJ:5ugPr518TE4C",
-      "title": "Vortex Wake Patterns and Energy Transfer in Forced Two-Degree-of-Freedom Motion of a Circular Cylinder",
+      "id": "d9rIoU0AAAAJ:Y5dfb0dijaUC",
+      "title": "Vortex wake patterns and energy transfer in forced two-degree-of-freedom motion of a circular cylinder",
       "authors": "E. Aktosun, E. D. Gedikli, J. M. Dahl",
-      "venue": "Available at SSRN 7194456",
+      "venue": "Ocean Engineering 370, 129013",
       "year": 2026,
-      "type": "preprint",
-      "label": "Preprint",
+      "type": "journal",
+      "label": "Journal article",
       "topics": [
         "viv"
       ],
-      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&cstart=20&pagesize=80&citation_for_view=d9rIoU0AAAAJ:5ugPr518TE4C",
-      "source_index": 62
+      "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9rIoU0AAAAJ&sortby=pubdate&citation_for_view=d9rIoU0AAAAJ:Y5dfb0dijaUC",
+      "source_index": 62,
+      "doi": "10.1016/j.oceaneng.2026.129013",
+      "published_online": "2026-10-29"
     },
     {
       "id": "d9rIoU0AAAAJ:vRqMK49ujn8C",
